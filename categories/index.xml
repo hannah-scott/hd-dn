@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>hannahs.ddns.net</title>
+<link rel='stylesheet' href='https://hannahs.ddns.net/css/main.css'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'></head>
+<!-- Generated static page, don't edit this -->
+<body>
+<header><a href='https://hannahs.ddns.net/index.html'>Home</a>
+<h1>hannahs.ddns.net</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on hannahs.ddns.net</title>
+    <link>https://hannahs.ddns.net/categories/</link>
+    <description>Recent content in Categories on hannahs.ddns.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://hannahs.ddns.net/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
+</body>
+</html>

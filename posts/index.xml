@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>hannahs.ddns.net</title>
+<link rel='stylesheet' href='https://hannahs.ddns.net/css/main.css'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'></head>
+<!-- Generated static page, don't edit this -->
+<body>
+<header><a href='https://hannahs.ddns.net/index.html'>Home</a>
+<h1>hannahs.ddns.net</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on hannahs.ddns.net</title>
+    <link>https://hannahs.ddns.net/posts/</link>
+    <description>Recent content in Blog on hannahs.ddns.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Mar 2021 20:36:16 +0100</lastBuildDate><atom:link href="https://hannahs.ddns.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post #2</title>
+      <link>https://hannahs.ddns.net/posts/second-post/</link>
+      <pubDate>Thu, 01 Apr 2021 21:42:00 +0100</pubDate>
+      
+      <guid>https://hannahs.ddns.net/posts/second-post/</guid>
+      <description>Boy was that a depressing first post! Wow!
+I got a 410 open the other day &amp;mdash; that was pretty cool. Does that make me an intermediate lockpicker? Gauging my own skill at something &amp;mdash; that&amp;rsquo;s pretty hard to do. I don&amp;rsquo;t know if I can do that so well. As well, with a niche hobby it&amp;rsquo;s hard to know how good anyone else is.
+I really want to teach someone to pick locks.</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>https://hannahs.ddns.net/posts/first-post/</link>
+      <pubDate>Tue, 30 Mar 2021 21:47:49 +0100</pubDate>
+      
+      <guid>https://hannahs.ddns.net/posts/first-post/</guid>
+      <description>So I&amp;rsquo;m starting a blog I guess. Very exciting. Love to blog.
+I guess why I&amp;rsquo;m doing this is the feeling like I need to own my own space a bit more. Like a lot of what I do every day and encounter and stuff, I don&amp;rsquo;t own. Is that&amp;hellip; I don&amp;rsquo;t know if that&amp;rsquo;s even a problem. Is it problem that I don&amp;rsquo;t own where I live, what I work on?</description>
+    </item>
+    
+  </channel>
+</rss>
+</body>
+</html>
