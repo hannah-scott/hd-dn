@@ -14,4 +14,4 @@ If you spot any typos or dead links, please let me know.
 
 ## Licensing
 
-This site's contents are dedicated to the public domain.
+This site's contents are licensed under MIT.
