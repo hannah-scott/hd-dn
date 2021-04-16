@@ -2,13 +2,16 @@
 
 This is my personal website.
 
-It was made with my static site generator
-[cite](https://github.com/hannah-scott/cite).
+It is made using
 
-I hope you enjoy! 
+- [discount](https://www.pell.portland.or.us/~orc/Code/discount/) for MD-\>HTML
+  conversion
+- my static site tool [cite](https://github.com/hannah-scott/cite)
+
+and a bit of shell scripting as glue.
 
 If you spot any typos or dead links, please let me know.
 
 ## Licensing
 
-This site's contents are dedicated to the public domain <3
+This site's contents are dedicated to the public domaini.
