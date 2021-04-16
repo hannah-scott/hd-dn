@@ -6,9 +6,9 @@ cd ~/repos/hannahs.ddns.net
 rm *.html 
 rm -r locks
 rm -r books
+rm -r code
 
 # make HTML files
-rm -r src
 cp -r md src
 
 find src -name "*.md" | cut -d. -f1 | while read i; do
@@ -21,3 +21,4 @@ make clean cite
 ./cite
 
 # cleanup
+rm -r src
