@@ -1,0 +1,8 @@
+## Three Sentence Summary
+
+While visiting the home of some friends, Mr. Hastings not only witnesses
+a murder by poisoning but also runs into his friend, the acclaimed
+Belgian detective Poirot. Poirot and Hastings begin their investigation,
+with Hastings never quite seeing things as clearly as Poirot wishes.
+Offhand remarks which have aged rather poorly mar an otherwise very fun
+detective story.

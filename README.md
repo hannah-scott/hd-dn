@@ -1,17 +1,28 @@
-# hddn
+# cite
 
-This is my personal website.
+A static site generator in ANSI C.
 
-It is made using
+Inspired by using Hugo and seeing [100r's
+website][100r]. Written from scratch, just
+for fun!
 
-- [discount](https://www.pell.portland.or.us/~orc/Code/discount/) for MD-\>HTML
-  conversion
-- my static site tool [cite](https://github.com/hannah-scott/cite)
+[100r]: https://github.com/hundredrabbits/100r.co 
 
-and a bit of shell scripting as glue.
+## Use
 
-If you spot any typos or dead links, please let me know.
+Edit `config.h` so it matches your environment, then rebuild and run:
 
-## Licensing
+```
+$ make clean cite
+$ ./cite
+```
 
-This site's contents are licensed under MIT.
+cite works well in a build script with a tool like markdown or Pandoc. This is
+how I'm building my personal site right now.
+
+## Example
+
+The [Github Pages][gp] site was made with cite, and its source can be found in
+docs.
+
+[gp]: https://hannah-scott.github.io/cite
