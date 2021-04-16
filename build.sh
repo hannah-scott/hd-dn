@@ -20,5 +20,9 @@ done
 make clean cite
 ./cite
 
+find . -name "*.html" | while read i; do
+	tidy -iq -w 80 -o $i{,} 
+done
+
 # cleanup
 rm -r src
