@@ -9,25 +9,18 @@
 }
 
 html, body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Liberation Sans', sans-serif;
     color: var(--text-color);
     background-color: var(--bg-color);
     text-align: left;
     font-size: 18px;
-    margin: 0%;
     height: 100%;
+	margin: 2% 5%;
 }
 
 body {
   display: flex;
   flex-direction: column;;
-}
-
-.wrapper {
-  flex: 1 0 auto;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2%;
 }
 
 p {
@@ -57,7 +50,6 @@ figure {
 }
 
 h1, h2, h3 {
-  font-family: 'Merriweather', serif;
   font-weight: normal;
   text-align: left;
 }
@@ -72,125 +64,3 @@ ul, li {
   padding-left: max(12px, 2%);
   padding-right: max(12px, 2%);
 }
-
-.author, .date {
-    padding-left: 3%;
-    font-style: italic;
-    opacity: 80%
-}
-
-
-.footer {
-  font-size: 16px;
-  width: 100%;
-  flex-shrink:0;
-  background-color: var(--text-color);
-  color: var(--bg-color);
-}
-
-.footer-content {
-  float:right;
-  padding: 8px 32px;
-  background-color: var(--text-color);
-  color: var(--bg-color);
-}
-
-.footer-content:hover {
-  background-color: var(--link-color);
-  color: var(--text-color);
-}
-
-.footer-link {
-  text-decoration: none;
-  color: inherit;
-  padding: 8px 0px;
-}
-
-.footnotes {
-  text-align: left;
-}
-
-.footnote-ref {
-  text-decoration: none;
-}
-
-.previous {
-  float: left;
-  padding: 1%;
-}
-
-.next {
-  float: right;
-  padding: 1%;
-}
-
-.read-more {
-  font-size: 16px;
-  text-decoration: underline;
-}
-
-.navbar {
- flex: 1 0 1;
- width: 100%;
- background-color: var(--text-color);
-}
-
-ul.navbar-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li.home-link {
-  float: left;
-  display: block;
-  color: var(--bg-color);
-  text-align: center;
-  padding: 8px 32px;
-  text-decoration: none;
-}
-
-li.nav-link {
-  float:right;
-  display: block;
-  color: var(--bg-color);
-  text-align: center;
-  padding: 8px 32px;
-  text-decoration: none;
-}
-
-a.nav-link {
-  color: inherit;
-}
-
-a.home-link {
-  color: inherit;
-
-}
-
-li.nav-link:hover {
-  background-color: var(--link-color);
-  color: var(--text-color);
-}
-
-li.home-link:hover {
-  background-color: var(--link-color);
-  color: var(--text-color);
-}
-
-.list {
-  list-style-type: none;
-}
-
-#TOC {
-  padding: 0;
-  line-height: 24px;
-  list-style-type: none;
-  margin: 0;
-}
-
-#authors {
-  font-style: italic;
-}
-
-
