@@ -9,10 +9,7 @@ ones:
 2. Means of combination
 3. Means of abstraction
 
-We deal with 'two'[^1] elements: procedures and
-data.
-
-[^1]: They're apparently not that distinct.
+We deal with 'two' elements: procedures and data.
 
 Data is stuff. Procedures are what we do to the stuff.
 
