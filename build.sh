@@ -11,7 +11,7 @@ rm -r code
 # make HTML files
 cp -r md src
 
-find src -maxdepth 10 -name "*.md" | cut -d. -f1 | while read i; do
+find src -name "*.md" | cut -d. -f1 | while read i; do
 	echo $i
 	markdown -o $i.html $i.md
 	rm $i.md
@@ -27,3 +27,7 @@ done
 
 # cleanup
 rm -r src
+
+find md -name "*.html" | while read i; do
+	rm $i
+done
