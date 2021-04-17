@@ -199,10 +199,10 @@ Here the example is an implementation of the Fibonacci series:
 The process evolves like a tree: to get (fib 5), we need 4 and 3. To get 3, we
 need 2 and 1, etc. Lots of branching.
 
-The number of steps to calculate this process grows exponentially, but the
-space required is proportional to the maximum depth of the tree.
+The number of steps to calculate this process grows non-linearly, but the space
+required is proportional to the maximum depth of the tree.
 
-The Fibonacci numbers could be implemented as a linearlly iterative process
+The Fibonacci numbers could be implemented as a linearly iterative process
 which would run a lot faster and use less space.
 
 However, there are some cases when tree recursion is useful.
