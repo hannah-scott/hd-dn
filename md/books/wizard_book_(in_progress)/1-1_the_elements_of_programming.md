@@ -34,20 +34,16 @@ This is what a read-eval-print loop is! That makes sense now!
 
 We can name stuff with `define`, i.e.
 
-```lisp
-(define size 2)
-```
+	(define size 2)
 
 The interpreter then knows that when we say `size` what we mean is 2.
 
 The book says `define` is the simplest means of abstraction --- which makes
 sense. For example
 
-```lisp
-(define pi 3.14159)
-(define radius 10)
-(define circumference (* 2 pi radius))
-```
+	(define pi 3.14159)
+	(define radius 10)
+	(define circumference (* 2 pi radius))
 
 That's quite a lot of abstraction!
 
@@ -86,24 +82,18 @@ refer to it by that name.
 
 For example:
 
-```lisp
-(define (square x) (* x x))
-```
+	(define (square x) (* x x))
 
 We've abstracted an expression (multiplying a number by itself) into the name
 `square`.
 
 The general form is
 
-```lisp
-(define (<name> <formal parameters>) <body>)
-```
+	(define (<name> <formal parameters>) <body>)
 
 Why is this powerful?
 
-```lisp
-(define (sum-of-squares x y) (+ (square x) (square y)))
-```
+	(define (sum-of-squares x y) (+ (square x) (square y)))
 
 We've abstracted --- from our abstraction! And so on, and so forth. These
 abstractions are the building blocks of our lovely house.
@@ -140,13 +130,11 @@ To do this, we need conditional logic.
 
 The general form (I'm going to use square brackets because I'm not rude) is
 
-```lisp
-(cond [<p1> <e1>]
-	  [<p2> <e2>]
-	  ...
-	  [<pn> <en>])
-```
-
+	(cond [<p1> <e1>]
+		  [<p2> <e2>]
+		  ...
+		  [<pn> <en>])
+	
 These `[<p> <e>]` pairs are called clausesL we have a predicate (if this) and
 an expression (then this).
 
@@ -163,12 +151,10 @@ true then do this.
 If there are precisely two cases in the case analysis, we can also use an
 if-conditional:
 
-```lisp
-(define (abs x)
-	(if (< x 0)
-		(- x)
-		x))
-```
+	(define (abs x)
+		(if (< x 0)
+			(- x)
+			x))
 
 There are also logical composition operators, most commonly `and`, `or` and
 `not`.
@@ -178,46 +164,44 @@ There are also logical composition operators, most commonly `and`, `or` and
 Going to take a quick break from reading to do some maths!
 
 ### Exercise 1.1
-
-```lisp
-10 => 10
-(+ 5 3 4) => 12
-(- 9 1) => 8
-(/ 6 2) => 3
-(+ (* 2 4) (- 4 6)) => (+ 8 -2) => 6
-(define a 3) => 3
-(define b (+ a 1)) => 4
-(+ a b (* a b)) => (+ 3 4 (* 3 4)) => 19
-(= a b) => #f
-
-; serious mode
-(if (and (> b a) (< b (* a b)))
-	b
-	a)
-=>
-(if (and (> 4 3) (< 4 12)))
-	4
-	3)
-(if (and #t #t)
-	4
-	3) => 4
-
-(cond ((= a 4) 6)
-	  ((= b 4) (+ 6 7 a))
-	  (else 25))
-=> 16
-
-(+ 2 (if (> b a ) b a))
-=>
-(+ 2 (if #t 4 3)) => 6
-
-(* (cond ((> a b) a)
-		 ((< a b) b) ; this one is true
-		 (else -1))
-	(+ a 1))
-=>
-(* 4 4) => 16
-```
+	
+	10 => 10
+	(+ 5 3 4) => 12
+	(- 9 1) => 8
+	(/ 6 2) => 3
+	(+ (* 2 4) (- 4 6)) => (+ 8 -2) => 6
+	(define a 3) => 3
+	(define b (+ a 1)) => 4
+	(+ a b (* a b)) => (+ 3 4 (* 3 4)) => 19
+	(= a b) => #f
+	
+	; serious mode
+	(if (and (> b a) (< b (* a b)))
+		b
+		a)
+	=>
+	(if (and (> 4 3) (< 4 12)))
+		4
+		3)
+	(if (and #t #t)
+		4
+		3) => 4
+	
+	(cond ((= a 4) 6)
+		  ((= b 4) (+ 6 7 a))
+		  (else 25))
+	=> 16
+	
+	(+ 2 (if (> b a ) b a))
+	=>
+	(+ 2 (if #t 4 3)) => 6
+	
+	(* (cond ((> a b) a)
+			 ((< a b) b) ; this one is true
+			 (else -1))
+		(+ a 1))
+	=>
+	(* 4 4) => 16
 
 These were all right I am basically the computer.
 
@@ -225,30 +209,24 @@ These were all right I am basically the computer.
 
 Translating an expression into prefix form.
 
-```lisp
-(/ (+ 5 4 (- 2 (- 3 (/ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
-```
+	(/ (+ 5 4 (- 2 (- 3 (/ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
 
 ### Exercise 1.3
 
 Take three numbers as arguments, and return the sum of the squares of the two
 larger numbers
 
-```lisp
-(define (sum-of-squares-largest a b c)
-	(cond [(and (< a b) (< a c)) (+ (* b b) (* c c))]
-		  [(and (< b a) (< b c)) (+ (* a a) (* c c))]
-		  [else 				 (+ (* a a) (* b b))]))
-```
-
+	(define (sum-of-squares-largest a b c)
+		(cond [(and (< a b) (< a c)) (+ (* b b) (* c c))]
+			  [(and (< b a) (< b c)) (+ (* a a) (* c c))]
+			  [else 				 (+ (* a a) (* b b))]))
+	
 ### Exercise 1.4
 
 This is kind of spicy. Describe the behaviour of this procedure
 
-```lisp
-(define (a-plus-abs-b a b)
-	((if (> b 0) + -) a b))
-```
+	(define (a-plus-abs-b a b)
+		((if (> b 0) + -) a b))
 
 If `b` is positive, it returns `a + b`. If `b` is _negative_, it returns `a -
 b`. The if-statement returns an **operator**, not a **value**. This is very
@@ -267,23 +245,21 @@ This kind of hurts my brain so this is where I'm going to finish for tonight.
 
 Let's think like Lisp:
 
-```lisp
-(define (p) (p))
-
-(define (test x y)
-	(if (= x 0)
+	(define (p) (p))
+	
+	(define (test x y)
+		(if (= x 0)
+			0
+			y))
+	
+	
+	(test 0 (p))
+	=>
+	(if (= 0 0)
 		0
-		y))
-
-
-(test 0 (p))
-=>
-(if (= 0 0)
-	0
-	(p))
-=> 0 			; first condition is true
-```
-
+		(p))
+	=> 0 			; first condition is true
+	
 This is applicative order. We never read (p), so we never have to evaluate it
 (this is good because (p)'s definition is weird and recursive.
 
@@ -292,21 +268,19 @@ determine the output.
 
 OK, let's go:
 
-```dumb-meat
-(test 0 (p))
-=>
-(if (= 0 0)
-	0
-	(p))
-=> expand p which is a named procedure of some kind
-(if (= 0 0)
-	0
-	(p))
-=> hang on this is the same oh no oh no
-(if (= 0 0)
-	0
-	(p))
-```
+	(test 0 (p))
+	=>
+	(if (= 0 0)
+		0
+		(p))
+	=> expand p which is a named procedure of some kind
+	(if (= 0 0)
+		0
+		(p))
+	=> hang on this is the same oh no oh no
+	(if (= 0 0)
+		0
+		(p))
 
 and so on. The fact that the predicate is true, and that we don't _have_ to
 evaluate the alternative expression, doesn't matter. We expand everything, so
@@ -385,9 +359,7 @@ This is because the actual solution is less than the tolerance.
 
 Example: 
 
-```lisp
-(square (sqrt 0.00001)) ~= 0.001
-```
+	(square (sqrt 0.00001)) ~= 0.001
 
 So we're out by an order of 100.
 
@@ -397,18 +369,14 @@ process cannot terminate, since `good-enough?` is never applied.
 
 Example:
 
-```lisp
-(sqrt (expt 10 64))
-```
+	(sqrt (expt 10 64))
 
 will never terminate (on my computer).
 
 Alternative:
 
-```lisp
-(define (good-enough previous-guess guess)
-	(< (abs (- previous-guess guess)) (/ previous-guess 100)))
-```
+	(define (good-enough previous-guess guess)
+		(< (abs (- previous-guess guess)) (/ previous-guess 100)))
 
 This calculates both the above to some precision.
 

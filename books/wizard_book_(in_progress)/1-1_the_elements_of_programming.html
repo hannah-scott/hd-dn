@@ -49,20 +49,18 @@ because we cheated by doing some Racket first.</p>
 
 <p>We can name stuff with <code>define</code>, i.e.</p>
 
-<p><code>lisp
-(define size 2)
-</code></p>
+<pre><code>(define size 2)
+</code></pre>
 
 <p>The interpreter then knows that when we say <code>size</code> what we mean is 2.</p>
 
 <p>The book says <code>define</code> is the simplest means of abstraction &mdash; which makes
 sense. For example</p>
 
-<p><code>lisp
-(define pi 3.14159)
+<pre><code>(define pi 3.14159)
 (define radius 10)
 (define circumference (* 2 pi radius))
-</code></p>
+</code></pre>
 
 <p>That&rsquo;s quite a lot of abstraction!</p>
 
@@ -104,24 +102,21 @@ refer to it by that name.</p>
 
 <p>For example:</p>
 
-<p><code>lisp
-(define (square x) (* x x))
-</code></p>
+<pre><code>(define (square x) (* x x))
+</code></pre>
 
 <p>We&rsquo;ve abstracted an expression (multiplying a number by itself) into the name
 <code>square</code>.</p>
 
 <p>The general form is</p>
 
-<p><code>lisp
-(define (&lt;name&gt; &lt;formal parameters&gt;) &lt;body&gt;)
-</code></p>
+<pre><code>(define (&lt;name&gt; &lt;formal parameters&gt;) &lt;body&gt;)
+</code></pre>
 
 <p>Why is this powerful?</p>
 
-<p><code>lisp
-(define (sum-of-squares x y) (+ (square x) (square y)))
-</code></p>
+<pre><code>(define (sum-of-squares x y) (+ (square x) (square y)))
+</code></pre>
 
 <p>We&rsquo;ve abstracted &mdash; from our abstraction! And so on, and so forth. These
 abstractions are the building blocks of our lovely house.</p>
@@ -161,12 +156,11 @@ case analysis.</p>
 
 <p>The general form (I&rsquo;m going to use square brackets because I&rsquo;m not rude) is</p>
 
-<p><code>lisp
-(cond [&lt;p1&gt; &lt;e1&gt;]
+<pre><code>(cond [&lt;p1&gt; &lt;e1&gt;]
       [&lt;p2&gt; &lt;e2&gt;]
       ...
       [&lt;pn&gt; &lt;en&gt;])
-</code></p>
+</code></pre>
 
 <p>These <code>[&lt;p&gt; &lt;e&gt;]</code> pairs are called clausesL we have a predicate (if this) and
 an expression (then this).</p>
@@ -184,12 +178,11 @@ true then do this.</p>
 <p>If there are precisely two cases in the case analysis, we can also use an
 if-conditional:</p>
 
-<p><code>lisp
-(define (abs x)
+<pre><code>(define (abs x)
     (if (&lt; x 0)
         (- x)
         x))
-</code></p>
+</code></pre>
 
 <p>There are also logical composition operators, most commonly <code>and</code>, <code>or</code> and
 <code>not</code>.</p>
@@ -200,45 +193,44 @@ if-conditional:</p>
 
 <h3>Exercise 1.1</h3>
 
-<p>```lisp
-10 => 10
-(+ 5 3 4) => 12
-(- 9 1) => 8
-(/ 6 2) => 3
-(+ (<em> 2 4) (- 4 6)) => (+ 8 -2) => 6
-(define a 3) => 3
-(define b (+ a 1)) => 4
-(+ a b (</em> a b)) => (+ 3 4 (* 3 4)) => 19
-(= a b) => #f</p>
+<pre><code>10 =&gt; 10
+(+ 5 3 4) =&gt; 12
+(- 9 1) =&gt; 8
+(/ 6 2) =&gt; 3
+(+ (* 2 4) (- 4 6)) =&gt; (+ 8 -2) =&gt; 6
+(define a 3) =&gt; 3
+(define b (+ a 1)) =&gt; 4
+(+ a b (* a b)) =&gt; (+ 3 4 (* 3 4)) =&gt; 19
+(= a b) =&gt; #f
 
-<p>; serious mode
-(if (and (> b a) (&lt; b (* a b)))
+; serious mode
+(if (and (&gt; b a) (&lt; b (* a b)))
     b
     a)
-=>
-(if (and (> 4 3) (&lt; 4 12)))
+=&gt;
+(if (and (&gt; 4 3) (&lt; 4 12)))
     4
     3)
 (if (and #t #t)
     4
-    3) => 4</p>
+    3) =&gt; 4
 
-<p>(cond ((= a 4) 6)
+(cond ((= a 4) 6)
       ((= b 4) (+ 6 7 a))
       (else 25))
-=> 16</p>
+=&gt; 16
 
-<p>(+ 2 (if (> b a ) b a))
-=>
-(+ 2 (if #t 4 3)) => 6</p>
+(+ 2 (if (&gt; b a ) b a))
+=&gt;
+(+ 2 (if #t 4 3)) =&gt; 6
 
-<p>(<em> (cond ((> a b) a)
+(* (cond ((&gt; a b) a)
          ((&lt; a b) b) ; this one is true
          (else -1))
     (+ a 1))
-=>
-(</em> 4 4) => 16
-```</p>
+=&gt;
+(* 4 4) =&gt; 16
+</code></pre>
 
 <p>These were all right I am basically the computer.</p>
 
@@ -246,30 +238,27 @@ if-conditional:</p>
 
 <p>Translating an expression into prefix form.</p>
 
-<p><code>lisp
-(/ (+ 5 4 (- 2 (- 3 (/ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
-</code></p>
+<pre><code>(/ (+ 5 4 (- 2 (- 3 (/ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
+</code></pre>
 
 <h3>Exercise 1.3</h3>
 
 <p>Take three numbers as arguments, and return the sum of the squares of the two
 larger numbers</p>
 
-<p><code>lisp
-(define (sum-of-squares-largest a b c)
+<pre><code>(define (sum-of-squares-largest a b c)
     (cond [(and (&lt; a b) (&lt; a c)) (+ (* b b) (* c c))]
           [(and (&lt; b a) (&lt; b c)) (+ (* a a) (* c c))]
           [else                  (+ (* a a) (* b b))]))
-</code></p>
+</code></pre>
 
 <h3>Exercise 1.4</h3>
 
 <p>This is kind of spicy. Describe the behaviour of this procedure</p>
 
-<p><code>lisp
-(define (a-plus-abs-b a b)
+<pre><code>(define (a-plus-abs-b a b)
     ((if (&gt; b 0) + -) a b))
-</code></p>
+</code></pre>
 
 <p>If <code>b</code> is positive, it returns <code>a + b</code>. If <code>b</code> is <em>negative</em>, it returns <code>a -
 b</code>. The if-statement returns an <strong>operator</strong>, not a <strong>value</strong>. This is very
@@ -288,21 +277,21 @@ can be manipulated like data.</p>
 
 <p>Let&rsquo;s think like Lisp:</p>
 
-<p>```lisp
-(define (p) (p))</p>
+<pre><code>(define (p) (p))
 
-<p>(define (test x y)
+(define (test x y)
     (if (= x 0)
         0
-        y))</p>
+        y))
 
-<p>(test 0 (p))
-=>
+
+(test 0 (p))
+=&gt;
 (if (= 0 0)
     0
     (p))
-=> 0            ; first condition is true
-```</p>
+=&gt; 0            ; first condition is true
+</code></pre>
 
 <p>This is applicative order. We never read (p), so we never have to evaluate it
 (this is good because (p)&rsquo;s definition is weird and recursive.</p>
@@ -312,8 +301,7 @@ determine the output.</p>
 
 <p>OK, let&rsquo;s go:</p>
 
-<p><code>dumb-meat
-(test 0 (p))
+<pre><code>(test 0 (p))
 =&gt;
 (if (= 0 0)
     0
@@ -326,7 +314,7 @@ determine the output.</p>
 (if (= 0 0)
     0
     (p))
-</code></p>
+</code></pre>
 
 <p>and so on. The fact that the predicate is true, and that we don&rsquo;t <em>have</em> to
 evaluate the alternative expression, doesn&rsquo;t matter. We expand everything, so
@@ -414,9 +402,8 @@ This is because the actual solution is less than the tolerance.</p>
 
 <p>Example:</p>
 
-<p><code>lisp
-(square (sqrt 0.00001)) ~= 0.001
-</code></p>
+<pre><code>(square (sqrt 0.00001)) ~= 0.001
+</code></pre>
 
 <p>So we&rsquo;re out by an order of 100.</p>
 
@@ -426,18 +413,16 @@ process cannot terminate, since <code>good-enough?</code> is never applied.</p>
 
 <p>Example:</p>
 
-<p><code>lisp
-(sqrt (expt 10 64))
-</code></p>
+<pre><code>(sqrt (expt 10 64))
+</code></pre>
 
 <p>will never terminate (on my computer).</p>
 
 <p>Alternative:</p>
 
-<p><code>lisp
-(define (good-enough previous-guess guess)
+<pre><code>(define (good-enough previous-guess guess)
     (&lt; (abs (- previous-guess guess)) (/ previous-guess 100)))
-</code></p>
+</code></pre>
 
 <p>This calculates both the above to some precision.</p>
 
