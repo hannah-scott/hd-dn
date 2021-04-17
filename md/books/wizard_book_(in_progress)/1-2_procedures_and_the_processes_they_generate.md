@@ -327,3 +327,31 @@ multiplying the input increases the number of steps additively, which is what
 we mean by logarithmic really.
 
 Right --- I'm going to take a break here because that was a lot of maths.
+
+---
+
+### Exercise 1.16
+
+Banged my head against this for a while, started looking at a solution online
+and a sentence in I got it.
+
+The problem was I was only looking at one of the conditions, not both, so it
+didn't make sense. There are _two_ state transformations:
+
+Case 1: n is even
+
+- n -> n/2
+- a -> a
+- b -> b^2
+
+Case 2: n is odd
+
+- n -> n-1
+- a -> ab
+- b -> b
+
+Then ab^n is invariant. We are affectively storing a running product in a, then
+outputting it when we hit n = 0. This is um a lot quicker than a linearly
+recursive process, and will use constant space (three numbers) rather than
+logarithmically increasing space (more information to hold with every extra
+step).
