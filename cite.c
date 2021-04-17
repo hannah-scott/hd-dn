@@ -201,17 +201,19 @@ void build_pages(char *path)
 	sct(fullpath, path, URLLEN);
 
 	n = scandir(fullpath, &dirlist, NULL, alphasort);
+	m = 0;
 	if (n == -1) {
 		printf("ERROR: %s\n", fullpath);
 		exit(EXIT_FAILURE);
 	}
 
-	while (n--) {
-		dir = dirlist[n];
+	while (m < n) {
+		dir = dirlist[m];
 
 		if (dir->d_type == DT_REG) {
 			make_page(dir->d_name, path);
 		}
+		m++;
 	}
 
 	n = scandir(fullpath, &dirlist, NULL, alphasort);
