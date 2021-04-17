@@ -1,4 +1,4 @@
-#define URLLEN 128
+#define URLLEN 256 
 #define URL "https://hannahs.ddns.net/"
 /*
 #define URL "/home/hannah/repos/hannahs.ddns.net/"
