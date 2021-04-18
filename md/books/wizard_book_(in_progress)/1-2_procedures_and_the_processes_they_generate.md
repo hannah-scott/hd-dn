@@ -355,3 +355,47 @@ outputting it when we hit n = 0. This is um a lot quicker than a linearly
 recursive process, and will use constant space (three numbers) rather than
 logarithmically increasing space (more information to hold with every extra
 step).
+
+---
+
+### Exercise 1.17
+
+_**Sidenote:** This was really fun to do. Paper programming is a lot of fun, I
+should do this more!_
+
+Before, we had ab^n as our invariant property. What is the multiplicative
+analogue of this? The way I think of this is, ab^n is 
+
+	(lower-order-function a (higher-order-function b n))
+
+where `higher-order-function` is repeated operations of `lower-order-function`:
+multiplication = repeated addition, &c.
+
+So our lower-order function is addition, and our higher order function is
+multiplication. Using the `(* a b)` naming from the question, we'll call our
+state variable r. So we want to keep r + ab invariant. Let's try this.
+
+	(define (* a b)
+		(fast-times 0 a b))
+
+	(define (fast-times r a b)
+		(cond [(= b 0) r]
+			  [(even? b) (* r (double a) (halve b))]
+			  [else (* (+ r a) a (- b 1))]))
+
+Is this invariant?
+
+	r		a		b	  r + ab
+	------------------------------
+	0		5		7		35
+	5		5		6		35
+	5		10		3		35
+	15		10		2		35
+	15		20		1		35
+	35		20		0		35
+
+and the process returns 35. Our algorithm works, and r + ab is invariant. This
+will take logarithmic time in b, since doubling b will add one extra step to
+the process.
+
+This is also a very satisfying algorithm to run by hand.

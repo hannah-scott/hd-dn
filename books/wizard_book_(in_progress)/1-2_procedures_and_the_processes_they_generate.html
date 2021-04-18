@@ -386,5 +386,52 @@ outputting it when we hit n = 0. This is um a lot quicker than a linearly
 recursive process, and will use constant space (three numbers) rather than
 logarithmically increasing space (more information to hold with every extra
 step).</p>
+
+<hr />
+
+<h3>Exercise 1.17</h3>
+
+<p><em><strong>Sidenote:</strong> This was really fun to do. Paper programming is a lot of fun, I
+should do this more!</em></p>
+
+<p>Before, we had ab<sup>n</sup> as our invariant property. What is the multiplicative
+analogue of this? The way I think of this is, ab<sup>n</sup> is</p>
+
+<pre><code>(lower-order-function a (higher-order-function b n))
+</code></pre>
+
+<p>where <code>higher-order-function</code> is repeated operations of <code>lower-order-function</code>:
+multiplication = repeated addition, &amp;c.</p>
+
+<p>So our lower-order function is addition, and our higher order function is
+multiplication. Using the <code>(* a b)</code> naming from the question, we&rsquo;ll call our
+state variable r. So we want to keep r + ab invariant. Let&rsquo;s try this.</p>
+
+<pre><code>(define (* a b)
+    (fast-times 0 a b))
+
+(define (fast-times r a b)
+    (cond [(= b 0) r]
+          [(even? b) (* r (double a) (halve b))]
+          [else (* (+ r a) a (- b 1))]))
+</code></pre>
+
+<p>Is this invariant?</p>
+
+<pre><code>r       a       b     r + ab
+------------------------------
+0       5       7       35
+5       5       6       35
+5       10      3       35
+15      10      2       35
+15      20      1       35
+35      20      0       35
+</code></pre>
+
+<p>and the process returns 35. Our algorithm works, and r + ab is invariant. This
+will take logarithmic time in b, since doubling b will add one extra step to
+the process.</p>
+
+<p>This is also a very satisfying algorithm to run by hand.</p>
 </body>
 </html>
