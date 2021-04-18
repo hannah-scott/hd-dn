@@ -221,10 +221,10 @@ because 2<sup>10</sup> = 1024 and 2<sup>6</sup> = 64, or if you prefer because i
 <p>The process evolves like a tree: to get (fib 5), we need 4 and 3. To get 3, we
 need 2 and 1, etc. Lots of branching.</p>
 
-<p>The number of steps to calculate this process grows exponentially, but the
-space required is proportional to the maximum depth of the tree.</p>
+<p>The number of steps to calculate this process grows non-linearly, but the space
+required is proportional to the maximum depth of the tree.</p>
 
-<p>The Fibonacci numbers could be implemented as a linearlly iterative process
+<p>The Fibonacci numbers could be implemented as a linearly iterative process
 which would run a lot faster and use less space.</p>
 
 <p>However, there are some cases when tree recursion is useful.</p>
@@ -352,5 +352,39 @@ multiplying the input increases the number of steps additively, which is what
 we mean by logarithmic really.</p>
 
 <p>Right &mdash; I&rsquo;m going to take a break here because that was a lot of maths.</p>
+
+<hr />
+
+<h3>Exercise 1.16</h3>
+
+<p>Banged my head against this for a while, started looking at a solution online
+and a sentence in I got it.</p>
+
+<p>The problem was I was only looking at one of the conditions, not both, so it
+didn&rsquo;t make sense. There are <em>two</em> state transformations:</p>
+
+<p>Case 1: n is even</p>
+
+<ul>
+<li>n -> n/2</li>
+<li>a -> a</li>
+<li>b -> b<sup>2</sup></li>
+</ul>
+
+
+<p>Case 2: n is odd</p>
+
+<ul>
+<li>n -> n-1</li>
+<li>a -> ab</li>
+<li>b -> b</li>
+</ul>
+
+
+<p>Then ab<sup>n</sup> is invariant. We are affectively storing a running product in a, then
+outputting it when we hit n = 0. This is um a lot quicker than a linearly
+recursive process, and will use constant space (three numbers) rather than
+logarithmically increasing space (more information to hold with every extra
+step).</p>
 </body>
 </html>
