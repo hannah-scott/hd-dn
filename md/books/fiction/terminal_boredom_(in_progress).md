@@ -9,8 +9,8 @@ it I'll add it in.
 ### Women and Women (1978)
 
 The male population has declined as a result of pollution and war, and all men
-are imprisoned at birth. One day, a girl sees a boy from out her window;
-she starts a secret dialogue with him, knowing that it is forbidden. He forces
+are imprisoned at birth. One day, a girl sees a boy from out her window; she
+starts a secret dialogue with him, knowing that it is forbidden. He forces
 himself on her in an abandoned factory and is sent back to the camps; the story
 ends with her wondering how she can live knowing what she knows about men, and
 women.
@@ -25,3 +25,10 @@ consciousness, and they meet in the narrator's dreams. But the dreamworld
 they've created is cold, and harsh, and nihilistic, and when the narrator is
 sent to cryosleep they decline to share consciousness, thinking people will be
 happier without them around. 
+
+### Night Picnic
+
+A family of monsters live as humans in the ruins of an abandoned city. They try
+to find answers to the question of their existence in the symbols and history
+of humanity. This structure and routine holds back a deep fear, an indolence,
+and a terrible power.
