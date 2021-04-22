@@ -32,3 +32,9 @@ A family of monsters live as humans in the ruins of an abandoned city. They try
 to find answers to the question of their existence in the symbols and history
 of humanity. This structure and routine holds back a deep fear, an indolence,
 and a terrible power.
+
+### That Old Seaside Club
+
+A woman travels to an uncanny, superficially pleasant planet. She finds herself
+surrounded by addicts and nostalgic for memories that don't feel like hers.
+Everyone is desperately scrambling to keep what might already have been lost.
