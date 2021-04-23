@@ -9,10 +9,8 @@
 /*
  * Define globals
  */
-FILE *fidx;
-int header_depth = 1;
 char pd_name[URLLEN];
-
+FILE *fidx;
 /* 
  * Forward declarations
  */
@@ -21,6 +19,7 @@ FILE *inject_foot(FILE * page);
 FILE *inject_contents(FILE * body, FILE * in);
 int make_page(char *fname, char *path);
 int make_dir(char *dname, char *path);
+int get_relpath(char *relpath, char *path);
 void sf_mkdir(char *dirname);
 void set_pd_name(char *d_name, char *path);
 void build_pages(char *path);
@@ -60,24 +59,10 @@ FILE *inject_foot(FILE * page)
 FILE *inject_contents(FILE * body, FILE * in)
 {
 	char s[URLLEN];
-
 	while (fgets(s, URLLEN, in) != NULL) {
 		fprintf(body, "%s", s);
 	}
-
 	return body;
-}
-
-/*
- * Add a link to index file
- */
-void add_to_index(char *name, char *link)
-{
-	char n[URLLEN];
-	scp(n, name, URLLEN);
-	sr(n, '_', ' ');
-	slcut(n, '.');
-	fprintf(fidx, "<div>\n<a href='%s%s'>%s</a>\n</div>\n", URL, link, n);
 }
 
 /*
@@ -86,21 +71,16 @@ void add_to_index(char *name, char *link)
 int inject_page(char *in, char *out)
 {
 	FILE *fin, *fout;
-
 	if ((fin = fopen(in, "r")) == NULL) {
 		printf("Couldn't open %s\n", in);
 		return 1;
 	}
-
 	if ((fout = fopen(out, "w")) == NULL) {
 		printf("Couldn't create %s\n", out);
 		return 1;
 	}
-
-	fout = inject_foot(inject_contents(inject_head(fout), fin));
-
+	fclose(inject_foot(inject_contents(inject_head(fout), fin)));
 	fclose(fin);
-	fclose(fout);
 	return 0;
 }
 
@@ -111,13 +91,120 @@ void sf_mkdir(char *dirname)
 {
 	char dd[URLLEN];
 	struct stat s;
-
 	scp(dd, DESTDIR, URLLEN);
 	sct(dd, dirname, URLLEN);
-
 	if (stat(dd, &s) == -1) {
 		mkdir(dd, 0700);
 	}
+}
+
+/*
+ * Returns 0 if the path is to be included in indexes
+ */
+int is_html_dir(char *d) {
+    if (scmp(d, ".") && scmp(d, "..") && scmp(d, "css")) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+
+void add_to_index(FILE *fidx, struct dirent *dir, char *path, int depth)
+{
+    char url[URLLEN];
+    char name[URLLEN];
+    char relpath[URLLEN];
+
+    get_relpath(relpath, path);
+
+    scp(name, dir->d_name, URLLEN);
+    sr(name, '_', ' ');
+    slcut(name, '.');
+   
+    scp(url, URL, URLLEN);
+    sct(url, relpath, URLLEN);
+    if (scmp(relpath, "")) {
+    sct(url, "/", URLLEN);
+
+    }
+    sct(url, dir->d_name, URLLEN);
+
+
+    if (dir->d_type == DT_DIR ) {
+        if (is_html_dir(dir->d_name) == 0) {
+            sct(url, "/index.html", URLLEN);
+            fprintf(fidx, "<h%d><a class='dir-link' href='%s'>%s</a></h%d>\n", depth, url, name, depth);
+        }
+    } else if (dir->d_type == DT_REG && scmp(dir->d_name, "index.html")) {
+        fprintf(fidx, "<div><a href='%s'>%s</a></div>\n", url, name);
+    }
+}
+
+int get_index_links(char *path, FILE *fidx, int depth)
+{
+    int m, n;
+    struct dirent **dirlist;
+    struct dirent *dir;
+    char ppd_name[URLLEN];
+
+    depth++;
+    n = scandir(path, &dirlist, NULL, alphasort);
+
+    if (n == -1) {
+        return -1;
+    }
+
+    m = 0;
+    while (m < n) {
+        dir = dirlist[m];
+        if (dir->d_type == DT_REG) {
+            add_to_index(fidx, dir, path, depth);
+        }
+        m++;
+    }
+
+    n = scandir(path, &dirlist, NULL, alphasort);
+    m = 0;
+
+    while (m < n) {
+        dir = dirlist[m];
+        if (dir->d_type == DT_DIR && is_html_dir(dir->d_name) == 0) {
+            add_to_index(fidx, dir, path, depth);
+
+            scp(ppd_name, pd_name, URLLEN);
+            set_pd_name(dir->d_name, path);
+            get_index_links(pd_name, fidx, depth);
+            scp(pd_name, ppd_name, URLLEN);
+        }
+        m++;
+    }
+
+    depth--;
+
+    return 0;
+}
+
+int generate_index_file(char *path, char *idx)
+{
+    FILE *fidx;
+    int err;
+    int depth = 1;
+    fidx = inject_head(fopen(idx, "w"));
+
+    err = get_index_links(path, fidx, depth);
+    fclose(inject_foot(fidx));
+    return err;
+}
+
+int get_relpath(char *relpath, char *path) { 
+    int i = slen(SRCDIR) + 1;
+    while (i < slen(path)) {
+        relpath[i - slen(SRCDIR) - 1] = path[i];
+        i++;
+    }
+    relpath[slen(path) - slen(SRCDIR) - 1] = '\0';
+    printf("%s\n", relpath);
+    return 0;
 }
 
 /*
@@ -128,7 +215,7 @@ int make_page(char *fname, char *path)
 	char srcurl[URLLEN];
 	char desturl[URLLEN];
 	char ppd_name[URLLEN];
-	int err = 0;
+	int err;
 
 	scp(ppd_name, pd_name, URLLEN);
 	set_pd_name(fname, path);
@@ -140,13 +227,9 @@ int make_page(char *fname, char *path)
 	sct(desturl, pd_name, URLLEN);
 
 	err = inject_page(srcurl, desturl);
-
-	if (err == 0) {
-		add_to_index(fname, pd_name);
-	}
-
 	scp(pd_name, ppd_name, URLLEN);
-	return err;
+	
+    return err;
 }
 
 /*
@@ -154,23 +237,25 @@ int make_page(char *fname, char *path)
  */
 int make_dir(char *d_name, char *path)
 {
-	char d_header[URLLEN];
 	char ppd_name[URLLEN];
-
-	header_depth++;
+    char index[URLLEN];
+    char fp[URLLEN];
 
 	scp(ppd_name, pd_name, URLLEN);
 	set_pd_name(d_name, path);
-	sf_mkdir(pd_name);
+    scp(fp, DESTDIR, URLLEN);
+    sct(fp, pd_name, URLLEN);
 
-	scp(d_header, d_name, URLLEN);
-	sr(d_header, '_', ' ');
-	slcut(d_header, '.');
+    /* Take reference of current path */
 
-	fprintf(fidx, "<h%d>%s</h%d>\n", header_depth, d_header, header_depth);
+    scp(index, fp, URLLEN);
+    sct(index, "/index.html", URLLEN);
+    sf_mkdir(pd_name);
 	build_pages(pd_name);
-
-	header_depth--;
+    
+    generate_index_file(fp, index);
+    
+    /* Go back to current path */
 	scp(pd_name, ppd_name, URLLEN);
 	return 0;
 }
@@ -181,7 +266,7 @@ int make_dir(char *d_name, char *path)
 void set_pd_name(char *d_name, char *path)
 {
 	scp(pd_name, path, URLLEN);
-	if (scmp(path, SRCDIR)) {
+	if (scmp(path, SRCDIR) && scmp(path, DESTDIR)) {
 		sct(pd_name, "/", URLLEN);
 	}
 	sct(pd_name, d_name, URLLEN);
@@ -195,39 +280,27 @@ void build_pages(char *path)
 	struct dirent **dirlist;
 	struct dirent *dir;
 	char fullpath[URLLEN];
-	int m, n;
+	int n;
 
-	scp(fullpath, SRCDIR, URLLEN);
-	sct(fullpath, path, URLLEN);
+    scp(fullpath, SRCDIR, URLLEN);
+    sct(fullpath, path, URLLEN);
 
 	n = scandir(fullpath, &dirlist, NULL, alphasort);
-	m = 0;
 	if (n == -1) {
 		printf("ERROR: %s\n", fullpath);
 		exit(EXIT_FAILURE);
 	}
 
-	while (m < n) {
-		dir = dirlist[m];
+	while (n--) {
+		dir = dirlist[n];
 
 		if (dir->d_type == DT_REG) {
 			make_page(dir->d_name, path);
-		}
-		m++;
-	}
-
-	n = scandir(fullpath, &dirlist, NULL, alphasort);
-	m = 0;
-
-	while (m < n) {
-		dir = dirlist[m];
-
-		if (dir->d_type == DT_DIR) {
-			if (scmp(dir->d_name, ".") && scmp(dir->d_name, "..")) {
-				make_dir(dir->d_name, path);
+		} else if (dir->d_type == DT_DIR) {
+			if (is_html_dir(dir->d_name) == 0) {
+                make_dir(dir->d_name, path);
 			}
 		}
-		m++;
 	}
 
 	free(dirlist);
@@ -237,18 +310,11 @@ void build_pages(char *path)
 int main(void)
 {
 	char idx[URLLEN];
-	scp(idx, DESTDIR, URLLEN);
-	sct(idx, "index.html", URLLEN);
-
-	fidx = fopen(idx, "w");
-	if (fidx == NULL) {
-		printf("Couldn't create index.html\n");
-		return 1;
-	}
-
-	fidx = inject_head(fidx);
+    scp(idx, DESTDIR, URLLEN);
+    sct(idx, "index.html", URLLEN); 
 	build_pages("");
-	fclose(inject_foot(fidx));
 
+    generate_index_file(DESTDIR, idx);
 	return 0;
 }
+

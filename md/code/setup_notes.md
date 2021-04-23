@@ -1,12 +1,13 @@
 ## Setup notes and memory dump
 
-### `dwm` and `st`
+### suckless tools 
 
-- make changes to `config.def.h`, **not** `config.h`
+- make changes to `config.h`, **not** `config.def.h`
 - customisation options go before `exec dwm` in your `~/.xinitrc`
 - terminal.sexy + st = nice st, but their default export uses _static_ unsigned
   ints instead of just ints for foreground and background colour. Change to
-unsigned int.
+unsigned int
+- `surf -s` starts with Javascript disabled
 
 ### X + nvidia drivers
 

@@ -27,8 +27,12 @@ p {
 }
 
 a {
-    color: var(--link-color);
+    color: var(--text-color);
     text-decoration: inherit;
+}
+
+a.dir-link {
+    color: var(--link-color);
 }
 
 blockquote, figcaption {
@@ -63,4 +67,3 @@ ul, li {
   padding-left: max(12px, 2%);
   padding-right: max(12px, 2%);
 }
-
