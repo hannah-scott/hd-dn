@@ -6,7 +6,7 @@ This is a selection of science fiction short stories originally released in
 Japan some time in the 60s-80s. I'm not sure when, exactly, but if I can find
 it I'll add it in.
 
-### Women and Women (1978)
+### Women And Women (1978)
 
 The male population has declined as a result of pollution and war, and all men
 are imprisoned at birth. One day, a girl sees a boy from out her window; she
@@ -38,3 +38,25 @@ and a terrible power.
 A woman travels to an uncanny, superficially pleasant planet. She finds herself
 surrounded by addicts and nostalgic for memories that don't feel like hers.
 Everyone is desperately scrambling to keep what might already have been lost.
+
+### Smoke Gets In Your Eyes
+
+Jane is interrupted at the arcade by an old woman who reminds him of his ex
+Reiko. We take a tour through their distant, drug-addled relationship: Jane's
+cold indifference, Reiko's addiction. The old woman _is_ Reiko: they sit and
+talk and listen to music, wondering if things could've turned out differently.
+
+
+### Forgotten
+
+The relationship between an alien and a human is strained as their governments
+teeter on the edge of war. The alien and his comrades are afraid of Earth's
+brutal expansionism and plan an escape. Both he and the human try to escape the
+inevitable, either literally or with substances.
+
+### Terminal Boredom
+
+Two teenagers are adrift and unemployed in an automated police state. One has
+an implant that makes them want to watch TV --- the other doesn't need it, it's
+all she has to do. After witnessing a murder they believe the only way to feel
+and connect is through violence.
