@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open%20Sans&display=swap');
 
 :root {
-  --bg-color: white;
+  --bg-color: #fdf8f3;
   --text-color: #030103;
-  --link-color: #1fa075;
+  --link-color: #a438ea;
 
   --footer-height: 39px;
 }
@@ -27,12 +27,12 @@ p {
 }
 
 a {
-    color: var(--text-color);
     text-decoration: inherit;
+    color: var(--link-color);
 }
 
 a.dir-link {
-    color: var(--link-color);
+    color: var(--text-color);
 }
 
 blockquote, figcaption {
