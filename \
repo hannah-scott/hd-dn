@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open%20Sans&display=swap');
 
 :root {
-  --bg-color: #061401;
-  --text-color: #eeeeee;
-  --link-color: #e32c79;
+  --bg-color: #081911;
+  --text-color: #ffeeff;
+  --link-color: #a8e094;
 
   --footer-height: 39px;
 }
