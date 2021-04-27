@@ -10,4 +10,4 @@ If you notice any typos or dead links please let me know!
 
 All HTML content on the site is dedicated to the public domain under CC0. To the greatest extent possible, I have waived all copyright claims to this content.
 
-The static site generator cite is distributed under the MIT License. 
+The static site generator cite and its source code are distributed under the MIT License. 
