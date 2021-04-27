@@ -8,6 +8,6 @@ If you notice any typos or dead links please let me know!
 
 ## Licensing
 
-All my content on the site is dedicated to the public domain under CC0.
+All HTML content on the site is dedicated to the public domain under CC0. To the greatest extent possible, I have waived all copyright claims to this content.
 
-My static site generator cite is distributed under the MIT License.
+The static site generator cite is distributed under the MIT License. 
