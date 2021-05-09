@@ -7,192 +7,91 @@
 <!-- Generated static page, don't edit this -->
 <body>
 <header><a href='https://hannahs.ddns.net/index.html'><h1>hddn</h1></a></header>
-<h1>1. Building abstractions with procedures</h1>
-
-<h2>1.1 The elements of programming</h2>
-
-<p>Powerful languages have three mechanisms to combine simple ideas into complex
-ones:</p>
-
-<ol>
+<h1 id="building-abstractions-with-procedures">1. Building abstractions with procedures</h1>
+<h2 id="the-elements-of-programming">1.1 The elements of programming</h2>
+<p>Powerful languages have three mechanisms to combine simple ideas into complex ones:</p>
+<ol type="1">
 <li>Primitive expressions</li>
 <li>Means of combination</li>
 <li>Means of abstraction</li>
 </ol>
-
-
-<p>We deal with &lsquo;two&rsquo; elements: procedures and data.</p>
-
+<p>We deal with ‘two’ elements: procedures and data.</p>
 <p>Data is stuff. Procedures are what we do to the stuff.</p>
-
 <p>This chapter is focused only on the rules for building procedures.</p>
-
-<h3>1.1.1 Expressions</h3>
-
-<p>Lisp uses <strong>prefix notation</strong>, i.e. (+ 1 3) not 1 + 3. We know this from Racket
-because we cheated by doing some Racket first.</p>
-
-<p>Use pretty-printing and don&rsquo;t be rude.</p>
-
+<h3 id="expressions">1.1.1 Expressions</h3>
+<p>Lisp uses <strong>prefix notation</strong>, i.e. (+ 1 3) not 1 + 3. We know this from Racket because we cheated by doing some Racket first.</p>
+<p>Use pretty-printing and don’t be rude.</p>
 <p>The interpreter:</p>
-
 <ul>
 <li>reads the expression from a terminal</li>
 <li>evaluates it</li>
 <li>prints the results</li>
 </ul>
-
-
 <p>This is what a read-eval-print loop is! That makes sense now!</p>
-
-<h3>1.1.2 Naming and the environment</h3>
-
+<h3 id="naming-and-the-environment">1.1.2 Naming and the environment</h3>
 <p>We can name stuff with <code>define</code>, i.e.</p>
-
-<pre><code>(define size 2)
-</code></pre>
-
+<pre><code>(define size 2)</code></pre>
 <p>The interpreter then knows that when we say <code>size</code> what we mean is 2.</p>
-
-<p>The book says <code>define</code> is the simplest means of abstraction &mdash; which makes
-sense. For example</p>
-
+<p>The book says <code>define</code> is the simplest means of abstraction — which makes sense. For example</p>
 <pre><code>(define pi 3.14159)
 (define radius 10)
-(define circumference (* 2 pi radius))
-</code></pre>
-
-<p>That&rsquo;s quite a lot of abstraction!</p>
-
-<blockquote><p>Indeed, complex programs are constructed by building, step by step,
-computational objects of increasing complexity.</p></blockquote>
-
-<p>If we&rsquo;re associating values with symbols, that must be maintained in some
-memory. This is called the <em>global environment</em>.</p>
-
-<h3>1.1.3 Evaluating combinations</h3>
-
-<p>A goal of this chapter is &ldquo;to isolate issues about thinking procedurally&rdquo; &mdash;
-let&rsquo;s see if we can do that too!</p>
-
+(define circumference (* 2 pi radius))</code></pre>
+<p>That’s quite a lot of abstraction!</p>
+<blockquote>
+<p>Indeed, complex programs are constructed by building, step by step, computational objects of increasing complexity.</p>
+</blockquote>
+<p>If we’re associating values with symbols, that must be maintained in some memory. This is called the <em>global environment</em>.</p>
+<h3 id="evaluating-combinations">1.1.3 Evaluating combinations</h3>
+<p>A goal of this chapter is “to isolate issues about thinking procedurally” — let’s see if we can do that too!</p>
 <p>When evaluating combinations, the interpreter will:</p>
-
-<ol>
+<ol type="1">
 <li>Evaluate all the subexpressions</li>
-<li>Apply the procedure that the leftmost subexpression (the operator) to all
-the other subexpression values (the operands)</li>
+<li>Apply the procedure that the leftmost subexpression (the operator) to all the other subexpression values (the operands)</li>
 </ol>
-
-
-<p>This is a <strong>recursive process</strong>: the first step is to do the process again, on
-a deeper level.</p>
-
-<p>Introduces this <em>tree</em> notation where values &ldquo;percolate upwards&rdquo; &mdash; this is an
-example of <strong>tree accumulation</strong>, although I don&rsquo;t know what that is.</p>
-
-<p>The book specifies that for example, <code>define</code> is <strong>not a combination</strong>. We
-don&rsquo;t &ldquo;apply <code>define</code> to <code>x</code> and 3&rdquo; or whatever. This is an example of a
-<strong>special form</strong>: it has its own evaluation rules.</p>
-
-<h3>1.1.4 Compound procedures</h3>
-
-<p><strong>Procedure definitions</strong> are an even more powerful abstraction technique. What
-this means is, giving a name to some compound operation and then being able to
-refer to it by that name.</p>
-
+<p>This is a <strong>recursive process</strong>: the first step is to do the process again, on a deeper level.</p>
+<p>Introduces this <em>tree</em> notation where values “percolate upwards” — this is an example of <strong>tree accumulation</strong>, although I don’t know what that is.</p>
+<p>The book specifies that for example, <code>define</code> is <strong>not a combination</strong>. We don’t “apply <code>define</code> to <code>x</code> and 3” or whatever. This is an example of a <strong>special form</strong>: it has its own evaluation rules.</p>
+<h3 id="compound-procedures">1.1.4 Compound procedures</h3>
+<p><strong>Procedure definitions</strong> are an even more powerful abstraction technique. What this means is, giving a name to some compound operation and then being able to refer to it by that name.</p>
 <p>For example:</p>
-
-<pre><code>(define (square x) (* x x))
-</code></pre>
-
-<p>We&rsquo;ve abstracted an expression (multiplying a number by itself) into the name
-<code>square</code>.</p>
-
+<pre><code>(define (square x) (* x x))</code></pre>
+<p>We’ve abstracted an expression (multiplying a number by itself) into the name <code>square</code>.</p>
 <p>The general form is</p>
-
-<pre><code>(define (&lt;name&gt; &lt;formal parameters&gt;) &lt;body&gt;)
-</code></pre>
-
+<pre><code>(define (&lt;name&gt; &lt;formal parameters&gt;) &lt;body&gt;)</code></pre>
 <p>Why is this powerful?</p>
-
-<pre><code>(define (sum-of-squares x y) (+ (square x) (square y)))
-</code></pre>
-
-<p>We&rsquo;ve abstracted &mdash; from our abstraction! And so on, and so forth. These
-abstractions are the building blocks of our lovely house.</p>
-
-<h3>1.1.5 The substituion model for procedure application</h3>
-
-<p>The interpreter has a process for evaluating a combination with an abstracted,
-compound procedure too. That is:</p>
-
-<ol>
+<pre><code>(define (sum-of-squares x y) (+ (square x) (square y)))</code></pre>
+<p>We’ve abstracted — from our abstraction! And so on, and so forth. These abstractions are the building blocks of our lovely house.</p>
+<h3 id="the-substituion-model-for-procedure-application">1.1.5 The substituion model for procedure application</h3>
+<p>The interpreter has a process for evaluating a combination with an abstracted, compound procedure too. That is:</p>
+<ol type="1">
 <li>Evaluate the elements of the combination</li>
 <li>Apply the procedure to the arguments</li>
 </ol>
-
-
-<p>The book goes into how to do this using an example. The specific method is
-called the <strong>substitution model</strong>: find the named procedure, substitute it,
-continue.</p>
-
-<p>Ooh fun we&rsquo;re going to implement an interpreter and compiler!</p>
-
-<p>They emphasise that this is a <strong>model</strong>, an incomplete picture of what&rsquo;s
-actually going on. There&rsquo;s more detailed cases where this isn&rsquo;t quite right.</p>
-
-<p>Applicative order is when you evaluate combinations as they appear, rather than
-expanding everything out and then reducing (which may seem the more natural way
-to do it). In a lot of cases they&rsquo;re the same, but they aren&rsquo;t <em>always</em> the
-same.</p>
-
-<h3>1.1.6 Conditional expressions and predicates</h3>
-
-<p>If we want to output certain values based on an input, this is called a <em>case
-analysis</em>. For example, computing the absolute value of a number requires some
-case analysis.</p>
-
+<p>The book goes into how to do this using an example. The specific method is called the <strong>substitution model</strong>: find the named procedure, substitute it, continue.</p>
+<p>Ooh fun we’re going to implement an interpreter and compiler!</p>
+<p>They emphasise that this is a <strong>model</strong>, an incomplete picture of what’s actually going on. There’s more detailed cases where this isn’t quite right.</p>
+<p>Applicative order is when you evaluate combinations as they appear, rather than expanding everything out and then reducing (which may seem the more natural way to do it). In a lot of cases they’re the same, but they aren’t <em>always</em> the same.</p>
+<h3 id="conditional-expressions-and-predicates">1.1.6 Conditional expressions and predicates</h3>
+<p>If we want to output certain values based on an input, this is called a <em>case analysis</em>. For example, computing the absolute value of a number requires some case analysis.</p>
 <p>To do this, we need conditional logic.</p>
-
-<p>The general form (I&rsquo;m going to use square brackets because I&rsquo;m not rude) is</p>
-
+<p>The general form (I’m going to use square brackets because I’m not rude) is</p>
 <pre><code>(cond [&lt;p1&gt; &lt;e1&gt;]
       [&lt;p2&gt; &lt;e2&gt;]
       ...
-      [&lt;pn&gt; &lt;en&gt;])
-</code></pre>
-
-<p>These <code>[&lt;p&gt; &lt;e&gt;]</code> pairs are called clausesL we have a predicate (if this) and
-an expression (then this).</p>
-
-<p>The interpreter evaluates these in order: it checks if <code>p1</code> is true, then <code>p2</code>,
-and so on.</p>
-
-<p>Formally, a <strong>predicate</strong> is a procedure that returns either true or false, as
-well as any expressions that evaluate to true or false. Think &ldquo;predicated
-upon&rdquo; = &ldquo;conditional upon&rdquo;.</p>
-
-<p>There is also an <code>else</code> clause, which just means if nothing else evaluates to
-true then do this.</p>
-
-<p>If there are precisely two cases in the case analysis, we can also use an
-if-conditional:</p>
-
+      [&lt;pn&gt; &lt;en&gt;])</code></pre>
+<p>These <code>[&lt;p&gt; &lt;e&gt;]</code> pairs are called clausesL we have a predicate (if this) and an expression (then this).</p>
+<p>The interpreter evaluates these in order: it checks if <code>p1</code> is true, then <code>p2</code>, and so on.</p>
+<p>Formally, a <strong>predicate</strong> is a procedure that returns either true or false, as well as any expressions that evaluate to true or false. Think “predicated upon” = “conditional upon”.</p>
+<p>There is also an <code>else</code> clause, which just means if nothing else evaluates to true then do this.</p>
+<p>If there are precisely two cases in the case analysis, we can also use an if-conditional:</p>
 <pre><code>(define (abs x)
     (if (&lt; x 0)
         (- x)
-        x))
-</code></pre>
-
-<p>There are also logical composition operators, most commonly <code>and</code>, <code>or</code> and
-<code>not</code>.</p>
-
-<h2>Exercises</h2>
-
+        x))</code></pre>
+<p>There are also logical composition operators, most commonly <code>and</code>, <code>or</code> and <code>not</code>.</p>
+<h2 id="exercises">Exercises</h2>
 <p>Going to take a quick break from reading to do some maths!</p>
-
-<h3>Exercise 1.1</h3>
-
+<h3 id="exercise-1.1">Exercise 1.1</h3>
 <pre><code>10 =&gt; 10
 (+ 5 3 4) =&gt; 12
 (- 9 1) =&gt; 8
@@ -229,54 +128,27 @@ if-conditional:</p>
          (else -1))
     (+ a 1))
 =&gt;
-(* 4 4) =&gt; 16
-</code></pre>
-
+(* 4 4) =&gt; 16</code></pre>
 <p>These were all right I am basically the computer.</p>
-
-<h3>Exercise 1.2</h3>
-
+<h3 id="exercise-1.2">Exercise 1.2</h3>
 <p>Translating an expression into prefix form.</p>
-
-<pre><code>(/ (+ 5 4 (- 2 (- 3 (/ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
-</code></pre>
-
-<h3>Exercise 1.3</h3>
-
-<p>Take three numbers as arguments, and return the sum of the squares of the two
-larger numbers</p>
-
+<pre><code>(/ (+ 5 4 (- 2 (- 3 (/ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))</code></pre>
+<h3 id="exercise-1.3">Exercise 1.3</h3>
+<p>Take three numbers as arguments, and return the sum of the squares of the two larger numbers</p>
 <pre><code>(define (sum-of-squares-largest a b c)
     (cond [(and (&lt; a b) (&lt; a c)) (+ (* b b) (* c c))]
           [(and (&lt; b a) (&lt; b c)) (+ (* a a) (* c c))]
-          [else                  (+ (* a a) (* b b))]))
-</code></pre>
-
-<h3>Exercise 1.4</h3>
-
+          [else                  (+ (* a a) (* b b))]))</code></pre>
+<h3 id="exercise-1.4">Exercise 1.4</h3>
 <p>This is kind of spicy. Describe the behaviour of this procedure</p>
-
 <pre><code>(define (a-plus-abs-b a b)
-    ((if (&gt; b 0) + -) a b))
-</code></pre>
-
-<p>If <code>b</code> is positive, it returns <code>a + b</code>. If <code>b</code> is <em>negative</em>, it returns <code>a -
-b</code>. The if-statement returns an <strong>operator</strong>, not a <strong>value</strong>. This is very
-cool and I didn&rsquo;t know this worked.</p>
-
-<p>So in effect, it adds the absolute value of <code>b</code> to <code>a</code> (since |b| = -b if b &lt;
-0).</p>
-
-<p>I guess this is an example of what they meant when they said &lsquo;data&rsquo; and
-&lsquo;procedures&rsquo; are kind of the same thing: an operation can be conditional, and
-can be manipulated like data.</p>
-
-<h3>Exercise 1.5</h3>
-
-<p>This kind of hurts my brain so this is where I&rsquo;m going to finish for tonight.</p>
-
-<p>Let&rsquo;s think like Lisp:</p>
-
+    ((if (&gt; b 0) + -) a b))</code></pre>
+<p>If <code>b</code> is positive, it returns <code>a + b</code>. If <code>b</code> is <em>negative</em>, it returns <code>a - b</code>. The if-statement returns an <strong>operator</strong>, not a <strong>value</strong>. This is very cool and I didn’t know this worked.</p>
+<p>So in effect, it adds the absolute value of <code>b</code> to <code>a</code> (since |b| = -b if b &lt; 0).</p>
+<p>I guess this is an example of what they meant when they said ‘data’ and ‘procedures’ are kind of the same thing: an operation can be conditional, and can be manipulated like data.</p>
+<h3 id="exercise-1.5">Exercise 1.5</h3>
+<p>This kind of hurts my brain so this is where I’m going to finish for tonight.</p>
+<p>Let’s think like Lisp:</p>
 <pre><code>(define (p) (p))
 
 (define (test x y)
@@ -290,17 +162,10 @@ can be manipulated like data.</p>
 (if (= 0 0)
     0
     (p))
-=&gt; 0            ; first condition is true
-</code></pre>
-
-<p>This is applicative order. We never read (p), so we never have to evaluate it
-(this is good because (p)&rsquo;s definition is weird and recursive.</p>
-
-<p>Let&rsquo;s now think like a dumb human being. We expand everything, and then we
-determine the output.</p>
-
-<p>OK, let&rsquo;s go:</p>
-
+=&gt; 0            ; first condition is true</code></pre>
+<p>This is applicative order. We never read (p), so we never have to evaluate it (this is good because (p)’s definition is weird and recursive.</p>
+<p>Let’s now think like a dumb human being. We expand everything, and then we determine the output.</p>
+<p>OK, let’s go:</p>
 <pre><code>(test 0 (p))
 =&gt;
 (if (= 0 0)
@@ -313,151 +178,64 @@ determine the output.</p>
 =&gt; hang on this is the same oh no oh no
 (if (= 0 0)
     0
-    (p))
-</code></pre>
-
-<p>and so on. The fact that the predicate is true, and that we don&rsquo;t <em>have</em> to
-evaluate the alternative expression, doesn&rsquo;t matter. We expand everything, so
-we get stuck in a loop.</p>
-
-<p>OK this isn&rsquo;t quite right. I think my <em>computer</em> explanation was wrong. When
-an applicative-order evaluator sees <code>(p)</code>, it starts to try to expand it
-immediately.</p>
-
-<p>I don&rsquo;t really understand.</p>
-
+    (p))</code></pre>
+<p>and so on. The fact that the predicate is true, and that we don’t <em>have</em> to evaluate the alternative expression, doesn’t matter. We expand everything, so we get stuck in a loop.</p>
+<p>OK this isn’t quite right. I think my <em>computer</em> explanation was wrong. When an applicative-order evaluator sees <code>(p)</code>, it starts to try to expand it immediately.</p>
+<p>I don’t really understand.</p>
 <hr />
-
-<p>So I had a read &mdash; I think I basically got things the wrong way around! So I
-<em>am</em> cleverer than a machine.</p>
-
+<p>So I had a read — I think I basically got things the wrong way around! So I <em>am</em> cleverer than a machine.</p>
 <p>When an interpreter using applicative-order evaluation sees <code>(test 0 (p))</code>, it:</p>
-
-<ol>
+<ol type="1">
 <li>Evaluates the subexpressions</li>
 <li>Applies the operation</li>
 </ol>
-
-
 <p>So it goes:</p>
-
-<ol>
+<ol type="1">
 <li>OK applying test to 0 and (p), what do 0 and (p) mean?</li>
-<li>I know 0, 0=0 that&rsquo;s easy</li>
+<li>I know 0, 0=0 that’s easy</li>
 <li>OK what does (p) mean? Ah! (p) = (p)! If only I knew what <em>(p)</em> was.</li>
-<li>Wait, there&rsquo;s a definition! (p) = (p)! Now all that&rsquo;s left to do is evaluate
-(p)&hellip;</li>
+<li>Wait, there’s a definition! (p) = (p)! Now all that’s left to do is evaluate (p)…</li>
 </ol>
-
-
 <p>&amp;c.</p>
-
-<p>Whereas I, in my infinite wisdom, can say, &ldquo;Well it doesn&rsquo;t matter what (p)
-evaluates to because we&rsquo;re never going to get there are we?! (= 0 0) and that&rsquo;s
-the end of that!&rdquo;</p>
-
+<p>Whereas I, in my infinite wisdom, can say, “Well it doesn’t matter what (p) evaluates to because we’re never going to get there are we?! (= 0 0) and that’s the end of that!”</p>
 <p>And on that note I think I can sleep.</p>
-
-<p><strong>Note:</strong> Hannah, start back from
-<a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%25_sec_1.1.7">here</a>.</p>
-
+<p><strong>Note:</strong> Hannah, start back from <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%25_sec_1.1.7">here</a>.</p>
 <hr />
-
-<p>And we&rsquo;re back.</p>
-
-<h3>1.1.7 Example: square roots by Newton&rsquo;s method</h3>
-
-<p>We&rsquo;re talking about the difference between declarative knowledge and imperative
-knowledge. For example, I can say that the square root of 5 is a number that,
-when squared, gives you 5. That doesn&rsquo;t tell you how to calculate it.
-Equivalently, I <em>know</em> there are infinitely many prime numbers without having
-to tell you how to calculate them in some way.</p>
-
-<p>There is a difference between describing things, and describing how to <em>do</em>
-things.</p>
-
-<p>The book gives the example of calculating a square root using Newton&rsquo;s
-approximation.</p>
-
-<h3>Exercise 1.6</h3>
-
-<p>I think this is a problem of applicative-order evaluation. Since <code>new-if</code> isn&rsquo;t
-a special form, the interpreter will try to:</p>
-
-<ol>
+<p>And we’re back.</p>
+<h3 id="example-square-roots-by-newtons-method">1.1.7 Example: square roots by Newton’s method</h3>
+<p>We’re talking about the difference between declarative knowledge and imperative knowledge. For example, I can say that the square root of 5 is a number that, when squared, gives you 5. That doesn’t tell you how to calculate it. Equivalently, I <em>know</em> there are infinitely many prime numbers without having to tell you how to calculate them in some way.</p>
+<p>There is a difference between describing things, and describing how to <em>do</em> things.</p>
+<p>The book gives the example of calculating a square root using Newton’s approximation.</p>
+<h3 id="exercise-1.6">Exercise 1.6</h3>
+<p>I think this is a problem of applicative-order evaluation. Since <code>new-if</code> isn’t a special form, the interpreter will try to:</p>
+<ol type="1">
 <li>Evaluate the sub-expressions</li>
 <li>Apply the operation</li>
 </ol>
-
-
-<p>Since the else-clause recursively calls out function, the interpreter will get
-in a loop trying to evaluate sub-sub-expressions, and so on.</p>
-
-<h3>Exercise 1.7</h3>
-
-<p>Let the number we want to calculate the square root of be such that its square
-root is less than 0.001. Say, 0.0001<sup>2</sup>. Then since our initial guess was
-greater than 0.001, the iterative process will terminate at just below 0.001.
-This is because the actual solution is less than the tolerance.</p>
-
+<p>Since the else-clause recursively calls out function, the interpreter will get in a loop trying to evaluate sub-sub-expressions, and so on.</p>
+<h3 id="exercise-1.7">Exercise 1.7</h3>
+<p>Let the number we want to calculate the square root of be such that its square root is less than 0.001. Say, 0.0001^2. Then since our initial guess was greater than 0.001, the iterative process will terminate at just below 0.001. This is because the actual solution is less than the tolerance.</p>
 <p>Example:</p>
-
-<pre><code>(square (sqrt 0.00001)) ~= 0.001
-</code></pre>
-
-<p>So we&rsquo;re out by an order of 100.</p>
-
-<p>Equivalently with very large numbers. Let the number be large enough that the
-difference between it and its approximation is greater than 0.001. Then the
-process cannot terminate, since <code>good-enough?</code> is never applied.</p>
-
+<pre><code>(square (sqrt 0.00001)) ~= 0.001</code></pre>
+<p>So we’re out by an order of 100.</p>
+<p>Equivalently with very large numbers. Let the number be large enough that the difference between it and its approximation is greater than 0.001. Then the process cannot terminate, since <code>good-enough?</code> is never applied.</p>
 <p>Example:</p>
-
-<pre><code>(sqrt (expt 10 64))
-</code></pre>
-
+<pre><code>(sqrt (expt 10 64))</code></pre>
 <p>will never terminate (on my computer).</p>
-
 <p>Alternative:</p>
-
 <pre><code>(define (good-enough previous-guess guess)
-    (&lt; (abs (- previous-guess guess)) (/ previous-guess 100)))
-</code></pre>
-
+    (&lt; (abs (- previous-guess guess)) (/ previous-guess 100)))</code></pre>
 <p>This calculates both the above to some precision.</p>
-
-<h3>Exercise 1.8</h3>
-
-<p>The only difficulty here is me getting my x&rsquo;s and y&rsquo;s confused.</p>
-
-<h3>1.1.8 Procedures as black-box abstractions</h3>
-
-<p>The <code>sqrt</code> program can be considered as a cluster of procedures, some dependent
-on each other. This tree of dependencies mirrors the decomposition of the
-problem (finding a square root) into sub-problems (is my guess good enough,
-etc.).</p>
-
-<p>Each procedure <strong>accomplishes a task</strong> that can be used to define other
-procedures. The book calls this a <strong>procedural abstraction</strong>: we don&rsquo;t care how
-<code>good-enough?</code> does its job, particularly, when we&rsquo;re looking at a higher
-level.</p>
-
+<h3 id="exercise-1.8">Exercise 1.8</h3>
+<p>The only difficulty here is me getting my x’s and y’s confused.</p>
+<h3 id="procedures-as-black-box-abstractions">1.1.8 Procedures as black-box abstractions</h3>
+<p>The <code>sqrt</code> program can be considered as a cluster of procedures, some dependent on each other. This tree of dependencies mirrors the decomposition of the problem (finding a square root) into sub-problems (is my guess good enough, etc.).</p>
+<p>Each procedure <strong>accomplishes a task</strong> that can be used to define other procedures. The book calls this a <strong>procedural abstraction</strong>: we don’t care how <code>good-enough?</code> does its job, particularly, when we’re looking at a higher level.</p>
 <p>Procedure definitions suppress detail.</p>
-
-<p>Talking about local names. The specific names of the formal parameters of a
-procedure should not affect the user of the procedure.</p>
-
-<p>This is called a <strong>bound variable</strong>. We say that it is <strong>locally scoped</strong> to
-its procedure. The alternative to being bound, is being free.</p>
-
-<p>We can also <strong>localise the sub-procedures themselves</strong>, for example if we have
-a large codebase and expect someone to use the name <code>good-enough?</code> later on.
-This is called <strong>block structure</strong>, and this whole discipline of scoping
-formal parameters and procedures is referred to as <strong>lexical scoping</strong>.</p>
-
-<p>This allows us to simplify things a lot: a local procedure is &ldquo;aware&rdquo; of a
-local formal parameter, so we can use it without having to pass it in as one.</p>
-
+<p>Talking about local names. The specific names of the formal parameters of a procedure should not affect the user of the procedure.</p>
+<p>This is called a <strong>bound variable</strong>. We say that it is <strong>locally scoped</strong> to its procedure. The alternative to being bound, is being free.</p>
+<p>We can also <strong>localise the sub-procedures themselves</strong>, for example if we have a large codebase and expect someone to use the name <code>good-enough?</code> later on. This is called <strong>block structure</strong>, and this whole discipline of scoping formal parameters and procedures is referred to as <strong>lexical scoping</strong>.</p>
+<p>This allows us to simplify things a lot: a local procedure is “aware” of a local formal parameter, so we can use it without having to pass it in as one.</p>
 <p>EOF</p>
 </body>
 </html>

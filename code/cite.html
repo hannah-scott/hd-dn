@@ -7,27 +7,17 @@
 <!-- Generated static page, don't edit this -->
 <body>
 <header><a href='https://hannahs.ddns.net/index.html'><h1>hddn</h1></a></header>
-<p>cite is a static site generator written in ANSI C. It&rsquo;s under active
-development, and licensed under the MIT License.</p>
-
-<h2>Get it</h2>
-
+<p>cite is a static site generator written in ANSI C. It’s under active development, and licensed under the MIT License.</p>
+<h2 id="get-it">Get it</h2>
 <p>You can get source code <a href="https://github.com/hannah-scott/cite">here</a>.</p>
-
-<h2>Use</h2>
-
-<p>I build hddn with the discount Markdown toolset, and cite. I chose discount for
-three reasons:</p>
-
-<ol>
+<h2 id="use">Use</h2>
+<p>I build hddn with the discount Markdown toolset, and cite. I chose discount for three reasons:</p>
+<ol type="1">
 <li>It fulfils my needs</li>
-<li>It&rsquo;s smaller and faster than Pandoc</li>
-<li>It&rsquo;s written in C, so I can read its source without learning a new language</li>
+<li>It’s smaller and faster than Pandoc</li>
+<li>It’s written in C, so I can read its source without learning a new language</li>
 </ol>
-
-
 <p>These are glued together with a build script.</p>
-
 <pre><code>#!/bin/bash
 cd ~/repos/hannahs.ddns.net
 
@@ -41,14 +31,13 @@ cd ~/repos/repo.hannahs.ddns.net
 rm -r src
 cp -r md src
 
-find src -name "*.md" | cut -d. -f1 | while read i; do
+find src -name &quot;*.md&quot; | cut -d. -f1 | while read i; do
     markdown -o $i.html $i.md
     rm $i.md
 done
 
 # compile and run cite
 make clean cite
-./cite
-</code></pre>
+./cite</code></pre>
 </body>
 </html>
