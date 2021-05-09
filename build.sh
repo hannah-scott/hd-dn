@@ -14,7 +14,7 @@ mkdir -p live
 cp -r md/* src/
 
 find src -name "*.md" | cut -d. -f1 | while read i; do
-	pandoc -o $i.html $i.md
+	markdown -o $i.html $i.md
 	rm $i.md
 done
 

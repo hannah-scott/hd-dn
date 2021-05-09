@@ -7,33 +7,72 @@
 <!-- Generated static page, don't edit this -->
 <body>
 <header><a href='https://hannahs.ddns.net/index.html'><h1>hddn</h1></a></header>
-<h2 id="procedures-and-the-processes-they-generate">1.2 Procedures and the processes they generate</h2>
-<p>We’ve covered the basic ‘rules’ of the game and now we need to know some strategy, i.e. common patterns of usage.</p>
-<p>This chapter is focused on common “shapes” that simple processes follow, as well as some information on computational resources.</p>
-<h3 id="linear-recursion-and-iteration">1.2.1 Linear recursion and iteration</h3>
-<p>Looking at the factorial function as an example. If we specify that 1! = 1, and that n! = n(n - 1)!, this defines our procedure <em>recursively</em>.</p>
-<p>Alternatively, we can maintain a running product and a counter. While the counter is less than n, we set the product to product * counter and we increment the counter.</p>
+<h2>1.2 Procedures and the processes they generate</h2>
+
+<p>We&rsquo;ve covered the basic &lsquo;rules&rsquo; of the game and now we need to know some
+strategy, i.e. common patterns of usage.</p>
+
+<p>This chapter is focused on common &ldquo;shapes&rdquo; that simple processes follow, as
+well as some information on computational resources.</p>
+
+<h3>1.2.1 Linear recursion and iteration</h3>
+
+<p>Looking at the factorial function as an example. If we specify that 1! = 1, and
+that n! = n(n - 1)!, this defines our procedure <em>recursively</em>.</p>
+
+<p>Alternatively, we can maintain a running product and a counter. While the
+counter is less than n, we set the product to product * counter and we
+increment the counter.</p>
+
 <p>What is the difference?</p>
+
 <p>If we evaluate the first one, we see an expansion and contraction:</p>
+
 <pre><code>(fact 3)
 (* 3 (fact 2)
 (* 3 (* 2 (fact 1)
 (* 3 (* 2 1)
 (* 3 2)
-6</code></pre>
-<p>This expansion (the number of terms of which is linear to n) is called <strong>linear recursion</strong>.</p>
+6
+</code></pre>
+
+<p>This expansion (the number of terms of which is linear to n) is called <strong>linear
+recursion</strong>.</p>
+
 <p>If we expand the second, we see:</p>
+
 <pre><code>(fact-iter 1 1 3)
 (fact-iter 1 2 3)
 (fact-iter 2 3 3)
 (fact-iter 6 4 6)
-6</code></pre>
-<p>Here there is no expansion. The terms still grow linearly with n. This is called <strong>linear iteration</strong>.</p>
-<p>The difference is in the underlying shape, as well as what the interpreter has to keep track of. For a linear recursive process, the amount of information needed grows linearly with n (since the interpreter needs to keep track of all the nested operations). So do the number of steps. But for a linear <em>iterative</em> process, the number of “state variables” is fixed and only the number of steps grow with n.</p>
-<p>This is where the terminology is confusing. Both of the above are recursive <strong>procedures</strong> (procedures that refer to themselves), but when we say a <strong>process</strong> is recursive we’re talking about how the process of evaluating the procedure evolves over time.</p>
-<p>In some languages this is purely academic: the interpreter evaluates <em>all</em> recursive procedures with the memory footprint of a recursive process. This is true of C, but not of Scheme. An implementation of a recursive procedure that evaluates as an iterative process in constant space is called <strong>tail-recursive</strong>.</p>
-<h3 id="exercise-1.9">Exercise 1.9</h3>
+6
+</code></pre>
+
+<p>Here there is no expansion. The terms still grow linearly with n. This is
+called <strong>linear iteration</strong>.</p>
+
+<p>The difference is in the underlying shape, as well as what the interpreter has
+to keep track of. For a linear recursive process, the amount of information
+needed grows linearly with n (since the interpreter needs to keep track of all
+the nested operations). So do the number of steps. But for a linear <em>iterative</em>
+process, the number of &ldquo;state variables&rdquo; is fixed and only the number of steps
+grow with n.</p>
+
+<p>This is where the terminology is confusing. Both of the above are recursive
+<strong>procedures</strong> (procedures that refer to themselves), but when we say a
+<strong>process</strong> is recursive we&rsquo;re talking about how the process of evaluating the
+procedure evolves over time.</p>
+
+<p>In some languages this is purely academic: the interpreter evaluates <em>all</em>
+recursive procedures with the memory footprint of a recursive process. This is
+true of C, but not of Scheme. An implementation of a recursive procedure that
+evaluates as an iterative process in constant space is called
+<strong>tail-recursive</strong>.</p>
+
+<h3>Exercise 1.9</h3>
+
 <p>First:</p>
+
 <pre><code>(define (+ a b)
     (if (= a 0)
         b
@@ -48,9 +87,13 @@
 (inc (inc (inc (6))))
 (inc (inc (7)))
 (inc 8)
-9</code></pre>
+9
+</code></pre>
+
 <p>This is a linearly recursive process.</p>
-<p>Second (I assume this is linearly iterative but let’s prove it):</p>
+
+<p>Second (I assume this is linearly iterative but let&rsquo;s prove it):</p>
+
 <pre><code>(define (+ a b)
     (if (= a 0)
         b 
@@ -61,11 +104,18 @@
 (+ 2 7)
 (+ 1 8)
 (+ 0 9)
-9</code></pre>
+9
+</code></pre>
+
 <p>So this process is linearly iterative.</p>
-<p><strong>Note:</strong> Um linearly iterative processes are a lot nicer to evaluate by hand… be kind to your computer and use them.</p>
-<h3 id="exercise-1.10">Exercise 1.10</h3>
-<p>Ackermann’s function. Let’s get some paper.</p>
+
+<p><strong>Note:</strong> Um linearly iterative processes are a lot nicer to evaluate by
+hand&hellip; be kind to your computer and use them.</p>
+
+<h3>Exercise 1.10</h3>
+
+<p>Ackermann&rsquo;s function. Let&rsquo;s get some paper.</p>
+
 <pre><code>(A 1 10)
 (A 0 (A 1 9))
 (A 0 (A 0 (A 1 8)))
@@ -74,8 +124,12 @@
 (A 0 eight times (A 1 2))
 (A 0 seven times (A 1 (* 2 2)))
 ...
-1024</code></pre>
-<p>Each nested <code>(A 0 y*)</code> multiplies <code>y*</code> by 2. The final term is 2. So we have 2^10.</p>
+1024
+</code></pre>
+
+<p>Each nested <code>(A 0 y*)</code> multiplies <code>y*</code> by 2. The final term is 2. So we have
+2<sup>10</sup>.</p>
+
 <pre><code>(A 2 4)
 (A 1 (A 2 3)
 (A 1 (A 1 (A 2 2)))
@@ -91,139 +145,279 @@
 (A 1 (A 0 (A 0 4)))             ; x = 0 -&gt; 8
 (A 1 (A 0 8))                   ; x = 0 -&gt; 16
 (A 1 16)                        ; from the above                
-2^16</code></pre>
+2^16
+</code></pre>
+
 <p>So</p>
-<pre><code>(A 2 n)</code></pre>
+
+<pre><code>(A 2 n)
+</code></pre>
+
 <p>evaluates to</p>
-<pre><code>(A 1 (A 1 ( ... ( A 1 1))))</code></pre>
+
+<pre><code>(A 1 (A 1 ( ... ( A 1 1))))
+</code></pre>
+
 <p>n times, or</p>
-<pre><code>2 ^ n</code></pre>
-<p>Let’s look at three, but I’m fairly sure we have a tower of power:</p>
+
+<pre><code>2 ^ n
+</code></pre>
+
+<p>Let&rsquo;s look at three, but I&rsquo;m fairly sure we have a tower of power:</p>
+
 <pre><code>(A 3 3)
 (A 2 (A 3 2))
 (A 2 (A 2 (A 3 1)))             ; y = 1 -&gt; 2
 (A 2 (A 2 2))
 (A 2 2^2)                       ; from the above
 2 ^ ( 2 ^ ( 2^2))
-2 ^ 2 ^ 2 ^ 2 </code></pre>
+2 ^ 2 ^ 2 ^ 2 
+</code></pre>
+
 <p>This is gross. My poor computer.</p>
-<p><strong>Note:</strong> Having thought about this, 2^16 = 65536. You can calculate this by because 2^10 = 1024 and 2^6 = 64, or if you prefer because ints are between -65535 and +65535 on 32-bit architecture (16 binary bits either way).</p>
-<p>Let’s look at concise mathematical definitions (we love maths here).</p>
+
+<p><strong>Note:</strong> Having thought about this, 2<sup>16</sup> = 65536. You can calculate this by
+because 2<sup>10</sup> = 1024 and 2<sup>6</sup> = 64, or if you prefer because ints are between
+-65535 and +65535 on 32-bit architecture (16 binary bits either way).</p>
+
+<p>Let&rsquo;s look at concise mathematical definitions (we love maths here).</p>
+
 <pre><code>(define (f n) (A 0 n))
 (define (g n) (A 1 n))
 (define (h n) (A 2 n))
-(define (k n) (* 5 n n))</code></pre>
-<p>We’re given k(n) = 5n^2.</p>
-<p>From the definition, f(n) = 2n if n != 0, 0 if n = 0. But 2 * 0 = 0, so f(n) = 2n.</p>
+(define (k n) (* 5 n n))
+</code></pre>
+
+<p>We&rsquo;re given k(n) = 5n<sup>2</sup>.</p>
+
+<p>From the definition, f(n) = 2n if n != 0, 0 if n = 0. But 2 * 0 = 0, so f(n) =
+2n.</p>
+
 <p>We have g(n) = 2 ^ n. Why?</p>
+
 <pre><code>(A 1 n)
 (A 0 (A 1 (- n 1)))
 ...
 (A 0 ... n-1 times ... (A 1 1))
-(A 0 ... n-2 times (A 0 2))</code></pre>
-<p>And each (A 0 k) evaluates to 2k. So we multiply by 2 each time, 2^n.</p>
-<p>Similarly, (A 2 n) is 2 ^ 2 ^ … ^ 2, n times. This is tetration, let’s write ^n 2.</p>
-<h3 id="tree-recursion">1.2.2 Tree recursion</h3>
+(A 0 ... n-2 times (A 0 2))
+</code></pre>
+
+<p>And each (A 0 k) evaluates to 2k. So we multiply by 2 each time, 2<sup>n</sup>.</p>
+
+<p>Similarly, (A 2 n) is 2 ^ 2 ^ &hellip; ^ 2, n times. This is tetration, let&rsquo;s write
+^n 2.</p>
+
+<h3>1.2.2 Tree recursion</h3>
+
 <p>Here the example is an implementation of the Fibonacci series:</p>
+
 <pre><code>(define (fib n)
     (cond ((= n 0) 0)
           ((= n 1) 1)
           (else (+ (fib (- n 1))
-                   (fib (- n 2))</code></pre>
-<p>The process evolves like a tree: to get (fib 5), we need 4 and 3. To get 3, we need 2 and 1, etc. Lots of branching.</p>
-<p>The number of steps to calculate this process grows non-linearly, but the space required is proportional to the maximum depth of the tree.</p>
-<p>The Fibonacci numbers could be implemented as a linearly iterative process which would run a lot faster and use less space.</p>
+                   (fib (- n 2))
+</code></pre>
+
+<p>The process evolves like a tree: to get (fib 5), we need 4 and 3. To get 3, we
+need 2 and 1, etc. Lots of branching.</p>
+
+<p>The number of steps to calculate this process grows non-linearly, but the space
+required is proportional to the maximum depth of the tree.</p>
+
+<p>The Fibonacci numbers could be implemented as a linearly iterative process
+which would run a lot faster and use less space.</p>
+
 <p>However, there are some cases when tree recursion is useful.</p>
-<p>There is a challenge to write an iterative version of a change-counting algorithm.</p>
-<h3 id="exercise-1.11">Exercise 1.11</h3>
+
+<p>There is a challenge to write an iterative version of a change-counting
+algorithm.</p>
+
+<h3>Exercise 1.11</h3>
+
 <p>As a recursive process:</p>
+
 <pre><code>(define (f n)
     (cond [(&lt; n 3) n]
           [else (+ (f (- n 1))
                    (* 2 (f (- n 2)))
-                   (* 3 (f (- n 3))))]))</code></pre>
+                   (* 3 (f (- n 3))))]))
+</code></pre>
+
 <p>And as a linearly iterative process:</p>
+
 <pre><code>(define (f2 n)
   (f-iter 2 1 0 n))
 
 (define (f-iter a b c count)
   (if (= count 0)
       c
-      (f-iter (+ a (* 2 b) (* 3 c)) a b (- count 1))))</code></pre>
+      (f-iter (+ a (* 2 b) (* 3 c)) a b (- count 1))))
+</code></pre>
+
 <p>Unsurprisingly the linearly iterative version is a <em>lot</em> quicker.</p>
-<h3 id="exercise-1.12">Exercise 1.12</h3>
-<p>Generate the elements of Pascal’s triangle with a recursive process.</p>
-<p>We’re going to take this to mean, given a row and column, calculate that row and column of Pascal’s triangle.</p>
-<p>Let’s start with some degenerate cases: if r &lt; 1 or c &lt; 1, return 0. If c &gt; r, return 0 (this lets us add along the right edge). If r = 1 and c = 1, return 1.</p>
-<p>In the other case, we want to add the number above and to the left (r - 1, c - 1), and above and to the right (r - 1, c).</p>
+
+<h3>Exercise 1.12</h3>
+
+<p>Generate the elements of Pascal&rsquo;s triangle with a recursive process.</p>
+
+<p>We&rsquo;re going to take this to mean, given a row and column, calculate that row
+and column of Pascal&rsquo;s triangle.</p>
+
+<p>Let&rsquo;s start with some degenerate cases: if r &lt; 1 or c &lt; 1, return 0. If c > r,
+return 0 (this lets us add along the right edge). If r = 1 and c = 1, return 1.</p>
+
+<p>In the other case, we want to add the number above and to the left (r - 1, c -
+1), and above and to the right (r - 1, c).</p>
+
 <p>So maybe:</p>
+
 <pre><code>(define (pascal r c)
   (cond [(or (&lt; r 0) (&lt; c 0) (&lt; r c)) 0]
         [(and (= r 1) (= c 1)) 1]
-        [else (+ (pascal (- r 1) (- c 1)) (pascal (- r 1) c))]))</code></pre>
+        [else (+ (pascal (- r 1) (- c 1)) (pascal (- r 1) c))]))
+</code></pre>
+
 <p>This works.</p>
-<h3 id="exercise-1.13">Exercise 1.13</h3>
+
+<h3>Exercise 1.13</h3>
+
 <p>Double proof by induction with a lemma!</p>
-<h3 id="orders-of-growth">1.2.3 Orders of growth</h3>
-<p>We’re using big-theta notation to denote orders of growth. By an order of growth, we mean some important resource (number of operations, storage used) is growing with some important feature of our parameters (number of digits of accuracy, size of input, rows in a matrix).</p>
-<p>This is obviously a very crude measure since you can be out by any integer multiple, but it’s a good guide for long-term performance.</p>
-<h3 id="exercise-1.14">Exercise 1.14</h3>
+
+<h3>1.2.3 Orders of growth</h3>
+
+<p>We&rsquo;re using big-theta notation to denote orders of growth. By an order of
+growth, we mean some important resource (number of operations, storage used) is
+growing with some important feature of our parameters (number of digits of
+accuracy, size of input, rows in a matrix).</p>
+
+<p>This is obviously a very crude measure since you can be out by any integer
+multiple, but it&rsquo;s a good guide for long-term performance.</p>
+
+<h3>Exercise 1.14</h3>
+
 <p>I drew it on some paper.</p>
-<p>As the amount to be changed grows, the number of nodes or decision points is going to grow like n^2.</p>
-<p>Think of it like an x/y graph. The x-axis is (cc amount (- kinds-of-coins 1)) — our amount doesn’t change. This is fixed at length 5, the number of different coins we have.</p>
-<p>Meanwhile, the y-axis is (cc (- amount (first-denomination kinds-of-soins)) kinds-of-coins). As the amount of money grows, the number of times we have to reduce it by say 50 cents to get to below 0 increases linearly. That is, n/50 is linear in n (obviously).</p>
-<p>All the other nodes are in the middle and none are trimmed, so number of nodes is going to be n^2. So number of steps is also n^2.</p>
-<p>We can think of space as like the “width” of the “bottom” row (without knowing what that means). If we expand everything, that’s the worst case scenario for space. That is like n, so spaces grows linearly with n.</p>
-<h3 id="exercise-1.15">Exercise 1.15</h3>
-<ol type="a">
-<li>Since we are not computers, we can ignore the details of p.</li>
-</ol>
-<p>We know p will recursively be called until |angle| &lt; 0.1. At each step, we will do angle -&gt; angle/3. So effectively, find n such that 12.15/3^n &lt; 0.1.</p>
-<p>Equivalently, 12.15/0.1 = 121.5 &lt; 3^n =&gt; n = 5.</p>
+
+<p>As the amount to be changed grows, the number of nodes or decision points is
+going to grow like n<sup>2</sup>.</p>
+
+<p>Think of it like an x/y graph. The x-axis is (cc amount (- kinds-of-coins 1))
+&mdash; our amount doesn&rsquo;t change. This is fixed at length 5, the number of
+different coins we have.</p>
+
+<p>Meanwhile, the y-axis is (cc (- amount (first-denomination kinds-of-soins))
+kinds-of-coins). As the amount of money grows, the number of times we have to
+reduce it by say 50 cents to get to below 0 increases linearly. That is, n/50
+is linear in n (obviously).</p>
+
+<p>All the other nodes are in the middle and none are trimmed, so number of nodes
+is going to be n<sup>2</sup>. So number of steps is also n<sup>2</sup>.</p>
+
+<p>We can think of space as like the &ldquo;width&rdquo; of the &ldquo;bottom&rdquo; row (without knowing
+what that means). If we expand everything, that&rsquo;s the worst case scenario for
+space. That is like n, so spaces grows linearly with n.</p>
+
+<h3>Exercise 1.15</h3>
+
+<p>(a) Since we are not computers, we can ignore the details of p.</p>
+
+<p>We know p will recursively be called until |angle| &lt; 0.1. At each step, we will
+do angle -> angle/3. So effectively, find n such that 12.15/3<sup>n</sup> &lt; 0.1.</p>
+
+<p>Equivalently, 12.15/0.1 = 121.5 &lt; 3<sup>n</sup> => n = 5.</p>
+
 <p>So p will be applied 5 times in the evaluation of <code>(sine 12.15)</code>.</p>
-<ol start="2" type="a">
-<li>I think this grows logarithmically in both steps and space.</li>
-</ol>
-<p>We know from (a) that the process takes n “steps” (calls of p) when a/3^n &lt; 0.1.</p>
-<p>So a / 3^n &lt; 0.1 &lt;=&gt; 10 a &lt; 3^n &lt;=&gt; k log(a) &lt; n,</p>
-<p>where k is some constant. So the number of steps is logarithmic, and the amount of expansion required is also logarithmic so the space is too.</p>
-<h3 id="exponentiation">1.2.4 Exponentiation</h3>
+
+<p>(b) I think this grows logarithmically in both steps and space.</p>
+
+<p>We know from (a) that the process takes n &ldquo;steps&rdquo; (calls of p) when a/3<sup>n</sup> &lt;
+0.1.</p>
+
+<p>So
+    a / 3<sup>n</sup> &lt; 0.1 &lt;=>
+    10 a &lt; 3<sup>n</sup> &lt;=>
+    k log(a) &lt; n,</p>
+
+<p>where k is some constant. So the number of steps is logarithmic, and the amount
+of expansion required is also logarithmic so the space is too.</p>
+
+<h3>1.2.4 Exponentiation</h3>
+
 <p>Shown is a neat logarithmic-time exponentiation algorithm.</p>
-<p>It makes use of the fact that for n an even number, x^n = (x <sup>(n/2))</sup>2.</p>
-<p>Of note is the method for showing that it is logarithmic time: if we double the input, then we require only one extra step to calculate the answer. So multiplying the input increases the number of steps additively, which is what we mean by logarithmic really.</p>
-<p>Right — I’m going to take a break here because that was a lot of maths.</p>
+
+<p>It makes use of the fact that for n an even number, x<sup>n</sup> = (x ^(n/2))<sup>2</sup>.</p>
+
+<p>Of note is the method for showing that it is logarithmic time: if we double the
+input, then we require only one extra step to calculate the answer. So
+multiplying the input increases the number of steps additively, which is what
+we mean by logarithmic really.</p>
+
+<p>Right &mdash; I&rsquo;m going to take a break here because that was a lot of maths.</p>
+
 <hr />
-<h3 id="exercise-1.16">Exercise 1.16</h3>
-<p>Banged my head against this for a while, started looking at a solution online and a sentence in I got it.</p>
-<p>The problem was I was only looking at one of the conditions, not both, so it didn’t make sense. There are <em>two</em> state transformations:</p>
+
+<h3>Exercise 1.16</h3>
+
+<p>Banged my head against this for a while, started looking at a solution online
+and a sentence in I got it.</p>
+
+<p>The problem was I was only looking at one of the conditions, not both, so it
+didn&rsquo;t make sense. There are <em>two</em> state transformations:</p>
+
 <p>Case 1: n is even</p>
+
 <ul>
-<li>n -&gt; n/2</li>
-<li>a -&gt; a</li>
-<li>b -&gt; b^2</li>
+<li>n -> n/2</li>
+<li>a -> a</li>
+<li>b -> b<sup>2</sup></li>
 </ul>
+
+
 <p>Case 2: n is odd</p>
+
 <ul>
-<li>n -&gt; n-1</li>
-<li>a -&gt; ab</li>
-<li>b -&gt; b</li>
+<li>n -> n-1</li>
+<li>a -> ab</li>
+<li>b -> b</li>
 </ul>
-<p>Then ab^n is invariant. We are affectively storing a running product in a, then outputting it when we hit n = 0. This is um a lot quicker than a linearly recursive process, and will use constant space (three numbers) rather than logarithmically increasing space (more information to hold with every extra step).</p>
+
+
+<p>Then ab<sup>n</sup> is invariant. We are affectively storing a running product in a, then
+outputting it when we hit n = 0. This is um a lot quicker than a linearly
+recursive process, and will use constant space (three numbers) rather than
+logarithmically increasing space (more information to hold with every extra
+step).</p>
+
 <hr />
-<h3 id="exercise-1.17">Exercise 1.17</h3>
-<p><em><strong>Sidenote:</strong> This was really fun to do. Paper programming is a lot of fun, I should do this more!</em></p>
-<p>Before, we had ab^n as our invariant property. What is the multiplicative analogue of this? The way I think of this is, ab^n is</p>
-<pre><code>(lower-order-function a (higher-order-function b n))</code></pre>
-<p>where <code>higher-order-function</code> is repeated operations of <code>lower-order-function</code>: multiplication = repeated addition, &amp;c.</p>
-<p>So our lower-order function is addition, and our higher order function is multiplication. Using the <code>(* a b)</code> naming from the question, we’ll call our state variable r. So we want to keep r + ab invariant. Let’s try this.</p>
+
+<h3>Exercise 1.17</h3>
+
+<p><em><strong>Sidenote:</strong> This was really fun to do. Paper programming is a lot of fun, I
+should do this more!</em></p>
+
+<p>Before, we had ab<sup>n</sup> as our invariant property. What is the multiplicative
+analogue of this? The way I think of this is, ab<sup>n</sup> is</p>
+
+<pre><code>(lower-order-function a (higher-order-function b n))
+</code></pre>
+
+<p>where <code>higher-order-function</code> is repeated operations of <code>lower-order-function</code>:
+multiplication = repeated addition, &amp;c.</p>
+
+<p>So our lower-order function is addition, and our higher order function is
+multiplication. Using the <code>(* a b)</code> naming from the question, we&rsquo;ll call our
+state variable r. So we want to keep r + ab invariant. Let&rsquo;s try this.</p>
+
 <pre><code>(define (* a b)
     (fast-times 0 a b))
 
 (define (fast-times r a b)
     (cond [(= b 0) r]
           [(even? b) (* r (double a) (halve b))]
-          [else (* (+ r a) a (- b 1))]))</code></pre>
+          [else (* (+ r a) a (- b 1))]))
+</code></pre>
+
 <p>Is this invariant?</p>
+
 <pre><code>r       a       b     r + ab
 ------------------------------
 0       5       7       35
@@ -231,8 +425,13 @@
 5       10      3       35
 15      10      2       35
 15      20      1       35
-35      20      0       35</code></pre>
-<p>and the process returns 35. Our algorithm works, and r + ab is invariant. This will take logarithmic time in b, since doubling b will add one extra step to the process.</p>
+35      20      0       35
+</code></pre>
+
+<p>and the process returns 35. Our algorithm works, and r + ab is invariant. This
+will take logarithmic time in b, since doubling b will add one extra step to
+the process.</p>
+
 <p>This is also a very satisfying algorithm to run by hand.</p>
 </body>
 </html>
