@@ -8,7 +8,7 @@
 
 html,
 body {
-    font-family: 'Liberation Serif', serif;
+    font-family: 'Merriweather', serif;
     color: var(--text-color);
     background-color: var(--bg-color);
     text-align: left;
@@ -58,7 +58,7 @@ h2,
 h3 {
     font-weight: normal;
     text-align: left;
-    font-family: 'Liberation Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 pre,
