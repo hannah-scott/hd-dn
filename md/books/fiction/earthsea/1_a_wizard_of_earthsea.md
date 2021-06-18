@@ -1,0 +1,7 @@
+## A Wizard of Earthsea
+
+**Ursula K. Le Guin**
+
+### Three Sentence Summary
+
+A young man discovers his knack for magic when he saves the people of his village from an invading force. He is sent to a school of magic, but in his arrogance and haste to prove himself summons a dark shadow of his own power which sets itself against him. He flees across Earthsea to escape this shadow, but as he travels and matures he learns to face up to the consequences of his mistakes and vanquish the nameless shadow.
