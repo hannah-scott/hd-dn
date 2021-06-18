@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open%20Sans&display=swap');
-
 :root {
-  --bg-color: #061401;
-  --text-color: #eeeeee;
-  --link-color: #e32c79;
-
-  --footer-height: 39px;
+    --bg-color: #eeeeee;
+    --text-color: #061401;
+    --link-color: #00a884;
+    --footer-height: 39px;
 }
 
-html, body {
-    font-family: 'Liberation Sans', sans-serif;
+html,
+body {
+    font-family: 'Liberation Serif', serif;
     color: var(--text-color);
     background-color: var(--bg-color);
     text-align: left;
     font-size: 18px;
-	margin: 2% 5%;
+    margin: 2% 5%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;;
+    display: flex;
+    flex-direction: column;
+    ;
 }
 
 p {
-  text-align: inherit;
+    text-align: inherit;
 }
 
 a {
@@ -35,35 +35,41 @@ a.dir-link {
     color: var(--text-color);
 }
 
-blockquote, figcaption {
-  opacity: 80%;
-  margin: 1%;
+blockquote,
+figcaption {
+    opacity: 80%;
+    margin: 1%;
 }
 
 blockquote {
-  border-left: solid var(--text-color) 2px;
-  padding-left: 2%;
-  padding-right: 2%;
-  font-style: italic;
+    border-left: solid var(--text-color) 2px;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-style: italic;
 }
 
 figure {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
-h1, h2, h3 {
-  font-weight: normal;
-  text-align: left;
+h1,
+h2,
+h3 {
+    font-weight: normal;
+    text-align: left;
+    font-family: 'Liberation Sans', sans-serif;
 }
 
-pre, code {
-  font-style: normal;
+pre,
+code {
+    font-style: normal;
 }
 
-ul, li {
-  list-style-type: inherit;
-  padding: inherit;
-  padding-left: max(12px, 2%);
-  padding-right: max(12px, 2%);
+ul,
+li {
+    list-style-type: inherit;
+    padding: inherit;
+    padding-left: max(12px, 2%);
+    padding-right: max(12px, 2%);
 }

@@ -399,3 +399,10 @@ will take logarithmic time in b, since doubling b will add one extra step to
 the process.
 
 This is also a very satisfying algorithm to run by hand.
+
+---
+
+Back after a long break. Maybe I'm misunderstanding 1.18, but I feel like we've done that.
+
+### Exercise 1.19
+
