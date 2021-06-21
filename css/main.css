@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open%20Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 :root {
-    --bg-color: #eeeeee;
-    --text-color: #061401;
-    --link-color: #00a884;
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #00a17e;
     --footer-height: 39px;
 }
 
 html,
 body {
-    font-family: 'Merriweather', serif;
+    font-family: 'Nunito', serif;
     color: var(--text-color);
     background-color: var(--bg-color);
     text-align: left;
@@ -58,7 +58,6 @@ h2,
 h3 {
     font-weight: normal;
     text-align: left;
-    font-family: 'Open Sans', sans-serif;
 }
 
 pre,
