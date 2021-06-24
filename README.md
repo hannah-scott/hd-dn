@@ -1,13 +1,13 @@
-# hannahs.ddns.net
+# sass-template
 
-My personal website, built with discount markdown and cite.
+Template website for learning Sass
 
-## Corrections
+## Photo credits
 
-If you notice any typos or dead links please let me know!
+All photos from Unsplash.
 
-## Licensing
+Home: Photo by <a href="https://unsplash.com/@kseegars?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kadarius Seegars</a>
 
-All HTML content on the site is dedicated to the public domain under CC0. To the greatest extent possible, I have waived all copyright claims to this content.
+About: Photo by <a href="https://unsplash.com/@zvandrei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrey Zvyagintsev</a>
 
-The static site generator cite and its source code are distributed under the MIT License. 
+Contact: Photo by <a href="https://unsplash.com/@nordwood?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">NordWood Themes</a>

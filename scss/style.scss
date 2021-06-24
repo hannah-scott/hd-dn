@@ -1,0 +1,82 @@
+@import "config";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    @include set-background($light-color);
+    font-family: $font-stack;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.landing {
+    @include set-background($primary-color);
+
+    padding-bottom: 1rem;
+
+    width: 100%;
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+        li {
+            padding: 1rem 2rem;
+            .selected {
+                font-weight: 600;
+            }
+        }
+        a {
+            color: set-text-color($primary-color);
+        }
+        a:hover {
+            color: darken($secondary-color, 10%);
+        }
+    }
+    &-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        img {
+            border-radius: 10rem;
+            max-width: 500px;
+            width: 50%;
+        }
+        ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+        .contact-title {
+            font-weight: bold;
+        }
+    }
+}
+
+@import "utilities";
+@import "books";
+@import "buttons";
+@import "mobile";

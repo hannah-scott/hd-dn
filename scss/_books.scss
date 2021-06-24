@@ -1,0 +1,67 @@
+// Base index style
+.books {
+    @include set-background($light-color);
+    h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    &-category {
+        ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+
+        li {
+            padding-top: 0.2rem;
+        }
+
+        a {
+            text-transform: capitalize;
+            color: set-text-color($light-color);
+        }
+
+        a:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+// Individual book page style
+.book {
+    @extend .landing;
+
+    &-info {
+        h1 {
+            font-size: 2rem;
+            line-height: 1.2;
+            text-transform: capitalize;
+        }
+        h2 {
+            font-size: 1.4rem;
+            opacity: 0.8;
+        }
+    }
+
+    ul,
+    ol {
+        padding: 0 2rem;
+    }
+
+    &-summaries {
+        aside {
+            font-size: 0.9rem;
+        }
+
+        blockquote {
+            margin: 0 0.5rem;
+            padding: 0 1rem;
+            font-style: italic;
+            border-left: 4px solid darken($light-color, 10%);
+        }
+
+        ul,
+        ol {
+            padding: 0 2rem;
+        }
+    }
+}

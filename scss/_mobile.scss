@@ -1,0 +1,22 @@
+@media (max-width: 700px) {
+    .landing {
+        min-height: 400px;
+        padding-bottom: 1rem;
+        &-content {
+            text-align: center;
+            img {
+                display: none;
+            }
+        }
+        nav {
+            li {
+                padding: 0.8rem;
+            }
+        }
+    }
+    .container {
+        padding: 0 2rem;
+        margin: 0 auto;
+        overflow: auto;
+    }
+}
