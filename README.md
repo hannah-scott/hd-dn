@@ -1,6 +1,6 @@
 # HDDN
 
-Personal website hosted at [hannahs.ddns.net](hannahs.ddns.net).
+Personal website hosted at [hannahs.ddns.net](https://hannahs.ddns.net).
 
 ## Copyright
 
