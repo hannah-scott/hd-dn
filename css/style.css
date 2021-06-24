@@ -193,8 +193,17 @@ a {
 }
 
 .book-info h2 {
+  margin-top: 0.5rem;
   font-size: 1.4rem;
   opacity: 0.8;
+}
+
+.book-tss {
+  background-color: #ffd5d5;
+  color: #222;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
 }
 
 .book ul,
