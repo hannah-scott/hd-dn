@@ -1,6 +1,6 @@
 // Base index style
 .books {
-    @include set-background($light-color);
+    @include set-background($bg-color);
     h1 {
         font-size: 1.8rem;
         line-height: 1.2;
@@ -17,7 +17,7 @@
 
         a {
             text-transform: capitalize;
-            color: set-text-color($light-color);
+            color: set-text-color($bg-color);
         }
 
         a:hover {
@@ -60,11 +60,15 @@
             font-size: 0.9rem;
         }
 
+        a {
+            color: darken($secondary-color, 5%);
+        }
+
         blockquote {
             margin: 0 0.5rem;
             padding: 0 1rem;
             font-style: italic;
-            border-left: 4px solid darken($light-color, 10%);
+            border-left: 4px solid darken($bg-color, 10%);
         }
 
         ul,

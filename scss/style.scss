@@ -7,11 +7,11 @@
 }
 
 html {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 body {
-    @include set-background($light-color);
+    @include set-background($bg-color);
     font-family: $font-stack;
     font-size: 18px;
     line-height: 1.6;
@@ -55,7 +55,7 @@ a {
     &-content {
         height: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         h1 {
             font-size: 2.5rem;
@@ -63,8 +63,7 @@ a {
         }
         img {
             border-radius: 10rem;
-            max-width: 500px;
-            width: 50%;
+            max-width: 28rem;
         }
         ul {
             display: inline-block;
