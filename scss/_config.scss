@@ -1,18 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-$font-stack: "Nunito", sans-serif;
-
+$font-stack: sans-serif;
 $bg-color: #f8f8f8;
 // $primary-color: #238599;
 // $secondary-color: #fdc4c4;
 $primary-color: #ffbcb3;
 $secondary-color: #615d66;
 $text-color: #222;
-
 // Set text color based on bg
 @function set-text-color($color) {
     @if (lightness($color) >70) {
         @return $text-color;
-    } @else {
+    }
+    @else {
         @return #fff;
     }
 }

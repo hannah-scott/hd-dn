@@ -1,7 +1,11 @@
 @media (max-width: 44rem) {
     .landing {
-        padding-bottom: 1rem;
+        padding: 0.5rem 0rem;
+        h1 {
+            font-size: 2rem;
+        }
         &-content {
+            margin: 0;
             text-align: center;
             align-content: center;
             justify-content: space-around;
@@ -10,9 +14,24 @@
             }
         }
         nav {
+            display: flex;
+            flex-direction: column;
+            ul {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+                border-radius: 0.8rem;
+                padding: 0.5rem 2rem;
+            }
             li {
-                padding: 0.5rem;
-                margin: auto;
+                text-align: center;
+                margin: 0.5rem;
+                padding: 0;
+                a {
+                    padding: 0.5rem 2rem;
+                    width: 20rem;
+                    margin: 1rem;
+                }
             }
         }
     }
