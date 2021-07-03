@@ -1,4 +1,5 @@
-$font-stack: sans-serif;
+$font-stack: "Bitstream Charter", serif;
+$head-stack: "Noto Sans", sans-serif;
 $bg-color: #f8f8f8;
 // $primary-color: #238599;
 // $secondary-color: #fdc4c4;
@@ -7,16 +8,15 @@ $secondary-color: #615d66;
 $text-color: #222;
 // Set text color based on bg
 @function set-text-color($color) {
-    @if (lightness($color) >70) {
-        @return $text-color;
-    }
-    @else {
-        @return #fff;
-    }
+  @if (lightness($color) >70) {
+    @return $text-color;
+  } @else {
+    @return #fff;
+  }
 }
 
 // Set background and text colors
 @mixin set-background($color) {
-    background-color: $color;
-    color: set-text-color($color);
+  background-color: $color;
+  color: set-text-color($color);
 }

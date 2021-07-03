@@ -12,7 +12,7 @@ html {
 body {
   background-color: #f8f8f8;
   color: #222;
-  font-family: sans-serif;
+  font-family: "Bitstream Charter", serif;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -33,6 +33,7 @@ a {
 }
 
 .landing nav, .book nav {
+  font-family: "Noto Sans", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,6 +82,8 @@ a {
 }
 
 .landing-content h1 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 500;
   font-size: 2.5rem;
   line-height: 1.2;
 }
@@ -235,6 +238,7 @@ a {
   border: 0;
   padding: 0.5rem 2rem;
   margin: 0.25rem;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .btn-primary:hover, .btn-secondary:hover {
