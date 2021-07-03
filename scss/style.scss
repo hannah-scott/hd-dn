@@ -1,78 +1,78 @@
 @import "config";
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 body {
-    @include set-background($bg-color);
-    font-family: $font-stack;
-    font-size: 18px;
-    line-height: 1.6;
+  @include set-background($bg-color);
+  font-family: $font-stack;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .landing {
-    @include set-background($primary-color);
+  @include set-background($primary-color);
 
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 
-    width: 100%;
-    nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        ul {
-            display: flex;
-            list-style-type: none;
-        }
-        li {
-            padding: 1rem 2rem;
-            .selected {
-                font-weight: 600;
-            }
-        }
-        a {
-            color: set-text-color($primary-color);
-        }
-        a:hover {
-            color: darken($secondary-color, 10%);
-        }
+  width: 100%;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ul {
+      display: flex;
+      list-style-type: none;
     }
-    &-content {
-        height: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-        }
-        img {
-            border-radius: 10rem;
-            max-width: 28rem;
-        }
-        ul {
-            display: inline-block;
-            list-style-type: none;
-        }
-        .contact-title {
-            font-weight: bold;
-        }
+    li {
+      padding: 1rem 2rem;
+      .selected {
+        font-weight: 600;
+      }
     }
+    a {
+      color: set-text-color($primary-color);
+    }
+    a:hover {
+      color: darken($secondary-color, 10%);
+    }
+  }
+  &-content {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    img {
+      border-radius: 10rem;
+      max-width: 28rem;
+    }
+    ul {
+      display: inline-block;
+      list-style-type: none;
+    }
+    .contact-title {
+      font-weight: bold;
+    }
+  }
 }
 
 @import "utilities";
