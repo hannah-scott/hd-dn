@@ -1,6 +1,5 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -31,73 +30,48 @@ a {
   padding-bottom: 1rem;
   width: 100%;
 }
-
 .landing nav, .book nav {
   font-family: "Noto Sans", sans-serif;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .landing nav ul, .book nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   list-style-type: none;
 }
-
 .landing nav li, .book nav li {
   padding: 1rem 2rem;
 }
-
 .landing nav li .selected, .book nav li .selected {
   font-weight: 600;
 }
-
 .landing nav a, .book nav a {
   color: #222;
 }
-
 .landing nav a:hover, .book nav a:hover {
   color: #48454b;
 }
-
 .landing-content {
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-
 .landing-content h1 {
   font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   font-size: 2.5rem;
   line-height: 1.2;
 }
-
 .landing-content img {
   border-radius: 10rem;
   max-width: 28rem;
 }
-
 .landing-content ul {
   display: inline-block;
   list-style-type: none;
 }
-
 .landing-content .contact-title {
   font-weight: bold;
 }
@@ -107,8 +81,7 @@ a {
   padding: 0 2rem;
   margin: 0 auto;
   overflow: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .m-1 {
@@ -163,26 +136,21 @@ a {
   background-color: #f8f8f8;
   color: #222;
 }
-
 .books h1 {
   font-size: 1.8rem;
   line-height: 1.2;
 }
-
 .books-category ul {
   display: inline-block;
   list-style-type: none;
 }
-
 .books-category li {
   padding-top: 0.2rem;
 }
-
 .books-category a {
   text-transform: capitalize;
   color: #222;
 }
-
 .books-category a:hover {
   color: #615d66;
 }
@@ -192,13 +160,11 @@ a {
   line-height: 1.2;
   text-transform: capitalize;
 }
-
 .book-info h2 {
   margin-top: 0.5rem;
   font-size: 1.4rem;
   opacity: 0.8;
 }
-
 .book-tss {
   background-color: #ffd2cd;
   color: #222;
@@ -206,33 +172,28 @@ a {
   margin: 1rem 0;
   padding: 0.5rem 2rem;
 }
-
 .book ul,
 .book ol {
   padding: 0 2rem;
 }
-
 .book-summaries aside {
   font-size: 0.9rem;
 }
-
 .book-summaries a {
   color: #545159;
 }
-
 .book-summaries blockquote {
   margin: 0 0.5rem;
   padding: 0 1rem;
   font-style: italic;
   border-left: 4px solid #dfdfdf;
 }
-
 .book-summaries ul,
 .book-summaries ol {
   padding: 0 2rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-secondary, .btn-primary {
   display: inline-block;
   border-radius: 0.8rem;
   border: 0;
@@ -240,10 +201,8 @@ a {
   margin: 0.25rem;
   font-family: "Noto Sans", sans-serif;
 }
-
-.btn-primary:hover, .btn-secondary:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
+.btn-secondary:hover, .btn-primary:hover {
+  transform: scale(0.98);
 }
 
 .btn-primary {
@@ -266,31 +225,19 @@ a {
   .landing-content {
     margin: 0;
     text-align: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    align-content: center;
+    justify-content: space-around;
   }
   .landing-content img {
     display: none;
   }
   .landing nav, .book nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .landing nav ul, .book nav ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     margin: 1rem;
     border-radius: 0.8rem;
     padding: 0.5rem 2rem;
@@ -305,6 +252,7 @@ a {
     width: 20rem;
     margin: 1rem;
   }
+
   .container {
     padding: 0 2rem;
     margin: 0 auto;
