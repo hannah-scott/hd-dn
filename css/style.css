@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+h1, h2, p {
+  margin: 1rem 0;
+}
+
 .landing, .book {
   background-color: #fdfdfd;
   color: #222;
@@ -80,30 +84,6 @@ a {
   margin: 0 auto;
   overflow: auto;
   box-sizing: border-box;
-}
-
-.m-1 {
-  margin: 1rem;
-}
-
-.mx-1 {
-  margin: 0 1rem;
-}
-
-.my-1 {
-  margin: 1rem 0;
-}
-
-.p-1 {
-  padding: 1rem;
-}
-
-.px-1 {
-  padding: 0 1rem;
-}
-
-.py-1 {
-  padding: 1rem 0;
 }
 
 .books {
