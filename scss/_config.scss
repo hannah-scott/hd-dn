@@ -1,10 +1,13 @@
 $font-stack: "Bitstream Charter", serif;
 $head-stack: "Noto Sans", sans-serif;
-$bg-color: #f8f8f8;
+$bg-color: #fdfdfd;
 // $primary-color: #238599;
 // $secondary-color: #fdc4c4;
-$primary-color: #ffbcb3;
-$secondary-color: #615d66;
+//$primary-color: #ffbcb3;
+//$secondary-color: #615d66;
+$primary-color: #fdfdfd;
+$secondary-color: #222;
+
 $text-color: #222;
 // Set text color based on bg
 @function set-text-color($color) {

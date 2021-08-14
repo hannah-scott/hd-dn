@@ -5,19 +5,19 @@
 }
 
 html {
-  font-size: 16px;
-}
-
-body {
-  background-color: #f8f8f8;
-  color: #222;
-  font-family: "Bitstream Charter", serif;
   font-size: 18px;
   line-height: 1.6;
 }
 
+body {
+  background-color: #fdfdfd;
+  color: #222;
+  font-family: "Bitstream Charter", serif;
+}
+
 img {
   width: 100%;
+  display: none;
 }
 
 a {
@@ -25,9 +25,8 @@ a {
 }
 
 .landing, .book {
-  background-color: #ffbcb3;
+  background-color: #fdfdfd;
   color: #222;
-  padding-bottom: 1rem;
   width: 100%;
 }
 .landing nav, .book nav {
@@ -50,10 +49,9 @@ a {
   color: #222;
 }
 .landing nav a:hover, .book nav a:hover {
-  color: #48454b;
+  color: #090909;
 }
 .landing-content {
-  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -78,7 +76,7 @@ a {
 
 .container {
   max-width: 1100px;
-  padding: 0 2rem;
+  padding: 0rem 4rem;
   margin: 0 auto;
   overflow: auto;
   box-sizing: border-box;
@@ -108,32 +106,8 @@ a {
   padding: 1rem 0;
 }
 
-.m-2 {
-  margin: 2rem;
-}
-
-.mx-2 {
-  margin: 0 2rem;
-}
-
-.my-2 {
-  margin: 2rem 0;
-}
-
-.p-2 {
-  padding: 2rem;
-}
-
-.px-2 {
-  padding: 0 2rem;
-}
-
-.py-2 {
-  padding: 2rem 0;
-}
-
 .books {
-  background-color: #f8f8f8;
+  background-color: #fdfdfd;
   color: #222;
 }
 .books h1 {
@@ -152,7 +126,7 @@ a {
   color: #222;
 }
 .books-category a:hover {
-  color: #615d66;
+  color: #222;
 }
 
 .book-info h1 {
@@ -166,11 +140,8 @@ a {
   opacity: 0.8;
 }
 .book-tss {
-  background-color: #ffd2cd;
+  background-color: white;
   color: #222;
-  border-radius: 1rem;
-  margin: 1rem 0;
-  padding: 0.5rem 2rem;
 }
 .book ul,
 .book ol {
@@ -180,13 +151,13 @@ a {
   font-size: 0.9rem;
 }
 .book-summaries a {
-  color: #545159;
+  color: #151515;
 }
 .book-summaries blockquote {
   margin: 0 0.5rem;
   padding: 0 1rem;
   font-style: italic;
-  border-left: 4px solid #dfdfdf;
+  border-left: 4px solid #e4e4e4;
 }
 .book-summaries ul,
 .book-summaries ol {
@@ -206,12 +177,12 @@ a {
 }
 
 .btn-primary {
-  background-color: #ffd2cd;
+  background-color: white;
   color: #222;
 }
 
 .btn-secondary {
-  background-color: #615d66;
+  background-color: #222;
   color: #fff;
 }
 

@@ -7,18 +7,18 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 body {
   @include set-background($bg-color);
   font-family: $font-stack;
-  font-size: 18px;
-  line-height: 1.6;
 }
 
 img {
   width: 100%;
+  display:none;
 }
 
 a {
@@ -27,9 +27,6 @@ a {
 
 .landing {
   @include set-background($primary-color);
-
-  padding-bottom: 1rem;
-
   width: 100%;
   nav {
     font-family: $head-stack;
@@ -54,7 +51,6 @@ a {
     }
   }
   &-content {
-    height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
