@@ -22,7 +22,8 @@ img {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: inherit;
 }
 
 h1, h2, p {
@@ -52,6 +53,7 @@ h1, h2, p {
 }
 .landing nav a, .book nav a {
   color: #222;
+  text-decoration: none;
 }
 .landing nav a:hover, .book nav a:hover {
   color: #090909;
@@ -150,6 +152,7 @@ h1, h2, p {
   border: 0;
   padding: 0.5rem 2rem;
   margin: 0.25rem;
+  text-decoration: none;
   font-family: "Noto Sans", sans-serif;
 }
 .btn-secondary:hover, .btn-primary:hover {

@@ -23,7 +23,8 @@ img {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color:inherit;
 }
 
 
@@ -51,6 +52,7 @@ h1, h2, p {
     }
     a {
       color: set-text-color($primary-color);
+	  text-decoration:none;
     }
     a:hover {
       color: darken($secondary-color, 10%);
