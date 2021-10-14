@@ -10,16 +10,13 @@
             display: inline-block;
             list-style-type: none;
         }
-
         li {
             padding-top: 0.2rem;
         }
-
         a {
             text-transform: capitalize;
             color: set-text-color($bg-color);
         }
-
         a:hover {
             color: $secondary-color;
         }
@@ -29,7 +26,6 @@
 // Individual book page style
 .book {
     @extend .landing;
-
     &-info {
         h1 {
             font-size: 2rem;
@@ -42,32 +38,23 @@
             opacity: 0.8;
         }
     }
-
-    &-tss {
-        @include set-background(lighten($primary-color, 5%));
-    }
-
     ul,
     ol {
         padding: 0 2rem;
     }
-
     &-summaries {
         aside {
             font-size: 0.9rem;
         }
-
         a {
             color: darken($secondary-color, 5%);
         }
-
         blockquote {
             margin: 0 0.5rem;
             padding: 0 1rem;
             font-style: italic;
             border-left: 4px solid darken($bg-color, 10%);
         }
-
         ul,
         ol {
             padding: 0 2rem;
