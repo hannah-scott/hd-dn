@@ -26,7 +26,14 @@ a {
   color: inherit;
 }
 
-h1, h2, p {
+ul,
+ol {
+  padding: 0 2rem;
+}
+
+h1,
+h2,
+p {
   margin: 1rem 0;
 }
 
@@ -35,59 +42,48 @@ h1, h2, p {
   color: #222;
   width: 100%;
 }
-
 .landing nav, .book nav {
   font-family: "Noto Sans", sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .landing nav ul, .book nav ul {
   display: flex;
   list-style-type: none;
 }
-
 .landing nav li, .book nav li {
   padding: 1rem 2rem;
 }
-
 .landing nav li .selected, .book nav li .selected {
   font-weight: 600;
 }
-
 .landing nav a, .book nav a {
   color: #222;
   text-decoration: none;
 }
-
 .landing nav a:hover, .book nav a:hover {
   color: #090909;
 }
-
 .landing-content {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
-
 .landing-content h1 {
   font-family: "Noto Sans", sans-serif;
   font-weight: 500;
   font-size: 2.5rem;
   line-height: 1.2;
 }
-
 .landing-content img {
   border-radius: 10rem;
   max-width: 28rem;
 }
-
 .landing-content ul {
   display: inline-block;
   list-style-type: none;
 }
-
 .landing-content .contact-title {
   font-weight: bold;
 }
@@ -104,26 +100,21 @@ h1, h2, p {
   background-color: #fdfdfd;
   color: #222;
 }
-
 .books h1 {
   font-size: 1.8rem;
   line-height: 1.2;
 }
-
 .books-category ul {
   display: inline-block;
   list-style-type: none;
 }
-
 .books-category li {
   padding-top: 0.2rem;
 }
-
 .books-category a {
   text-transform: capitalize;
   color: #222;
 }
-
 .books-category a:hover {
   color: #222;
 }
@@ -133,39 +124,33 @@ h1, h2, p {
   line-height: 1.2;
   text-transform: capitalize;
 }
-
 .book-info h2 {
   margin-top: 0.5rem;
   font-size: 1.4rem;
   opacity: 0.8;
 }
-
 .book ul,
 .book ol {
   padding: 0 2rem;
 }
-
 .book-summaries aside {
   font-size: 0.9rem;
 }
-
 .book-summaries a {
   color: #151515;
 }
-
 .book-summaries blockquote {
   margin: 0 0.5rem;
   padding: 0 1rem;
   font-style: italic;
   border-left: 4px solid #e4e4e4;
 }
-
 .book-summaries ul,
 .book-summaries ol {
   padding: 0 2rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-secondary, .btn-primary {
   display: inline-block;
   border: 0;
   padding: 0.5rem 2rem;
@@ -173,8 +158,7 @@ h1, h2, p {
   text-decoration: none;
   font-family: "Noto Sans", sans-serif;
 }
-
-.btn-primary:hover, .btn-secondary:hover {
+.btn-secondary:hover, .btn-primary:hover {
   transform: scale(0.98);
 }
 
@@ -225,6 +209,7 @@ h1, h2, p {
     width: 20rem;
     margin: 1rem;
   }
+
   .container {
     padding: 0 2rem;
     margin: 0 auto;
