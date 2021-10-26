@@ -1,25 +1,26 @@
-$font-stack: "Bitstream Charter", serif;
+$font-stack: "Noto Sans", sans-serif;
 $head-stack: "Noto Sans", sans-serif;
-$bg-color: #fdfdfd;
+$bg-color: #110832;
 // $primary-color: #238599;
 // $secondary-color: #fdc4c4;
 //$primary-color: #ffbcb3;
 //$secondary-color: #615d66;
-$primary-color: #fdfdfd;
-$secondary-color: #222;
+$primary-color: #110832;
+$secondary-color: #fe0f9a;
 
-$text-color: #222;
+$text-color: #fe0f9a;
 // Set text color based on bg
 @function set-text-color($color) {
-  @if (lightness($color) >70) {
+    // @if (lightness($color) >70) {
+    //     @return $text-color;
+    // } @else {
+    //     @return #4f1034;
+    // }
     @return $text-color;
-  } @else {
-    @return #fff;
-  }
 }
 
 // Set background and text colors
 @mixin set-background($color) {
-  background-color: $color;
-  color: set-text-color($color);
+    background-color: $color;
+    color: set-text-color($color);
 }

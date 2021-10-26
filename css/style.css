@@ -11,9 +11,9 @@ html {
 }
 
 body {
-  background-color: #fdfdfd;
-  color: #222;
-  font-family: "Bitstream Charter", serif;
+  background-color: #110832;
+  color: #fe0f9a;
+  font-family: "Noto Sans", sans-serif;
 }
 
 img {
@@ -38,8 +38,8 @@ p {
 }
 
 .landing, .book {
-  background-color: #fdfdfd;
-  color: #222;
+  background-color: #110832;
+  color: #fe0f9a;
   width: 100%;
 }
 .landing nav, .book nav {
@@ -59,11 +59,11 @@ p {
   font-weight: 600;
 }
 .landing nav a, .book nav a {
-  color: #222;
+  color: #fe0f9a;
   text-decoration: none;
 }
 .landing nav a:hover, .book nav a:hover {
-  color: #090909;
+  color: #d9017f;
 }
 .landing-content {
   display: flex;
@@ -97,8 +97,8 @@ p {
 }
 
 .books {
-  background-color: #fdfdfd;
-  color: #222;
+  background-color: #110832;
+  color: #fe0f9a;
 }
 .books h1 {
   font-size: 1.8rem;
@@ -113,10 +113,10 @@ p {
 }
 .books-category a {
   text-transform: capitalize;
-  color: #222;
+  color: #fe0f9a;
 }
 .books-category a:hover {
-  color: #222;
+  color: #fe0f9a;
 }
 
 .book-info h1 {
@@ -137,13 +137,13 @@ p {
   font-size: 0.9rem;
 }
 .book-summaries a {
-  color: #151515;
+  color: #f2018d;
 }
 .book-summaries blockquote {
   margin: 0 0.5rem;
   padding: 0 1rem;
   font-style: italic;
-  border-left: 4px solid #e4e4e4;
+  border-left: 4px solid #d9017f;
 }
 .book-summaries ul,
 .book-summaries ol {
@@ -163,13 +163,13 @@ p {
 }
 
 .btn-primary {
-  background-color: white;
-  color: #222;
+  background-color: #180c48;
+  color: #fe0f9a;
 }
 
 .btn-secondary {
-  background-color: #222;
-  color: #fff;
+  background-color: #fe0f9a;
+  color: #fe0f9a;
 }
 
 @media (max-width: 44rem) {
