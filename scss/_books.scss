@@ -9,16 +9,13 @@
         ul {
             display: inline-block;
             list-style-type: none;
+            padding: 0;
         }
         li {
             padding-top: 0.2rem;
         }
         a {
             text-transform: capitalize;
-            color: set-text-color($bg-color);
-        }
-        a:hover {
-            color: $secondary-color;
         }
     }
 }
@@ -35,7 +32,6 @@
         h2 {
             margin-top: 0.5rem;
             font-size: 1.4rem;
-            opacity: 0.8;
         }
     }
     ul,
@@ -44,20 +40,19 @@
     }
     &-summaries {
         aside {
-            font-size: 0.9rem;
-        }
-        a {
-            color: darken($secondary-color, 5%);
+            font-size: 0.8rem;
+            padding-left: 1rem;
         }
         blockquote {
-            margin: 0 0.5rem;
+            margin: 0;
             padding: 0 1rem;
             font-style: italic;
-            border-left: 4px solid darken($text-color, 10%);
+            border-left: 4px solid $text-color;
         }
         ul,
         ol {
-            padding: 0 2rem;
+            padding: 0 0rem;
+            list-style: none;
         }
     }
 }

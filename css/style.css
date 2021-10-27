@@ -11,9 +11,9 @@ html {
 }
 
 body {
-  background-color: #110832;
-  color: #fe0f9a;
-  font-family: "Noto Sans", sans-serif;
+  background-color: #fdfdfd;
+  color: #030303;
+  font-family: sans-serif;
 }
 
 img {
@@ -22,8 +22,22 @@ img {
 }
 
 a {
-  text-decoration: underline;
-  color: inherit;
+  text-decoration: none;
+  color: #030303;
+  background-color: #fdfdfd;
+}
+
+a:hover {
+  color: #fdfdfd;
+  background-color: #030303;
+}
+
+a::before {
+  content: "[";
+}
+
+a::after {
+  content: "]";
 }
 
 ul,
@@ -38,12 +52,12 @@ p {
 }
 
 .landing, .book {
-  background-color: #110832;
-  color: #fe0f9a;
+  background-color: #fdfdfd;
+  color: #030303;
   width: 100%;
 }
 .landing nav, .book nav {
-  font-family: "Noto Sans", sans-serif;
+  font-family: sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,11 +73,13 @@ p {
   font-weight: 600;
 }
 .landing nav a, .book nav a {
-  color: #fe0f9a;
-  text-decoration: none;
+  padding: 0.4rem;
 }
-.landing nav a:hover, .book nav a:hover {
-  color: #d9017f;
+.landing nav a::before, .book nav a::before {
+  content: "";
+}
+.landing nav a::after, .book nav a::after {
+  content: "";
 }
 .landing-content {
   display: flex;
@@ -71,7 +87,7 @@ p {
   justify-content: space-between;
 }
 .landing-content h1 {
-  font-family: "Noto Sans", sans-serif;
+  font-family: sans-serif;
   font-weight: 500;
   font-size: 2.5rem;
   line-height: 1.2;
@@ -97,8 +113,8 @@ p {
 }
 
 .books {
-  background-color: #110832;
-  color: #fe0f9a;
+  background-color: #fdfdfd;
+  color: #030303;
 }
 .books h1 {
   font-size: 1.8rem;
@@ -107,16 +123,13 @@ p {
 .books-category ul {
   display: inline-block;
   list-style-type: none;
+  padding: 0;
 }
 .books-category li {
   padding-top: 0.2rem;
 }
 .books-category a {
   text-transform: capitalize;
-  color: #fe0f9a;
-}
-.books-category a:hover {
-  color: #fe0f9a;
 }
 
 .book-info h1 {
@@ -127,27 +140,25 @@ p {
 .book-info h2 {
   margin-top: 0.5rem;
   font-size: 1.4rem;
-  opacity: 0.8;
 }
 .book ul,
 .book ol {
   padding: 0 2rem;
 }
 .book-summaries aside {
-  font-size: 0.9rem;
-}
-.book-summaries a {
-  color: #f2018d;
+  font-size: 0.8rem;
+  padding-left: 1rem;
 }
 .book-summaries blockquote {
-  margin: 0 0.5rem;
+  margin: 0;
   padding: 0 1rem;
   font-style: italic;
-  border-left: 4px solid #d9017f;
+  border-left: 4px solid #030303;
 }
 .book-summaries ul,
 .book-summaries ol {
-  padding: 0 2rem;
+  padding: 0 0rem;
+  list-style: none;
 }
 
 .btn-secondary, .btn-primary {
@@ -156,20 +167,20 @@ p {
   padding: 0.5rem 2rem;
   margin: 0.25rem;
   text-decoration: none;
-  font-family: "Noto Sans", sans-serif;
+  font-family: sans-serif;
 }
 .btn-secondary:hover, .btn-primary:hover {
   transform: scale(0.98);
 }
 
 .btn-primary {
-  background-color: #180c48;
-  color: #fe0f9a;
+  background-color: white;
+  color: #030303;
 }
 
 .btn-secondary {
-  background-color: #fe0f9a;
-  color: #fe0f9a;
+  background-color: #030303;
+  color: #fdfdfd;
 }
 
 @media (max-width: 44rem) {
