@@ -68,6 +68,8 @@ h1, h2, p { margin: 1rem 0; }
 
 .book-summaries ul, .book-summaries ol { padding: 0 0rem; list-style: none; }
 
+.book-summary ul, .book-summary ol { list-style: initial; padding: 0 2rem; }
+
 .btn-primary, .btn-secondary { display: inline-block; border: 0; padding: 0.5rem 2rem; margin: 0.25rem; text-decoration: none; font-family: sans-serif; }
 
 .btn-primary:hover, .btn-secondary:hover { -webkit-transform: scale(0.98); transform: scale(0.98); }

@@ -55,4 +55,10 @@
             list-style: none;
         }
     }
+    &-summary {
+        ul,ol {
+            list-style: initial;
+            padding: 0 2rem;
+        }
+    }
 }
