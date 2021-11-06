@@ -6,7 +6,7 @@
 }
 
 html {
-  padding: 1rem 0 4rem;
+  padding: 0 0 4rem;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -22,9 +22,11 @@ img {
 }
 
 a {
-  text-decoration: none;
-  color: #fdfdfd;
-  background-color: #030303;
+  -webkit-text-decoration: underline black;
+          text-decoration: underline black;
+  color: #030303;
+  text-decoration-style: dotted;
+  -webkit-text-decoration-style: dotted;
 }
 
 a:hover {
@@ -32,9 +34,7 @@ a:hover {
   background-color: #fdfdfd;
 }
 
-ul ul, ul ol,
-ol ul,
-ol ol {
+ul, ol {
   padding: 0 2rem;
 }
 
@@ -67,13 +67,13 @@ p {
 
 .nav a {
   text-decoration: none;
-  color: #030303;
-  background-color: #fdfdfd;
+  color: #fdfdfd;
+  background-color: #030303;
 }
 
 .nav a:hover {
-  color: #fdfdfd;
-  background-color: #030303;
+  color: #030303;
+  background-color: #fdfdfd;
 }
 
 .nav * {
@@ -87,8 +87,8 @@ p {
 }
 
 .nav-home a:hover {
-  color: #030303;
-  background-color: #fdfdfd;
+  color: #fdfdfd;
+  background-color: #030303;
 }
 
 .nav-link-group {
@@ -111,6 +111,13 @@ p {
   padding: 0.5rem 1rem;
 }
 
+#nav-border {
+  padding: 1rem 0;
+  margin: 0;
+  color: #fdfdfd;
+  background-color: #030303;
+}
+
 .container {
   max-width: 1100px;
   padding: 0rem 4rem;
@@ -120,7 +127,7 @@ p {
           box-sizing: border-box;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   .nav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -132,12 +139,12 @@ p {
   }
   .nav a {
     text-decoration: none;
-    color: #030303;
-    background-color: #fdfdfd;
-  }
-  .nav a:hover {
     color: #fdfdfd;
     background-color: #030303;
+  }
+  .nav a:hover {
+    color: #030303;
+    background-color: #fdfdfd;
   }
   .nav * {
     padding: 0;
@@ -149,8 +156,8 @@ p {
     text-align: center;
   }
   .nav-home a:hover {
-    color: #030303;
-    background-color: #fdfdfd;
+    color: #fdfdfd;
+    background-color: #030303;
   }
   .nav-link-group {
     display: -webkit-box;
@@ -163,6 +170,8 @@ p {
     list-style: none;
   }
   .nav-link {
+    width: 10rem;
+    margin: 0.2rem 0;
     padding: 0.5rem 0;
   }
   .container {
