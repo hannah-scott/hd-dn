@@ -1,37 +1,43 @@
-@media (max-width: 44rem) {
-    .landing {
-        padding: 0.5rem 0rem;
-        h1 {
-            font-size: 2rem;
+@media (max-width: 720px) {
+    // Navbar
+    .nav {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            text-decoration: none;
+            color: $text-color;
+            background-color: $bg-color;
         }
-        &-content {
-            margin: 0;
-            align-content: center;
-            justify-content: space-around;
-            img {
-                display: none;
+
+        a:hover {
+            color: $bg-color;
+            background-color: $text-color;
+        }
+
+        * {
+            padding: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        &-home {
+            font-weight: bold;
+            text-align: center;
+
+            a:hover {
+                color: $text-color;
+                background-color: $bg-color;
             }
         }
-        nav {
+
+        &-link-group {
             display: flex;
             flex-direction: column;
-            ul {
-                display: flex;
-                flex-direction: column;
-                margin: 1rem;
-                border-radius: 0.8rem;
-                padding: 0.5rem 2rem;
-            }
-            li {
-                text-align: center;
-                margin: 0.5rem;
-                padding: 0;
-                a {
-                    padding: 0.5rem 2rem;
-                    width: 20rem;
-                    margin: 1rem;
-                }
-            }
+            list-style: none;
+        }
+        &-link {
+            padding: 0.5rem 0;
         }
     }
     .container {

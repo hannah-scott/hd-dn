@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chess on HD-DN</title>
+    <link>http://hd-dn.com/tags/chess/</link>
+    <description>Recent content in Chess on HD-DN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://hd-dn.com/tags/chess/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Logical Chess: Move By Move</title>
+      <link>http://hd-dn.com/books/non-fiction/logical_chess_move_by_move/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/books/non-fiction/logical_chess_move_by_move/</guid>
+      <description>Notes Introduction  Playing precisely, without analysis paralysis, requires positional judgement Simply: if I put my pieces on the best squares, I will probably win   Decisive combinations will appear on the board</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Philosophy on HD-DN</title>
+    <link>http://hd-dn.com/tags/philosophy/</link>
+    <description>Recent content in Philosophy on HD-DN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://hd-dn.com/tags/philosophy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Happy</title>
+      <link>http://hd-dn.com/books/non-fiction/happy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/books/non-fiction/happy/</guid>
+      <description>I read this before I started doing chapter summaries, but I got a lot from this book and it is well worth the time.</description>
+    </item>
+    
+    <item>
+      <title>The Art of Learning</title>
+      <link>http://hd-dn.com/books/non-fiction/the_art_of_learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/books/non-fiction/the_art_of_learning/</guid>
+      <description>Summary The book is partly an overview of Waitzkin\&amp;rsquo;s successful careers as a high-level chess player and martial artist, partly a philosophical treatise on the nature of learning.</description>
+    </item>
+    
+    <item>
+      <title>The Emancipated Spectator</title>
+      <link>http://hd-dn.com/books/non-fiction/the_emancipated_spectator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/books/non-fiction/the_emancipated_spectator/</guid>
+      <description>The book is a &amp;lsquo;critique of&amp;rsquo; critique of the spectacle, described as the belief that the bombardment of images and spectacles has rendered democractic subjects passive and ignorant.</description>
+    </item>
+    
+  </channel>
+</rss>

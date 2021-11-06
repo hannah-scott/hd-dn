@@ -19,7 +19,6 @@ body {
 
 img {
     width: 100%;
-    display: none;
 }
 
 a {
@@ -27,20 +26,22 @@ a {
     color: $bg-color;
     background-color: $text-color;
 }
+
 a:hover {
     color: $text-color;
     background-color: $bg-color;
 }
-// a::before {
-//     content: "[";
-// }
-// a::after {
-//     content: "]";
-// }
 
 ul,
 ol {
-    padding: 0 2rem;
+    ul, ol {
+        padding: 0 2rem;
+    }
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: inside;
 }
 
 h1,
@@ -49,69 +50,56 @@ p {
     margin: 1rem 0;
 }
 
-.landing {
-    @include set-background($primary-color);
-    width: 100%;
-    nav {
-        font-family: $head-stack;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        ul {
-            display: flex;
-            list-style-type: none;
-        }
-        li {
-            padding: 1rem 2rem;
-            .selected {
-                font-weight: 600;
-            }
-        }
-        a {
-            padding: 0.4rem;
-        }
-        a {
-            text-decoration: none;
+.author {
+    padding: 0.5rem 0;
+}
+
+// Navbar
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+        color: $text-color;
+        background-color: $bg-color;
+    }
+    
+    a:hover {
+        color: $bg-color;
+        background-color: $text-color;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    &-home {
+        font-weight: bold;
+        text-align: left;
+
+        a:hover {
             color: $text-color;
             background-color: $bg-color;
-            
         }
-        a:hover {
-            color: $bg-color;
-            background-color: $text-color;
-        }        
-        // a::before {
-        //     content: "";
-        // }
-        // a::after {
-        //     content: "";
-        // }
     }
-    &-content {
+
+    &-link-group {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        h1 {
-            font-family: $head-stack;
-            font-weight: 500;
-            font-size: 2.5rem;
-            line-height: 1.2;
-        }
-        img {
-            border-radius: 10rem;
-            max-width: 28rem;
-        }
-        ul {
-            display: inline-block;
-            list-style-type: none;
-        }
-        .contact-title {
-            font-weight: bold;
-        }
+        margin: 0;
+        padding: 0;
+    }
+
+    &-link {
+        list-style: none;
+        margin: 0 0.2rem;
+        padding: 0.5rem 1rem;
     }
 }
 
 @import "utilities";
-@import "books";
-@import "buttons";
 @import "mobile";
