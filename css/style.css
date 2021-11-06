@@ -6,13 +6,9 @@ body { background-color: #fdfdfd; color: #030303; font-family: sans-serif; }
 
 img { width: 100%; display: none; }
 
-a { text-decoration: none; color: #030303; background-color: #fdfdfd; }
+a { text-decoration: none; color: #fdfdfd; background-color: #030303; }
 
-a:hover { color: #fdfdfd; background-color: #030303; }
-
-a::before { content: "["; }
-
-a::after { content: "]"; }
+a:hover { color: #030303; background-color: #fdfdfd; }
 
 ul, ol { padding: 0 2rem; }
 
@@ -30,9 +26,9 @@ h1, h2, p { margin: 1rem 0; }
 
 .landing nav a, .book nav a { padding: 0.4rem; }
 
-.landing nav a::before, .book nav a::before { content: ""; }
+.landing nav a, .book nav a { text-decoration: none; color: #030303; background-color: #fdfdfd; }
 
-.landing nav a::after, .book nav a::after { content: ""; }
+.landing nav a:hover, .book nav a:hover { color: #fdfdfd; background-color: #030303; }
 
 .landing-content { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
@@ -68,11 +64,11 @@ h1, h2, p { margin: 1rem 0; }
 
 .book-summaries ul, .book-summaries ol { padding: 0 0rem; list-style: none; }
 
+.book-summaries ul ul, .book-summaries ul ol, .book-summaries ol ul, .book-summaries ol ol { padding: 0 2rem; }
+
 .book-summary ul, .book-summary ol { list-style: initial; padding: 0 2rem; }
 
 .btn-primary, .btn-secondary { display: inline-block; border: 0; padding: 0.5rem 2rem; margin: 0.25rem; text-decoration: none; font-family: sans-serif; }
-
-.btn-primary:hover, .btn-secondary:hover { -webkit-transform: scale(0.98); transform: scale(0.98); }
 
 .btn-primary { background-color: white; color: #030303; }
 

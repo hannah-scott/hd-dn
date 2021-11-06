@@ -53,6 +53,9 @@
         ol {
             padding: 0 0rem;
             list-style: none;
+            ul, ol {
+                padding: 0 2rem;
+            }
         }
     }
     &-summary {
