@@ -6,10 +6,19 @@
     <description>Recent content on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Nov 2021 09:44:09 +0000</lastBuildDate>
     
 	<atom:link href="http://hd-dn.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Phone Setup</title>
+      <link>http://hd-dn.com/posts/phone-setup/</link>
+      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/posts/phone-setup/</guid>
+      <description>I&amp;rsquo;ve had a really good relationship with my smartphone recently, through just like &amp;mdash; disconnecting the thing from the internet. Things like:</description>
+    </item>
     
     <item>
       <title>Autumn squash and lentil pasta</title>
