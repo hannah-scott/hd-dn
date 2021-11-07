@@ -49,13 +49,13 @@
     }
 
     .nav-main {
-        display: none;
     }
 
     .nav-mobile {
-        margin: 0;
-        padding: 1rem 0;
-        width: 100%;
-        background-color: $text-color;
+        display: none;
+        // margin: 0;
+        // padding: 1rem 0;
+        // width: 100%;
+        // background-color: $text-color;
     }
 }
