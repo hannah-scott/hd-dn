@@ -6,7 +6,7 @@
 }
 
 html {
-  padding: 0 0 4rem;
+  padding: 0 0 0;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -47,6 +47,11 @@ h1,
 h2,
 p {
   margin: 1rem 0;
+}
+
+footer {
+  height: 4rem;
+  background-color: #fdfdfd;
 }
 
 .author {
@@ -109,6 +114,10 @@ p {
   list-style: none;
   margin: 0 0.2rem;
   padding: 0.5rem 1rem;
+}
+
+.nav-mobile {
+  display: none;
 }
 
 #nav-border {
@@ -178,5 +187,14 @@ p {
     padding: 0 2rem;
     margin: 0 auto;
     overflow: auto;
+  }
+  .nav-main {
+    display: none;
+  }
+  .nav-mobile {
+    margin: 0;
+    padding: 1rem 0;
+    width: 100%;
+    background-color: #030303;
   }
 }

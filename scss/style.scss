@@ -7,7 +7,7 @@
 }
 
 html {
-    padding: 0 0 4rem;
+    padding: 0 0 0;
     font-size: 18px;
     line-height: 1.6;
 }
@@ -47,6 +47,11 @@ h1,
 h2,
 p {
     margin: 1rem 0;
+}
+
+footer {
+    height: 4rem;
+    background-color: $bg-color;
 }
 
 .author {
@@ -99,6 +104,10 @@ p {
         margin: 0 0.2rem;
         padding: 0.5rem 1rem;
     }
+}
+
+.nav-mobile {
+    display: none;
 }
 
 #nav-border {
