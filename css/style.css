@@ -54,8 +54,21 @@ footer {
   background-color: #fdfdfd;
 }
 
+blockquote p {
+  border-left: 0.2rem solid #030303;
+  padding: 0.2rem 1rem;
+}
+
 .author {
   padding: 0.5rem 0;
+}
+
+.footnotes ol {
+  padding-top: 1rem;
+}
+
+.footnote-ref {
+  font-size: 0.8rem;
 }
 
 .nav {
