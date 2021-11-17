@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Autumn on HD-DN</title>
+    <title>autumn on HD-DN</title>
     <link>http://hd-dn.com/tags/autumn/</link>
-    <description>Recent content in Autumn on HD-DN</description>
+    <description>Recent content in autumn on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://hd-dn.com/tags/autumn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://hd-dn.com/tags/autumn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autumn squash and lentil pasta</title>
       <link>http://hd-dn.com/recipes/autumn_squash_and_lentil_pasta/</link>

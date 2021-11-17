@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>environment on HD-DN</title>
+    <link>http://hd-dn.com/tags/environment/</link>
+    <description>Recent content in environment on HD-DN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://hd-dn.com/tags/environment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Walden</title>
+      <link>http://hd-dn.com/books/non-fiction/walden/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/books/non-fiction/walden/</guid>
+      <description>Unfortunately I&amp;rsquo;ve lost my notes for the last two chapters of Walden. I&amp;rsquo;m putting this incomplete summary up for now, hopefully I&amp;rsquo;ll be able to dig out the rest.</description>
+    </item>
+    
+  </channel>
+</rss>

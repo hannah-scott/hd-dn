@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gemini on HD-DN</title>
+    <title>gemini on HD-DN</title>
     <link>http://hd-dn.com/tags/gemini/</link>
-    <description>Recent content in Gemini on HD-DN</description>
+    <description>Recent content in gemini on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Nov 2021 09:44:09 +0000</lastBuildDate>
-    
-	<atom:link href="http://hd-dn.com/tags/gemini/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 07 Nov 2021 09:44:09 +0000</lastBuildDate><atom:link href="http://hd-dn.com/tags/gemini/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Phone Setup</title>
       <link>http://hd-dn.com/posts/phone-setup/</link>
