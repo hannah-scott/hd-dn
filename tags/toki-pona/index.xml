@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>toki pona on HD-DN</title>
+    <title>Toki Pona on HD-DN</title>
     <link>http://hd-dn.com/tags/toki-pona/</link>
-    <description>Recent content in toki pona on HD-DN</description>
+    <description>Recent content in Toki Pona on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://hd-dn.com/tags/toki-pona/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    
+	<atom:link href="http://hd-dn.com/tags/toki-pona/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Toki Pona: The Language Of Good</title>
       <link>http://hd-dn.com/books/non-fiction/toki_pona_the_language_of_good/</link>

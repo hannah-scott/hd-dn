@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HD-DN</title>
@@ -6,7 +6,11 @@
     <description>Recent content on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Nov 2021 15:51:26 +0000</lastBuildDate><atom:link href="http://hd-dn.com/books/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Nov 2021 15:51:26 +0000</lastBuildDate>
+    
+	<atom:link href="http://hd-dn.com/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>The Book of Five Rings</title>
       <link>http://hd-dn.com/books/non-fiction/the-book-of-five-rings/</link>
@@ -113,7 +117,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://hd-dn.com/books/fiction/the_farthest_shore/</guid>
-      <description>A young prince, heir to a long-empty throne, comes to the island of mages with word that magic is failing. He and the archmage set out across the sea to investigate, finding at the edges of the world the fatal consequences of mages&#39; misled desires to cheat death.</description>
+      <description>A young prince, heir to a long-empty throne, comes to the island of mages with word that magic is failing. He and the archmage set out across the sea to investigate, finding at the edges of the world the fatal consequences of mages&amp;rsquo; misled desires to cheat death.</description>
     </item>
     
     <item>
@@ -159,15 +163,6 @@
       
       <guid>http://hd-dn.com/books/non-fiction/tomorrow_sex_will_be_good_again/</guid>
       <description>Katherine Angel posits that consent is not enough, that while positive consent is the &amp;ldquo;least bad standard&amp;rdquo; for sexual assault legislation, it isn&amp;rsquo;t equipped to make &amp;ldquo;sex good again&amp;rdquo;.</description>
-    </item>
-    
-    <item>
-      <title>Walden</title>
-      <link>http://hd-dn.com/books/non-fiction/walden/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/books/non-fiction/walden/</guid>
-      <description>Unfortunately I&amp;rsquo;ve lost my notes for the last two chapters of Walden. I&amp;rsquo;m putting this incomplete summary up for now, hopefully I&amp;rsquo;ll be able to dig out the rest.</description>
     </item>
     
   </channel>

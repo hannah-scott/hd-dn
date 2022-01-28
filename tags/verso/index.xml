@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>verso on HD-DN</title>
+    <title>Verso on HD-DN</title>
     <link>http://hd-dn.com/tags/verso/</link>
-    <description>Recent content in verso on HD-DN</description>
+    <description>Recent content in Verso on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://hd-dn.com/tags/verso/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    
+	<atom:link href="http://hd-dn.com/tags/verso/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Breaking Things At Work</title>
       <link>http://hd-dn.com/books/non-fiction/breaking_things_at_work/</link>

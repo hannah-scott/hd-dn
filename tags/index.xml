@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on HD-DN</title>
@@ -6,63 +6,13 @@
     <description>Recent content in Tags on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Nov 2021 15:51:26 +0000</lastBuildDate><atom:link href="http://hd-dn.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>non-fiction</title>
-      <link>http://hd-dn.com/tags/non-fiction/</link>
-      <pubDate>Tue, 09 Nov 2021 15:51:26 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/non-fiction/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://hd-dn.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>philosophy</title>
-      <link>http://hd-dn.com/tags/philosophy/</link>
-      <pubDate>Tue, 09 Nov 2021 15:51:26 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/philosophy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gemini</title>
-      <link>http://hd-dn.com/tags/gemini/</link>
-      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/gemini/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mental health</title>
-      <link>http://hd-dn.com/tags/mental-health/</link>
-      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/mental-health/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>offline first</title>
-      <link>http://hd-dn.com/tags/offline-first/</link>
-      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/offline-first/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>technology</title>
-      <link>http://hd-dn.com/tags/technology/</link>
-      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/technology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>autumn</title>
+      <title>Autumn</title>
       <link>http://hd-dn.com/tags/autumn/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
       
@@ -71,16 +21,16 @@
     </item>
     
     <item>
-      <title>recipe</title>
-      <link>http://hd-dn.com/tags/recipe/</link>
-      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      <title>Best Of</title>
+      <link>http://hd-dn.com/tags/best-of/</link>
+      <pubDate>Fri, 28 Jan 2022 14:53:49 +0000</pubDate>
       
-      <guid>http://hd-dn.com/tags/recipe/</guid>
+      <guid>http://hd-dn.com/tags/best-of/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>chess</title>
+      <title>Chess</title>
       <link>http://hd-dn.com/tags/chess/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -89,7 +39,7 @@
     </item>
     
     <item>
-      <title>earthsea</title>
+      <title>Earthsea</title>
       <link>http://hd-dn.com/tags/earthsea/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -98,16 +48,7 @@
     </item>
     
     <item>
-      <title>environment</title>
-      <link>http://hd-dn.com/tags/environment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://hd-dn.com/tags/environment/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fiction</title>
+      <title>Fiction</title>
       <link>http://hd-dn.com/tags/fiction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -116,7 +57,61 @@
     </item>
     
     <item>
-      <title>poirot</title>
+      <title>Gemini</title>
+      <link>http://hd-dn.com/tags/gemini/</link>
+      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/gemini/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lists</title>
+      <link>http://hd-dn.com/tags/lists/</link>
+      <pubDate>Fri, 28 Jan 2022 14:53:49 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/lists/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mental Health</title>
+      <link>http://hd-dn.com/tags/mental-health/</link>
+      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/mental-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Non Fiction</title>
+      <link>http://hd-dn.com/tags/non-fiction/</link>
+      <pubDate>Tue, 09 Nov 2021 15:51:26 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/non-fiction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Offline First</title>
+      <link>http://hd-dn.com/tags/offline-first/</link>
+      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/offline-first/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Philosophy</title>
+      <link>http://hd-dn.com/tags/philosophy/</link>
+      <pubDate>Tue, 09 Nov 2021 15:51:26 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/philosophy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Poirot</title>
       <link>http://hd-dn.com/tags/poirot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -125,7 +120,16 @@
     </item>
     
     <item>
-      <title>self-help</title>
+      <title>Recipe</title>
+      <link>http://hd-dn.com/tags/recipe/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/recipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Self Help</title>
       <link>http://hd-dn.com/tags/self-help/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -134,7 +138,7 @@
     </item>
     
     <item>
-      <title>short stories</title>
+      <title>Short Stories</title>
       <link>http://hd-dn.com/tags/short-stories/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -143,7 +147,16 @@
     </item>
     
     <item>
-      <title>toki pona</title>
+      <title>Technology</title>
+      <link>http://hd-dn.com/tags/technology/</link>
+      <pubDate>Sun, 07 Nov 2021 09:44:09 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/tags/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Toki Pona</title>
       <link>http://hd-dn.com/tags/toki-pona/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -152,7 +165,7 @@
     </item>
     
     <item>
-      <title>verso</title>
+      <title>Verso</title>
       <link>http://hd-dn.com/tags/verso/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
