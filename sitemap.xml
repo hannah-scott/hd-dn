@@ -80,6 +80,11 @@
   </url>
   
   <url>
+    <loc>http://hd-dn.com/tags/environment/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/tags/fiction/</loc>
     <priority>0</priority>
   </url>
@@ -225,6 +230,10 @@
   <url>
     <loc>http://hd-dn.com/tags/verso/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/books/non-fiction/walden/</loc>
   </url>
   
 </urlset>

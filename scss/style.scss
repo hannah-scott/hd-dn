@@ -1,5 +1,4 @@
 @import "config";
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -34,17 +33,17 @@ a:hover {
     background-color: $bg-color;
 }
 
-
-ul, ol {
+ul,
+ol {
     list-style-position: inside;
-    ul, ol {
+    ul,
+    ol {
         padding: 0 2rem;
     }
 }
 
 ul {
     list-style-type: square;
-    
 }
 
 h1,
@@ -61,7 +60,7 @@ footer {
 blockquote {
     p {
         border-left: 0.2rem solid $text-color;
-        padding: 0.2rem 1rem 0.2rem 0;
+        padding: 0.2rem 1em 0.2rem 1rem;
     }
 }
 
@@ -84,34 +83,27 @@ blockquote {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     a {
         text-decoration: none;
         color: $bg-color;
         background-color: $text-color;
     }
-    
     a:hover {
         color: $text-color;
         background-color: $bg-color;
-        
     }
-
     * {
         padding: 0;
         margin: 0;
     }
-
     &-home {
         font-weight: bold;
         text-align: left;
-
         a:hover {
             color: $bg-color;
             background-color: $text-color;
         }
     }
-
     &-link-group {
         display: flex;
         align-items: flex-start;
@@ -119,7 +111,6 @@ blockquote {
         margin: 0;
         padding: 0;
     }
-
     &-link {
         list-style: none;
         margin: 0 0.2rem;
