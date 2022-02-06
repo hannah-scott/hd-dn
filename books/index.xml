@@ -6,10 +6,19 @@
     <description>Recent content on HD-DN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Nov 2021 15:51:26 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Feb 2022 08:49:45 +0000</lastBuildDate>
     
 	<atom:link href="http://hd-dn.com/books/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Feel the Fear and Do It Anyway</title>
+      <link>http://hd-dn.com/books/non-fiction/feel-the-fear-and-do-it-anyway/</link>
+      <pubDate>Sun, 06 Feb 2022 08:49:45 +0000</pubDate>
+      
+      <guid>http://hd-dn.com/books/non-fiction/feel-the-fear-and-do-it-anyway/</guid>
+      <description>Susan Jeffers provides a number of useful models for understanding why we are afraid, and how to act despite our fear.</description>
+    </item>
     
     <item>
       <title>The Book of Five Rings</title>
