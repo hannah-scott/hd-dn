@@ -1,25 +1,19 @@
 $font-stack: sans-serif;
 $head-stack: sans-serif;
-$bg-color: #fdfdfd;
+
 // $primary-color: #238599;
 // $secondary-color: #fdc4c4;
 //$primary-color: #ffbcb3;
 //$secondary-color: #615d66;
-$primary-color: #fdfdfd;
-$secondary-color: #030303;
+$primary-color: #030303;
+$secondary-color: #fdfdfd;
 
-$text-color: #030303;
-// Set text color based on bg
-@function set-text-color($color) {
-    @if (lightness($color) >70) {
-        @return $text-color;
-    } @else {
-        @return $bg-color;
-    }
-}
+$text-color: $secondary-color;
+$bg-color: $primary-color;
+$link-color: $text-color;
 
 // Set background and text colors
 @mixin set-background($color) {
     background-color: $color;
-    color: set-text-color($color);
+    color: $text-color;
 }

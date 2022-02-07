@@ -22,15 +22,14 @@ img {
 }
 
 a {
-    text-decoration: underline black;
-    color: $text-color;
+    text-decoration: underline;
+    color: $link-color;
     text-decoration-style: dotted;
     -webkit-text-decoration-style: dotted;
 }
 
 a:hover {
-    color: $text-color;
-    background-color: $bg-color;
+    color: $link-color;
 }
 
 ul,
@@ -54,7 +53,6 @@ p {
 
 footer {
     height: 4rem;
-    background-color: $bg-color;
 }
 
 blockquote {
@@ -83,14 +81,9 @@ blockquote {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    a {
+    a, a:hover {
         text-decoration: none;
-        color: $bg-color;
-        background-color: $text-color;
-    }
-    a:hover {
         color: $text-color;
-        background-color: $bg-color;
     }
     * {
         padding: 0;
@@ -99,10 +92,6 @@ blockquote {
     &-home {
         font-weight: bold;
         text-align: left;
-        a:hover {
-            color: $bg-color;
-            background-color: $text-color;
-        }
     }
     &-link-group {
         display: flex;
@@ -125,8 +114,6 @@ blockquote {
 #nav-border {
     padding: 1rem 0;
     margin: 0;
-    color: $bg-color;
-    background-color: $text-color;
 }
 
 @import "utilities";
