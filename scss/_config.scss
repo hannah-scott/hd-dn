@@ -10,7 +10,7 @@ $secondary-color: #fdfdfd;
 
 $text-color: $secondary-color;
 $bg-color: $primary-color;
-$link-color: $text-color;
+$link-color: darken($text-color, 40%);
 
 // Set background and text colors
 @mixin set-background($color) {
