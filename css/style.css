@@ -6,7 +6,7 @@
 }
 
 html {
-  padding: 0 0 2rem;
+  padding: 2rem 0;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -30,6 +30,21 @@ h1,
 h2,
 p {
   margin: 1rem 0;
+}
+
+nav {
+  display: block;
+}
+
+nav img {
+  float: left;
+  margin-right: 2rem;
+  width: 8rem;
+  margin-left: -1rem;
+}
+
+nav ul {
+  list-style-type: none;
 }
 
 a {
@@ -60,10 +75,6 @@ blockquote {
 
 .footnote-ref {
   font-size: 0.8rem;
-}
-
-.nav-home a {
-  color: #fdfdfd;
 }
 
 .container {

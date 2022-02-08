@@ -6,7 +6,7 @@
 }
 
 html {
-    padding: 0 0 2rem;
+    padding: 2rem 0;
     font-size: 16px;
     line-height: 1.6;
 }
@@ -31,6 +31,21 @@ p {
     margin: 1rem 0;
 }
 
+nav {
+    display: block;
+    
+    
+    img {
+        float: left;
+        margin-right: 2rem;
+        width: 8rem;
+        margin-left: -1rem;
+    }
+    ul {
+        list-style-type: none;
+    }
+}
+
 a {
     text-decoration: none;
     color: $link-color;
@@ -43,8 +58,6 @@ li {
 ul {
     list-style-type: square;
 }
-
-
 
 blockquote {
     border-left: 0.2rem solid $text-color;
@@ -63,12 +76,6 @@ blockquote {
 
 .footnote-ref {
     font-size: 0.8rem;
-}
-
-.nav-home {
-    a {
-        color: $text-color;
-    }
 }
 
 @import "utilities";
