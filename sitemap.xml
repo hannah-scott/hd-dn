@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hd-dn.com/posts/2022-new-years-resolutions/</loc>
+    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/books/non-fiction/feel-the-fear-and-do-it-anyway/</loc>
     <lastmod>2022-02-06T08:49:45+00:00</lastmod>
   </url>
@@ -29,7 +34,7 @@
   
   <url>
     <loc>http://hd-dn.com/</loc>
-    <lastmod>2022-02-06T08:49:45+00:00</lastmod>
+    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
   </url>
   
   <url>
@@ -43,6 +48,12 @@
   <url>
     <loc>http://hd-dn.com/tags/autumn/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/badminton/</loc>
+    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -110,7 +121,7 @@
   
   <url>
     <loc>http://hd-dn.com/tags/lists/</loc>
-    <lastmod>2022-01-28T14:53:49+00:00</lastmod>
+    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -120,7 +131,7 @@
   
   <url>
     <loc>http://hd-dn.com/tags/mental-health/</loc>
-    <lastmod>2022-02-06T08:49:45+00:00</lastmod>
+    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -149,7 +160,7 @@
   
   <url>
     <loc>http://hd-dn.com/posts/</loc>
-    <lastmod>2022-01-28T14:53:49+00:00</lastmod>
+    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
     <priority>0</priority>
   </url>
   
