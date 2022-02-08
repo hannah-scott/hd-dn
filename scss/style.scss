@@ -16,25 +16,24 @@ body {
     font-family: $font-stack;
 }
 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
     font-family: $head-stack;
 }
 
 h1,
 h2,
+h3,
 p {
     margin: 1rem 0;
 }
 
 nav {
     display: block;
-    
-    
     img {
         float: left;
         margin-right: 2rem;
@@ -69,6 +68,7 @@ blockquote {
 }
 
 .footnotes {
+    margin-top: 1rem;
     ol {
         padding-top: 1rem;
     }

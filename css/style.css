@@ -28,6 +28,7 @@ h6 {
 
 h1,
 h2,
+h3,
 p {
   margin: 1rem 0;
 }
@@ -67,6 +68,10 @@ blockquote {
 
 .author {
   padding: 0.5rem 0;
+}
+
+.footnotes {
+  margin-top: 1rem;
 }
 
 .footnotes ol {
