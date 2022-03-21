@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hd-dn.com/books/fiction/dune/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/books/non-fiction/buddhist-ethics/</loc>
     <lastmod>2022-03-21T17:10:01+00:00</lastmod>
   </url>
@@ -39,7 +44,7 @@
   
   <url>
     <loc>http://hd-dn.com/</loc>
-    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
   </url>
   
   <url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>http://hd-dn.com/books/</loc>
-    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
   </url>
   
   <url>
@@ -102,6 +107,12 @@
   </url>
   
   <url>
+    <loc>http://hd-dn.com/tags/dune/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/tags/earthsea/</loc>
     <priority>0</priority>
   </url>
@@ -119,6 +130,7 @@
   
   <url>
     <loc>http://hd-dn.com/tags/fiction/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -166,7 +178,7 @@
   
   <url>
     <loc>http://hd-dn.com/tags/philosophy/</loc>
-    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -195,6 +207,12 @@
   
   <url>
     <loc>http://hd-dn.com/books/fiction/rivers_of_london/</loc>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/science-fiction/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
