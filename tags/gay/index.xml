@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gay on HD-DN</title>
+    <link>http://hd-dn.com/tags/gay/</link>
+    <description>Recent content in Gay on HD-DN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 May 2022 07:49:42 +0100</lastBuildDate>
+    
+	<atom:link href="http://hd-dn.com/tags/gay/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slammed</title>
+      <link>http://hd-dn.com/books/fiction/slammed/</link>
+      <pubDate>Mon, 02 May 2022 07:49:42 +0100</pubDate>
+      
+      <guid>http://hd-dn.com/books/fiction/slammed/</guid>
+      <description>A closeted tennis ace starts to fall out of love with her sport &amp;mdash; and in love with a beautiful up-and-coming player.</description>
+    </item>
+    
+    <item>
+      <title>The House in the Cerulean Sea</title>
+      <link>http://hd-dn.com/books/fiction/the_house_in_the_cerulean_sea/</link>
+      <pubDate>Mon, 02 May 2022 07:47:47 +0100</pubDate>
+      
+      <guid>http://hd-dn.com/books/fiction/the_house_in_the_cerulean_sea/</guid>
+      <description>In a world of orphanages for magical children, a well-meaning but beaten-down social worker is sent to a home on a mysterious island to assess its inhabitants&amp;rsquo; safety.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hd-dn.com/books/fiction/slammed/</loc>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/books/fiction/the_house_in_the_cerulean_sea/</loc>
+    <lastmod>2022-05-02T07:47:47+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/books/fiction/dune/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/books/non-fiction/buddhist-ethics/</loc>
+    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/posts/2022-new-years-resolutions/</loc>
     <lastmod>2022-02-08T16:02:38+00:00</lastmod>
   </url>
@@ -28,13 +48,13 @@
   </url>
   
   <url>
-    <loc>http://hd-dn.com/recipes/autumn_squash_and_lentil_pasta/</loc>
+    <loc>http://hd-dn.com/posts/autumn_squash_and_lentil_pasta/</loc>
     <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://hd-dn.com/</loc>
-    <lastmod>2022-02-08T16:02:38+00:00</lastmod>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
   </url>
   
   <url>
@@ -69,11 +89,17 @@
   
   <url>
     <loc>http://hd-dn.com/books/</loc>
-    <lastmod>2022-02-06T08:49:45+00:00</lastmod>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://hd-dn.com/books/non-fiction/breaking_things_at_work/</loc>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/buddhism/</loc>
+    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -91,6 +117,12 @@
   </url>
   
   <url>
+    <loc>http://hd-dn.com/tags/dune/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/tags/earthsea/</loc>
     <priority>0</priority>
   </url>
@@ -101,7 +133,26 @@
   </url>
   
   <url>
+    <loc>http://hd-dn.com/tags/ethics/</loc>
+    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/fantasy/</loc>
+    <lastmod>2022-05-02T07:47:47+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://hd-dn.com/tags/fiction/</loc>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/gay/</loc>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -149,7 +200,7 @@
   
   <url>
     <loc>http://hd-dn.com/tags/philosophy/</loc>
-    <lastmod>2022-02-06T08:49:45+00:00</lastmod>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -171,13 +222,25 @@
   </url>
   
   <url>
-    <loc>http://hd-dn.com/recipes/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <loc>http://hd-dn.com/tags/religion/</loc>
+    <lastmod>2022-03-21T17:10:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://hd-dn.com/books/fiction/rivers_of_london/</loc>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/romance/</loc>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/science-fiction/</loc>
+    <lastmod>2022-03-21T17:41:04+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -200,6 +263,12 @@
   <url>
     <loc>http://hd-dn.com/tags/technology/</loc>
     <lastmod>2021-11-07T09:44:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/tennis/</loc>
+    <lastmod>2022-05-02T07:49:42+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -251,6 +320,12 @@
   
   <url>
     <loc>http://hd-dn.com/books/non-fiction/walden/</loc>
+  </url>
+  
+  <url>
+    <loc>http://hd-dn.com/tags/young-adult/</loc>
+    <lastmod>2022-05-02T07:47:47+01:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
