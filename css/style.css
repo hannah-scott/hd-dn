@@ -1,83 +1,117 @@
+@font-face {
+    font-family: "atkinson";
+    src: url("/fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "atkinson";
+    src: url("/fonts/Atkinson-Hyperlegible-Bold-102a.woff2") format("woff2");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "atkinson";
+    src: url("/fonts/Atkinson-Hyperlegible-Italic-102a.woff2") format("woff2");
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "atkinson";
+    src: url("/fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2") format("woff2");
+    font-style: italic;
+    font-weight: bold;
+}
+
 * {
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  header h1 {
+}
+
+body {
+    font-family: "atkinson";
+    font-weight: normal;
+    font-style: normal;
+    color: #020202;
+}
+
+header h1 {
     font-size: 24px;
-  }
-  
-  html {
-    margin: 0 56px;
-    font-size: 16px;
-    line-height: 1.6;
+}
+
+html {
+    margin: 0 18px;
+    font-size: 18px;
+    line-height: 1.4;
     max-width: 1100px;
-  }
-  
-  nav h2{
-      font-size: 16px;
-  }
-  
-  h1,
-  h2,
-  h3,
-  p {
+}
+
+nav h2 {
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0.6rem 0;
+}
+
+p {
     margin: 1rem 0;
-  }
-  
-  nav {
+}
+
+nav {
     display: block;
-  }
-  
-  nav img {
+}
+
+nav img {
     float: left;
     margin-right: 2rem;
     width: 8rem;
     margin-left: -1rem;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style-type: none;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: #764156;
-  }
-  
-  li {
+}
+
+li {
     margin: 0 2rem;
-  }
-  
-  ul {
+}
+
+ul {
     list-style-type: square;
-  }
-  
-  blockquote {
-    border-left: 0.2rem solid #fdfdfd;
+}
+
+blockquote {
+    border-left: 0.2rem solid #020202;
     padding: 0 1rem;
-  }
-  
-  .author {
-    padding: 0.5rem 0;
-  }
-  
-  .footnotes {
+}
+
+.footnotes {
     margin-top: 1rem;
-  }
-  
-  .footnotes ol {
+}
+
+.footnotes ol {
     padding-top: 1rem;
-  }
-  
-  .footnote-ref {
+}
+
+.footnote-ref {
     font-size: 0.8rem;
-  }
-  
-  .container {
+}
+
+.container {
     padding: 1rem;
     margin: 0;
     min-height: 100vh;
-  }
+}
