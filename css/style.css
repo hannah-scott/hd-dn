@@ -21,7 +21,8 @@
 
 @font-face {
     font-family: "atkinson";
-    src: url("/fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2") format("woff2");
+    src: url("/fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2")
+        format("woff2");
     font-style: italic;
     font-weight: bold;
 }
@@ -38,6 +39,9 @@ body {
     font-weight: normal;
     font-style: normal;
     color: #020202;
+    padding: 1rem;
+    margin: 0;
+    min-height: 100vh;
 }
 
 header h1 {
@@ -65,19 +69,33 @@ p {
     margin: 1rem 0;
 }
 
-nav {
-    display: block;
+.menu {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-nav img {
+.menu ul {
+    list-style-type: none;
+}
+
+.menu h1 {
+    float: left;
+}
+
+.menu li {
+    float: left;
+    padding: 1rem 0 0 0;
+    margin: 0 0 0 2rem;
+}
+
+.menu img {
     float: left;
     margin-right: 2rem;
     width: 8rem;
     margin-left: -1rem;
-}
-
-nav ul {
-    list-style-type: none;
 }
 
 a {
@@ -110,8 +128,8 @@ blockquote {
     font-size: 0.8rem;
 }
 
-.container {
+.img-three-good-things {
+    max-width: 40rem;
+    width: 100%;
     padding: 1rem;
-    margin: 0;
-    min-height: 100vh;
 }

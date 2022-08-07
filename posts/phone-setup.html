@@ -1,39 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HD-DN</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-<div class="container">
-<header>
-    <h1><a href="/">HD-DN</a></h1>
-</header>
-<header>
-<h1 class="title">Phone Setup</h1>
-<p class="author">Hannah</p>
-<p class="date">2021-11-07T09:44:09Z</p>
-</header>
-<p>I’ve had a really good relationship with my smartphone recently, through just like — disconnecting the thing from the internet. Things like:</p>
-<ul>
-<li>got into the habit of turning off wifi and mobile data (the big one)</li>
-<li>browsing gemlogs and personal websites rather than endless scrolling apps</li>
-<li>changed from the stock launcher to OLauncher and hid all the endless scrolling apps
-<ul>
-<li>OLauncher’s hide feature is great, really makes it a hassle to open without cutting you off completely</li>
-</ul></li>
-<li>downloaded lots of music on Spotify and set my podcatcher to download new episodes</li>
-<li>tried switching to grayscale mode</li>
-</ul>
-<p>These have all helped, to various extents. I’m checking my phone a lot less. Part of the urge to check it so much was the fear of missing out, an unchecked notification. I used to just sit with Whatsapp open in case I got a message. I have a trained response to get rid of notifications — I mean, I really hate seeing unread message notifications. It’s 100% a compulsion. It kind of worries me how strong the impulse to clear them is. I suppose it makes sense: they’re literally designed to draw your attention.</p>
-<p>Going offline has helped with it, though. I know that there isn’t an unread message waiting for me. I can choose to go online and go through the loop of clearing notifications and replying to messages — then go back offline! I don’t see a message notification unless I actively choose to.</p>
-<p>I’d like to go further with this. It’d be neat to not have to connect every time I want to browse Gemini, for example. Offline-first distribution seems to be the current hotness in gemspace at the moment, and it’s something that would fill that gap. A mobile RSS reader that can redirect <code>gemini</code> links to my client would work. Mostly I need to add more good blogs to my RSS feed.</p>
-<p><a href="gemini://gemini.circumlunar.space/users/solderpunk/gemlog/low-budget-p2p-content-distribution-with-git.gmi">(Gemini) Low budget P2P content distribution with git</a></p>
-<p>Something I wanted to try out was insired by Ploum’s offline-only computer, where my wifi and mobile network would only turn on if I was plugged into a power source. When I’m out of the house, my phone is a camera/iPod/emergency contact device. That definitely appeals to me.</p>
-<p><a href="gemini://rawtext.club/~ploum/">(Gemini) Ploum’s Offline Typewriter</a></p>
-<p>Unfortunately it looks like Google disabled the ability to automate wifi settings in Android 10: I’d either have to root my phone or move to an open source OS, neither of which I particularly want to do right now. I may look into this in the future.</p>    </div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HD-DN</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+
+    <body>
+        <nav class="menu">
+            <h1><a href="/">HD-DN</a></h1>
+
+            <ul>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/bookmarks/">Bookmarks</a></li>
+                <li><a href="/books/ ">Books</a></li>
+                <li><a href="/posts/ ">Posts</a></li>
+                <li><a href="/three-good-things">Three Good Things</a></li>
+                <li><a href="/toki-pona/">Toki Pona</a></li>
+            </ul>
+        </nav>
+
+        <h1 class="title">Phone Setup</h1>
+        <p class="date">2021-11-07</p>
+        <p>
+            I’ve had a really good relationship with my smartphone recently,
+            through just like — disconnecting the thing from the internet.
+            Things like:
+        </p>
+        <ul>
+            <li>
+                got into the habit of turning off wifi and mobile data (the big
+                one)
+            </li>
+            <li>
+                browsing gemlogs and personal websites rather than endless
+                scrolling apps
+            </li>
+            <li>
+                changed from the stock launcher to OLauncher and hid all the
+                endless scrolling apps
+                <ul>
+                    <li>
+                        OLauncher’s hide feature is great, really makes it a
+                        hassle to open without cutting you off completely
+                    </li>
+                </ul>
+            </li>
+            <li>
+                downloaded lots of music on Spotify and set my podcatcher to
+                download new episodes
+            </li>
+            <li>tried switching to grayscale mode</li>
+        </ul>
+        <p>
+            These have all helped, to various extents. I’m checking my phone a
+            lot less. Part of the urge to check it so much was the fear of
+            missing out, an unchecked notification. I used to just sit with
+            Whatsapp open in case I got a message. I have a trained response to
+            get rid of notifications — I mean, I really hate seeing unread
+            message notifications. It’s 100% a compulsion. It kind of worries me
+            how strong the impulse to clear them is. I suppose it makes sense:
+            they’re literally designed to draw your attention.
+        </p>
+        <p>
+            Going offline has helped with it, though. I know that there isn’t an
+            unread message waiting for me. I can choose to go online and go
+            through the loop of clearing notifications and replying to messages
+            — then go back offline! I don’t see a message notification unless I
+            actively choose to.
+        </p>
+        <p>
+            I’d like to go further with this. It’d be neat to not have to
+            connect every time I want to browse Gemini, for example.
+            Offline-first distribution seems to be the current hotness in
+            gemspace at the moment, and it’s something that would fill that gap.
+            A mobile RSS reader that can redirect
+            <code>gemini</code> links to my client would work. Mostly I need to
+            add more good blogs to my RSS feed.
+        </p>
+        <p>
+            <a
+                href="gemini://gemini.circumlunar.space/users/solderpunk/gemlog/low-budget-p2p-content-distribution-with-git.gmi"
+                >(Gemini) Low budget P2P content distribution with git</a
+            >
+        </p>
+        <p>
+            Something I wanted to try out was insired by Ploum’s offline-only
+            computer, where my wifi and mobile network would only turn on if I
+            was plugged into a power source. When I’m out of the house, my phone
+            is a camera/iPod/emergency contact device. That definitely appeals
+            to me.
+        </p>
+        <p>
+            <a href="gemini://rawtext.club/~ploum/"
+                >(Gemini) Ploum’s Offline Typewriter</a
+            >
+        </p>
+        <p>
+            Unfortunately it looks like Google disabled the ability to automate
+            wifi settings in Android 10: I’d either have to root my phone or
+            move to an open source OS, neither of which I particularly want to
+            do right now. I may look into this in the future.
+        </p>
+    </body>
 </html>
