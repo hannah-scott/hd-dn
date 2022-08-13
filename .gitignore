@@ -1,3 +1,4 @@
 */.*
 .prettierrc
 .*.html
+*.original
