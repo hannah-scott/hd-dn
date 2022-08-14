@@ -103,6 +103,13 @@ a {
     color: #764156;
 }
 
+a[target="_blank"]:before {
+    content: "[";
+}
+a[target="_blank"]:after {
+    content: "]";
+}
+
 li {
     margin: 0 2rem;
 }
