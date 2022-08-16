@@ -1,5 +1,4 @@
 #!/bin/bash
 for file in *.jpg; do
-    mv $file $file.original
-    convert $file.original -resize 720 -strip $file
+    convert $file -strip -resize 720 -define jpeg:extent=100KB $file
 done
