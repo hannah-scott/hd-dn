@@ -5,10 +5,16 @@ rm meta/index.html
 
 # get list of every page that's not an index
 echo "" > temp
-find . -name "*.html" -not \( -name "draft*" -o -name "*index*" \) | sed -e "s/\/\([a-z-]*\.html\)/~\1/g" | sort -t~ -k2 | sed -e "s/~/\//g" | while read l; do
-    echo "<li><a href=\"$(echo $l | cut -d. -f2-)\">" >> temp
-    echo "$(echo $l | rev | cut -d/ -f1 | rev)" >> temp
-    echo "</a></li>" >> temp
+find . -name "*.html" -not \( -name "draft*" -o -name "*index*" \) | \
+    # alphabetise by filename
+    sed -e "s/\/\([a-z-]*\.html\)/~\1/g" | \
+    sort -t~ -k2 | \
+    sed -e "s/~/\//g" | \
+    # write listitem
+    while read l; do
+        echo "<li><a href=\"$(echo $l | cut -d. -f2-)\">" >> temp
+        echo "$(echo $l | grep -o "[^/]*$")" >> temp
+        echo "</a></li>" >> temp
 done
 
 # Build meta page
