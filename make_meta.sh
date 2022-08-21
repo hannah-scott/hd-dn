@@ -37,6 +37,7 @@ echo """<!DOCTYPE html>
                 <li><a href=\"/posts/\">Posts</a></li>
                 <li><a href=\"/three-good-things\">Three Good Things</a></li>
                 <li><a href=\"/toki-pona/\">Toki Pona</a></li>
+                <li><a href=\"/quotes/\">Quotes</a></li>
             </ul>
         </nav>
         <h1 class=\"title\">Meta</h1>
