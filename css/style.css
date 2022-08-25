@@ -55,10 +55,6 @@ html {
     max-width: 1100px;
 }
 
-nav h2 {
-    font-size: 16px;
-}
-
 h1,
 h2,
 h3 {
@@ -81,7 +77,7 @@ p {
     list-style-type: none;
 }
 
-.menu h1 {
+.menu h2 {
     float: left;
 }
 
