@@ -43,9 +43,10 @@ def articles_to_xml_entries(title, articles):
     el_upd.text = ds
 
     # Set the content
+    article.find("h2").decompose()
     el_content = sub_element("content")
     el_content.set("type", "html")
-    el_content.text = str(article).replace("\n", "")
+    el_content.text = str(article).replace("\n", "")[9:-10]
 
     # Insert into entries list
     entries.append(entry)
@@ -58,7 +59,7 @@ def entries_to_xml(entries):
     <title>Three Good Things</title>
     <id>https://hd-dn.com/three-good-things</id>
     <link rel="alternate" href="https://hd-dn.com/three-good-things"></link>
-    <updated>{}T00:00:00+00:00</updated>
+    <updated>{}#T00:00:00+00:00</updated>
     <author>
         <name>Three Good Things</name>
         <uri>https://hd-dn.com/three-good-things</uri>
