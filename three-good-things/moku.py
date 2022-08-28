@@ -45,7 +45,7 @@ def articles_to_xml_entries(title, articles):
     # Set the content
     el_content = sub_element("content")
     el_content.set("type", "html")
-    el_content.text = str(article.find("ol")).replace("\n", "")
+    el_content.text = str(article).replace("\n", "")
 
     # Insert into entries list
     entries.append(entry)
