@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from bs4 import BeautifulSoup as soup
 import xml.etree.ElementTree as et
 
@@ -46,7 +47,7 @@ def articles_to_xml_entries(title, articles):
     article.find("h2").decompose()
     el_content = sub_element("content")
     el_content.set("type", "html")
-    el_content.text = str(article).replace("\n", "")[9:-10]
+    el_content.text = str(article).replace("\n", "")[str(article).find(">") + 1:-1 * (str(article)[::-1].find("<") + 1)]
 
     # Insert into entries list
     entries.append(entry)
@@ -59,11 +60,11 @@ def entries_to_xml(entries):
     <title>Three Good Things</title>
     <id>https://hd-dn.com/three-good-things</id>
     <link rel="alternate" href="https://hd-dn.com/three-good-things"></link>
-    <updated>{}#T00:00:00+00:00</updated>
+    <updated>{}</updated>
     <author>
         <name>Three Good Things</name>
         <uri>https://hd-dn.com/three-good-things</uri>
-    </author>""".format(entries[0][1].text))
+    </author>""".format(entries[0][2].text))
 
   for entry in entries:
     out += "{}".format(et.tostring(entry).decode())
