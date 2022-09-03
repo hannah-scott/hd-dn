@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things" rel="alternate"/>
  <updated>
-  2022-09-02T00:00:00+00:00
+  2022-09-03T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,23 @@
    https://hd-dn.com/three-good-things
   </uri>
  </author>
+ <entry>
+  <title>
+   2022-09-03
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2022-09-03
+  </id>
+  <published>
+   2022-09-03T00:00:00+00:00
+  </published>
+  <updated>
+   2022-09-03T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt;&lt;li&gt;                    I watched                    &lt;a href="https://invidious.fdn.fr/watch?v=mcYztBmf_y8" target="_blank"&gt;the latest Jacob Geller video&lt;/a&gt;, super interesting — it reminded me of conversations                    I had about therapy, productivity and work with a friend.                &lt;/li&gt;&lt;li&gt;                    I took time to do some chores: prepped some lunch for                    tomorrow, tidied and dusted, and wiped down the kitchen.                &lt;/li&gt;&lt;li&gt;                    I'm going on a date tonight, we're seeing                    &lt;i&gt;Three Thousand Years of Longing&lt;/i&gt;.                &lt;/li&gt;&lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2022-09-02
