@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things" rel="alternate"/>
  <updated>
-  2022-09-04T00:00:00+00:00
+  2022-09-05T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,23 @@
    https://hd-dn.com/three-good-things
   </uri>
  </author>
+ <entry>
+  <title>
+   2022-09-05
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2022-09-05
+  </id>
+  <published>
+   2022-09-05T00:00:00+00:00
+  </published>
+  <updated>
+   2022-09-05T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt;&lt;li&gt;                    I got the grade back for the second data visualisation, and                    I passed!                &lt;/li&gt;&lt;li&gt;                    Had a moment where I was feeling quite low, but I spoke to a                    friend and it really helped.                &lt;/li&gt;&lt;li&gt;                    Read a bunch of cool pamphlets and zines, including                    &lt;a href="https://theanarchistlibrary.org/library/mary-nardini-gang-toward-the-queerest-insurrection" target="_blank"&gt;&lt;i&gt;Towards the queerest insurrection&lt;/i&gt;&lt;/a&gt;.                &lt;/li&gt;&lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2022-09-04
