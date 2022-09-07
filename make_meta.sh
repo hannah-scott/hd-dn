@@ -29,7 +29,7 @@ echo """<!DOCTYPE html>
     </head>
     <body>
         <nav class=\"menu\">
-            <h1><a href=\"/\">HD-DN</a></h1>
+            <h2><a href=\"/\">HD-DN</a></h2>
             <ul>
                 <li><a href=\"/about/\">About</a></li>
                 <li><a href=\"/bookmarks/\">Bookmarks</a></li>
