@@ -37,6 +37,18 @@ p {
     margin: 1rem 0;
 }
 
+figure {
+    width: 100%;
+    max-width: 30rem;
+    align-self: center;
+    display: block;
+    font-style: italic;
+}
+
+figure > img {
+    width: 100%;
+}
+
 .menu {
     display: inline-block;
     overflow: hidden;
