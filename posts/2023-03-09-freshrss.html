@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HD-DN: FreshRSS</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <nav class="menu">
+            <h2><a href="/">HD-DN</a></h2>
+            <ul>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/bookmarks/">Bookmarks</a></li>
+                <li><a href="/books/">Books</a></li>
+                <li><a href="/posts/">Posts</a></li>
+                <li><a href="/three-good-things">Three Good Things</a></li>
+                <li><a href="/toki-pona/">Toki Pona</a></li>
+                <li><a href="/quotes/">Quotes</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1 class="title">FreshRSS</h1>
+            <p class="date">2023-03-09</p>
+
+            <p>
+                I recently moved from using Feeder (the
+                <a
+                    href="https://f-droid.org/packages/com.nononsenseapps.feeder/"
+                    target="_blank"
+                    >open-source app</a
+                >, not the online service) as my RSS reader, to a self-hosted
+                instance of
+                <a href="https://www.freshrss.org/" target="_blank">FreshRSS</a>
+                with
+                <a
+                    href="https://f-droid.org/en/packages/org.freshrss.easyrss/"
+                    target="_blank"
+                    >EasyRSS</a
+                >
+                as a client. That process was a little fiddly, so I'm laying out
+                my set-up in case it helps anyone (including me).
+            </p>
+
+            <h2>Installing & reverse proxy configuration</h2>
+
+            <p>
+                My webserver runs on <code>nginx</code> and setup information
+                for <code>nginx</code> was a little lacking. I tried getting the
+                non-dockerised install to work, but for some reason I wasn't
+                able to get the routing right with just flat files. It's
+                possible I misunderstood something and this is very easy.
+            </p>
+
+            <p>
+                For that reason I'm running the dockerised version on port 8080
+                with <code>nginx</code> as a reverse proxy in front of it. My
+                <code>.conf</code> file looks like this:
+            </p>
+
+            <pre><code>server {
+  listen 80;
+  listen [::]:80;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
+  
+  if ($scheme = http) {
+    return 301 https://$server_name$request_uri;
+  }
+  
+  ssl_certificate /path/to/fullchain.pem;
+  ssl_certificate_key /path/to/privkey.pem;
+
+  server_name rss.your-domain.com;
+  
+  location / {
+    proxy_pass http://rss.your-domain.com:8080/;
+    include proxy_params;
+  }
+}</code></pre>
+
+            <p>
+                This works for what I need it to do, and is simple to upgrade,
+                so I'm going to stick with it for now.
+            </p>
+
+            <h2>EasyRSS & API integration</h2>
+
+            <p>
+                One of the cool features of FreshRSS is that it can integrate
+                with third-party RSS readers using the Google Reader API. This
+                is really useful for me since I do most of my RSS reader on my
+                phone on the underground.
+            </p>
+
+            <p>
+                I couldn't find a very clear explanation of how to set the API
+                up though, so I'm going to do my best to explain it here:
+            </p>
+
+            <ol>
+                <li>Log into the FreshRSS web application as an admin</li>
+                <li>Go to <i>Settings > Administration > Authentication</i></li>
+                <li>Check the <i>Allow API access</i> checkbox and submit</li>
+                <li>Next, go to <i>Settings > Account > Profile</i></li>
+                <li>
+                    Under the <i>API management</i> tab, enter an API password
+                    and submit
+                </li>
+                <li>
+                    In EasyRSS, use the following settings:
+                    <ul>
+                        <li>
+                            RSS Service URL:
+                            <code
+                                >https://rss.your-domain.com/api/greader.php</code
+                            >
+                        </li>
+                        <li>Username: your username</li>
+                        <li>Password: your <em>API password</em></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2>Article selectors</h2>
+
+            <p>
+                Some sites do something annoying with their RSS feeds: they only
+                share the intro paragraph or an excerpt from the piece, rather
+                than the full article. An example is Wired, which only shares
+                the article summary and links out to their website for the rest
+                of the piece.
+            </p>
+
+            <figure>
+                <img
+                    src="/img/posts/freshrss/wired-excerpt.jpg"
+                    alt="A Wired article entitled 'Platforms Are Fighting Online Abuse—but Not the Right Kind', open in FreshRSS. Only a short excerpt is shown, rather than the whole article."
+                />
+                <caption>
+                    By default, Wired only lets you see a short excerpt of an
+                    article.
+                </caption>
+            </figure>
+
+            <p>
+                FreshRSS lets you work around this by setting CSS article
+                selectors: essentially, which CSS element on the page holds the
+                article. Rather than fetching the short excerpt from the RSS
+                feed, FreshRSS will instead fetch everything inside that CSS
+                element.
+            </p>
+
+            <figure>
+                <img
+                    src="/img/posts/freshrss/wired-body.jpg"
+                    alt="The Wired website with the text of the same article highlighted and an overlay showing which CSS classes contain the text content."
+                />
+                <caption>
+                    The article's content is contained in an element with the
+                    <code>.body</code>
+                    class.
+                </caption>
+            </figure>
+
+            <p>
+                To use this setting, find the CSS element of the site that
+                contains the content you want to read. Then enter the name of
+                that setting in the feed's
+                <i
+                    >Settings > Advanced > Article CSS selector on original
+                    website</i
+                >. Finally, go to the bottom of the <i>Settings</i> and select
+                <i>Reload articles</i>, adjusting the number of articles as
+                needed.
+            </p>
+
+            <figure>
+                <img
+                    src="/img/posts/freshrss/wired-full.jpg"
+                    alt="The same Wired article open in FreshRSS, now with the full content of the article shown."
+                />
+                <caption>
+                    Now we get the full content of the article, not just an
+                    excerpt.
+                </caption>
+            </figure>
+
+            <h2>Feeds I follow</h2>
+
+            <p>
+                If you want to see what I follow, I've exposed my FreshRSS
+                instance to
+                <a href="https://rss.hd-dn.com">allow you to read it</a>. Part
+                of my motivation is laziness &mdash; I don't want to log in
+                everywhere &mdash; but also I think it's a cool way to share
+                interesting RSS feeds.
+            </p>
+
+            <p>
+                One of the cool features of FreshRSS is that it lets you share
+                your feeds over RSS: a feed of feeds! I think this is a really
+                neat way of finding new feeds to follow or sharing sites you
+                think are cool with friends. I don't know if there are
+                communities around sharing RSS feeds, but I think this is a
+                really cool idea!
+            </p>
+        </article>
+    </body>
+</html>
