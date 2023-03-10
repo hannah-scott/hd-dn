@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things" rel="alternate"/>
  <updated>
-  2023-03-08T00:00:00+00:00
+  2023-03-09T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,23 @@
    https://hd-dn.com/three-good-things
   </uri>
  </author>
+ <entry>
+  <title>
+   2023-03-09
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2023-03-09
+  </id>
+  <published>
+   2023-03-09T00:00:00+00:00
+  </published>
+  <updated>
+   2023-03-09T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt;&lt;li&gt;                     I had quite a productive day at work, including a fun call                     with someone about a piece of work that devolved into just                     chatting about our days. It's something I miss from being "in                     the office" every day.                 &lt;/li&gt;&lt;li&gt;                    I finished and developed a roll of film out of the Bell &amp;amp;                     Howell Dial 35: shockingly beautiful! Some blur from both the                     distance-based focus and leaving it on 1/30s shutter speed,                     but I was expecting a lot more leaks and failures than I had.                     Pleasantly surprised by a camera from the 1960s that I got for                     maybe £10 from a charity shop.                &lt;/li&gt;&lt;li&gt;                    I wrote up a piece about my FreshRSS &amp;amp; EasyRSS setup for the                     website — I can guarantee I'll have to repeat this                     install due to some strange decision I made about web hosting,                     so it's good to have this stuff written down somewhere.                &lt;/li&gt;&lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2023-03-08
