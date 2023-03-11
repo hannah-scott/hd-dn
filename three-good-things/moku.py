@@ -47,7 +47,7 @@ def articles_to_xml_entries(title, articles):
     article.find("h2").decompose()
     el_content = sub_element("content")
     el_content.set("type", "html")
-    el_content.text = str(article).replace("\n", "")[str(article).find(">") + 1:-1 * (str(article)[::-1].find("<") + 1)]
+    el_content.text = str(article).replace("\n", " ")[str(article).find(">") + 1:-1 * (str(article)[::-1].find("<") + 1)]
 
     # Insert into entries list
     entries.append(entry)
