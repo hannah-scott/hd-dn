@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things" rel="alternate"/>
  <updated>
-  2023-03-11T00:00:00+00:00
+  2023-03-12T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,23 @@
    https://hd-dn.com/three-good-things
   </uri>
  </author>
+ <entry>
+  <title>
+   2023-03-12
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2023-03-12
+  </id>
+  <published>
+   2023-03-12T00:00:00+00:00
+  </published>
+  <updated>
+   2023-03-12T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt; &lt;li&gt;I got packed up and moved today! It took a bit longer than expected but everything got moved to the new place eventually. We're in, now we just have to unpack and live.&lt;/li&gt; &lt;li&gt;I went to a church near my old place that I'd been meaning to go to for a long time, and it was super accepting. The people I spoke to were really lovely, and their preach definitely got me thinking about some stuff.&lt;/li&gt; &lt;li&gt;I had a really nice breakfast from the cafe close to my old place, where my partner and I went all the time. I probably won't go there again for a while, so it was cute to sit and enjoy some pastries.&lt;/li&gt; &lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2023-03-11
