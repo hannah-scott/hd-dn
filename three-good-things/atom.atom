@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things" rel="alternate"/>
  <updated>
-  2023-03-15T00:00:00+00:00
+  2023-03-16T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,23 @@
    https://hd-dn.com/three-good-things
   </uri>
  </author>
+ <entry>
+  <title>
+   2023-03-16
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2023-03-16
+  </id>
+  <published>
+   2023-03-16T00:00:00+00:00
+  </published>
+  <updated>
+   2023-03-16T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt; &lt;li&gt;I made a really good cup of coffee in the morning, always a good start to the day.&lt;/li&gt; &lt;li&gt;I caught up with the product team that I'm leading at work and everything seems to be going really well!&lt;/li&gt; &lt;li&gt;I read for a bit, including finishing the &lt;i&gt;Finding God in the Body&lt;/i&gt; book. I wasn't really enamored with it — but now I get to find something else to read.&lt;/li&gt; &lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2023-03-15
