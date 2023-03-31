@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things" rel="alternate"/>
  <updated>
-  2023-03-27T00:00:00+00:00
+  2023-03-30T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,57 @@
    https://hd-dn.com/three-good-things
   </uri>
  </author>
+ <entry>
+  <title>
+   2023-03-30
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2023-03-30
+  </id>
+  <published>
+   2023-03-30T00:00:00+00:00
+  </published>
+  <updated>
+   2023-03-30T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt; &lt;li&gt;My coffee subscription arrived — can't wait to try it!&lt;/li&gt; &lt;li&gt;I went out for a photo walk at lunch in the gorgeous sun, and just about managed to miss the rain.&lt;/li&gt; &lt;li&gt;My partner and I had a lovely date night in, made dinner together and drank nice wine.&lt;/li&gt; &lt;/ol&gt;
+  </content>
+ </entry>
+ <entry>
+  <title>
+   2023-03-29
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2023-03-29
+  </id>
+  <published>
+   2023-03-29T00:00:00+00:00
+  </published>
+  <updated>
+   2023-03-29T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt; &lt;li&gt;My camera film arrived, so I put some in my Olympus XA and went out for a photo walk at lunch. The weather has been okay recently, it's nice just to get out.&lt;/li&gt; &lt;li&gt;I had a really lovely dinner with my partner, nothing fancy but it was great to just be with each other.&lt;/li&gt; &lt;li&gt;I had a pretty productive day at work, even if it hasn't been the most enjoyable recently.&lt;/li&gt; &lt;/ol&gt;
+  </content>
+ </entry>
+ <entry>
+  <title>
+   2023-03-28
+  </title>
+  <id>
+   https://hd-dn.com/three-good-things#2023-03-28
+  </id>
+  <published>
+   2023-03-28T00:00:00+00:00
+  </published>
+  <updated>
+   2023-03-28T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;ol&gt; &lt;li&gt;I went out for drinks with a friend, great to catch up.&lt;/li&gt; &lt;li&gt;Tough day at work but I had good conversations with people that I like, and made time to get outside during the day.&lt;/li&gt; &lt;li&gt;I got home late from seeing my friend and had some delicious pasta with pesto that my partner had made! So lovely.&lt;/li&gt; &lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2023-03-27
