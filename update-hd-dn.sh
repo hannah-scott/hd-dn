@@ -9,7 +9,7 @@ export DBUS_SESSION_BUS_ADDRESS XDG_RUNTIME_DIR
 cd /home/hd-dn/hd-dn
 git fetch origin
 if git status | grep -q behind; then
-  git merge origin/main
+  git merge origin/mom
   ./build.sh
   systemctl --user restart hd-dn.service
 fi
