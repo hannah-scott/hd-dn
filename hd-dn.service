@@ -1,0 +1,9 @@
+[Unit]
+Description=HD-DN
+
+[Service]
+WorkingDirectory=/home/hd-dn/hd-dn
+ExecStart=/home/hd-dn/bin/hd-dn >> log.txt
+
+[Install]
+WantedBy=multi-user.target
