@@ -101,7 +101,7 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 
 // hash function for color handling
 func hash(s string) int {
-	h := fnv.New32a()
+	h := fnv.New32()
 	h.Write([]byte(s))
 	return int(h.Sum32())
 }
