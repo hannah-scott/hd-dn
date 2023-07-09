@@ -695,7 +695,7 @@ t 2022-08-26
 t 2022-08-25
 1.  Ate really well today, lots of fruit and fresh foods, and I had tofu fried rice for dinner.
 2.  Really productive day at work, I got the first assignment for my Python course submitted.
-3.  Chatted some toki pona today and started expanding that part of the site (including a <a href="/toki-pona/tenpo-ni/)">journal</a> .
+3.  Chatted some toki pona today and started expanding that part of the site (including a <a href="/toki-pona/tenpo-ni/)">journal</a>).
 
 ***
 
