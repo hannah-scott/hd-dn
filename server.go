@@ -7,6 +7,8 @@ import (
 	"text/template"
 	"io/ioutil"
 	"strings"
+	"hash/fnv"
+	"time"
 )
 
 type Page struct {
@@ -20,6 +22,12 @@ type Day struct {
 	First		string
 	Second	string
 	Third		string
+}
+
+// Color struct for daily colors
+type Color struct {
+	ColorName	string
+	ColorHex	string
 }
 
 // const staticDir = "/home/debian/hd-dn/static"
@@ -91,10 +99,49 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 		}
 }
 
+// hash function for color handling
+func hash(s string) int {
+	h := fnv.New32a()
+	h.Write([]byte(s))
+	return int(h.Sum32())
+}
+
+func getDailyColor() Color {
+	// Stub for now, finish writing this!
+	colors := []Color{
+		Color{"red!", "dc143c"},
+		Color{"orange!", "ff8c00"},
+		Color{"yellow!", "ffff00"},
+		Color{"green!", "3cb371"},
+		Color{"blue!", "00bfff"},
+		Color{"indigo!", "4b0082"},
+		Color{"viole(n)t!", "e582ee"},
+		Color{"pink!", "ff69b4"},
+		Color{"black!", "000000"},
+		Color{"white!", "ffffff"},
+	}
+
+	sToday := time.Now().Format("20060102150405")[0:8]
+	h := hash(sToday)
+	return colors[h % len(colors)]
+}
+
 // Handler for color of the day
 func handleColor(w http.ResponseWriter, r *http.Request) {
-	// Stub for now, finish writing this!
-	fmt.Fprintf(w, "green again!")
+	c := getDailyColor()
+	w.Header().Set("Content-Type", "text/html")
+
+	// Load color template
+	var tmplFile = "color.tmpl"
+	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	if err != nil {
+		panic(err)
+	}
+	// Execute the template
+	err = tmpl.Execute(w, c)
+	if err != nil{
+		panic(err)
+	}
 }
 
 
