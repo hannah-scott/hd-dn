@@ -94,7 +94,7 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 // Handler for color of the day
 func handleColor(w http.ResponseWriter, r *http.Request) {
 	// Stub for now, finish writing this!
-	fmt.Fprintf(w, "pink again!")
+	fmt.Fprintf(w, "green again!")
 }
 
 
