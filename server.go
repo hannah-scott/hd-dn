@@ -60,6 +60,7 @@ func parseDay(entry string) Day {
 	return day
 }
 
+// Handler for three good things posts
 func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 		// Read in a text file containing TGT
 		content, err := ioutil.ReadFile("./static/three-good-things/index.txt")
@@ -89,6 +90,13 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 		}
 }
 
+// Handler for color of the day
+func handleColor(w http.ResponseWriter, r *http.Request) {
+	// Stub for now, finish writing this!
+	fmt.Fprintf(w, "blue!")
+}
+
+
 func main() {
 	fileServer := http.FileServer(http.Dir(staticDir))
 
@@ -96,6 +104,11 @@ func main() {
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
+	
+	// do colo(u)r of the day
+	http.HandleFunc("/color/", handleColor)
+	http.HandleFunc("/colour/", handleColor)
+
 
 	fmt.Printf("Starting server at port 8040\n")
 	if err := http.ListenAndServe(":8040", nil); err != nil {
