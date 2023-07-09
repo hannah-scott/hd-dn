@@ -26,5 +26,37 @@
       I've moved over from a Github pages instance to hosting on a VM.
       Everything is being served by a go server that I've written.
     </p>
+
+    <p>
+      As part of that workflow, I "borrowed" some ideas from
+      <a
+        href="https://j3s.sh/thought/my-website-is-one-binary.html"
+        target="_blank"
+        >j3s</a
+      >
+      and set up a cronjob to check for any updates on git.
+    </p>
+
+    <code>
+      <pre>
+#!/bin/bash
+# Script to autoupdate website based on git repo status
+
+# Set some environment variables. We need these for cron
+XDG_RUNTIME_DIR=/run/user/$(id -u)
+DBUS_SESSION_BUS_ADDRESS=unix:path=${XDG_RUNTIME_DIR}/bus
+export DBUS_SESSION_BUS_ADDRESS XDG_RUNTIME_DIR
+
+# Go to the working directory and check for updates
+cd /home/hd-dn/hd-dn
+git fetch origin
+if git status | grep -q behind; then
+  git merge origin/mom
+  ./build.sh
+  systemctl --user restart hd-dn.service
+fi
+</pre
+      >
+    </code>
   </body>
 </html>
