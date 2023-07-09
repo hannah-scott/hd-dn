@@ -1,3 +1,11 @@
+t 2023-07-08
+
+1. Partner and I redid our undercuts, love that DIY freshness!
+2. I wrote some golang to implement this very thing you're reading! It's a super simple spec for an ordered list of three items, combined with a template &mdash; and it works!
+3. Big depression-y day today so I stayed in and watched Treasure Planet with the partner, it was nice. Not the massive fun-filled evening I had planned, but I think it's what I needed.
+
+***
+
 t 2023-07-07
 1.  I went to a WatchHouse for coffee, which was just superb. So peachy and fruity.
 2.  I made a really delicious satay tofu and pasta dish.
