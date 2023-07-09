@@ -22,7 +22,8 @@ type Day struct {
 	Third		string
 }
 
-const staticDir = "/home/debian/hd-dn/static"
+// const staticDir = "/home/debian/hd-dn/static"
+const staticDir = "./static"
 
 // parses three good things entry into struct
 func parseDay(entry string) Day {
