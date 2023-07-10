@@ -30,6 +30,12 @@ type Color struct {
 	ColorHex	string
 }
 
+type Run struct {
+	Title			string
+	Distance	string
+	Notes			[]string
+}
+
 // const staticDir = "/home/debian/hd-dn/static"
 const staticDir = "./static"
 
@@ -144,6 +150,68 @@ func handleColor(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Running journal
+// Parse a run entry
+func parseRun(entry string) Run {
+	var run = Run {
+		Title: "",
+		Distance: "",
+		Notes: []string{},
+	}
+	ls := strings.Split(entry, "\n")
+
+	for _, l := range ls {
+		if len(l) > 2 {
+			check := l[0:2]
+			rest := l[2:len(l)]
+
+			rest = strings.TrimLeft(rest, " ")
+
+			// t - signifies a title
+			// 1., 2., 3. - first, second, third entry
+			if check == "t " {
+				run.Title = rest
+			} else if check == "d " {
+				run.Distance = rest
+			} else {
+				run.Notes = append(run.Notes, l)
+			}
+		}
+	}
+	return run
+}
+
+
+
+func handleRuns(w http.ResponseWriter, r *http.Request) {
+// Read in a text file containing TGT
+content, err := ioutil.ReadFile("./static/runs/index.txt")
+if (err != nil) {
+	panic(err);
+}
+text := string(content)
+
+
+// Split it into posts based on pagebreak elements ***
+var runs []Run
+posts := strings.Split(text, "***")
+for _, post := range posts {
+	runs = append(runs, parseRun(post));
+}
+
+// Load the TGT template
+var tmplFile = "runs.tmpl"
+tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+if err != nil {
+	panic(err)
+}
+// Execute the template
+err = tmpl.Execute(w, runs)
+if err != nil{
+	panic(err)
+}
+}
+
 
 func main() {
 	fileServer := http.FileServer(http.Dir(staticDir))
@@ -156,6 +224,8 @@ func main() {
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
 	http.HandleFunc("/colour/", handleColor)
+
+	http.HandleFunc("/runs/", handleRuns)
 
 
 	fmt.Printf("Starting server at port 8040\n")

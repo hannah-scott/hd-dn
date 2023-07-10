@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HD-DN: Harrow the Ninth</title>
+    <title>HD-DN: Running Journal</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
+
   <body>
     <nav class="menu">
       <h2><a href="/">HD-DN</a></h2>
@@ -22,15 +23,22 @@
       </ul>
     </nav>
 
-    <h1 class="title">Harrow the Ninth</h1>
-    <p class="author">Tamsyn Muir</p>
-    <p class="date">2023-06-06</p>
+    <h1>Running Journal</h1>
 
-    <p>
-      Fantastic follow-up, I think I maybe even preferred this to <i>Gideon</i>.
-      The structure of this book &mdash; half second-person follow-on, half a
-      bizarro retelling of <i>Gideon</i> &mdash; was immediately compelling, and
-      Muir navigated it so well. I really want this series to stick the landing.
-    </p>
+<p>
+I'm attempting to run the 2024 London Marathon to raise money for, um &mdash; a trans-affirming charity that is yet to be decided. This is a training journal.
+</p>
+
+{{ range . }}
+<article id="{{ .Title }}">
+<h2>{{ .Title }}</h2>
+<h3>{{ .Distance }} miles</h3>
+
+{{ range .Notes }}
+  <p>{{ . }}</p>
+{{ end }}
+</article>
+{{ end }}
+
   </body>
 </html>

@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>HD-DN: Bookmarklets & Bandcamp</title>
-        <link rel="stylesheet" href="/css/style.css" />
-    </head>
-    <body>
-        <nav class="menu">
-            <h2><a href="/">HD-DN</a></h2>
-            <ul>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/bookmarks/">Bookmarks</a></li>
-                <li><a href="/books/">Books</a></li>
-                <li><a href="/posts/">Posts</a></li>
-                <li><a href="/three-good-things">Three Good Things</a></li>
-                <li><a href="/toki-pona/">Toki Pona</a></li>
-                <li><a href="/quotes/">Quotes</a></li>
-            </ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HD-DN: Bookmarklets & Bandcamp</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="menu">
+      <h2><a href="/">HD-DN</a></h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/bookmarks/">Bookmarks</a></li>
+        <li><a href="/books/">Books</a></li>
+        <li><a href="/photography/film/">Photography</a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/runs/">Runs</a></li>
+        <li><a href="/three-good-things">Three Good Things</a></li>
+        <li><a href="/quotes/">Quotes</a></li>
+      </ul>
+    </nav>
 
-        <article>
-            <h1 class="title">Bookmarklets & Bandcamp</h1>
-            <p class="date">2022-08-14</p>
+    <article>
+      <h1 class="title">Bookmarklets & Bandcamp</h1>
+      <p class="date">2022-08-14</p>
 
-            <p>
-                I recently learnt about
-                <a
-                    href="https://m15o.ichi.city/site/bookmarklet.html"
-                    target="_blank"
-                    >bookmarklets</a
-                >, a neat bookmarking feature that lets you execute JS with a
-                click! Coincidentally, I also had to download my Bandcamp
-                library &mdash; a uniquely annoying experience. One use I've
-                found is getting the download links from my Bandcamp library,
-                ready to be fed into a command-line downloader.
-            </p>
+      <p>
+        I recently learnt about
+        <a href="https://m15o.ichi.city/site/bookmarklet.html" target="_blank"
+          >bookmarklets</a
+        >, a neat bookmarking feature that lets you execute JS with a click!
+        Coincidentally, I also had to download my Bandcamp library &mdash; a
+        uniquely annoying experience. One use I've found is getting the download
+        links from my Bandcamp library, ready to be fed into a command-line
+        downloader.
+      </p>
 
-            <p>
-                I already had a
-                <a
-                    href="https://gist.github.com/hannah-scott/aae477a1468cabe9820cc2ac5e06ed28"
-                    target="_blank"
-                    >Github gist</a
-                >
-                that I was running from developer tools, so now all I have to do
-                is turn this into a bookmarklet to get a quicker and more
-                user-friendly tool.
-            </p>
+      <p>
+        I already had a
+        <a
+          href="https://gist.github.com/hannah-scott/aae477a1468cabe9820cc2ac5e06ed28"
+          target="_blank"
+          >Github gist</a
+        >
+        that I was running from developer tools, so now all I have to do is turn
+        this into a bookmarklet to get a quicker and more user-friendly tool.
+      </p>
 
-            <code>
-                <pre>
+      <code>
+        <pre>
 javascript:(function() {
     var urls = document.getElementsByClassName("item-link");
     var string = "";
@@ -62,16 +60,16 @@ javascript:(function() {
         }
     alert(string);
 })()</pre
-                >
-            </code>
+        >
+      </code>
 
-            <p>
-                Take that code and save it as the URL of a bookmark. Now go to
-                your Bandcamp library and open the bookmark: you'll get an alert
-                containing your links ready to go! By default Bandcamp only
-                loads the first 20 purchases, so you may need to scroll down and
-                click some buttons to get every purchase.
-            </p>
-        </article>
-    </body>
+      <p>
+        Take that code and save it as the URL of a bookmark. Now go to your
+        Bandcamp library and open the bookmark: you'll get an alert containing
+        your links ready to go! By default Bandcamp only loads the first 20
+        purchases, so you may need to scroll down and click some buttons to get
+        every purchase.
+      </p>
+    </article>
+  </body>
 </html>
