@@ -4,3 +4,4 @@
 *.original
 draft-*
 img/backups
+.*.go
