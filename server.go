@@ -220,13 +220,13 @@ func main() {
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
+	http.Handle("/three-good-things/atom.atom", fileServer)
 	
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
 	http.HandleFunc("/colour/", handleColor)
 
 	http.HandleFunc("/runs/", handleRuns)
-
 
 	fmt.Printf("Starting server at port 8040\n")
 	if err := http.ListenAndServe(":8040", nil); err != nil {
