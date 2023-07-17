@@ -40,6 +40,19 @@ type Run struct {
 // const staticDir = "/home/debian/hd-dn/static"
 const staticDir = "./static"
 
+// execute templates from templatedir
+func executeTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
+	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
+	if err != nil {
+		panic(err)
+	}
+	// Execute the template
+	err = tmpl.ExecuteTemplate(w, tmplFile, data)
+	if err != nil{
+		panic(err)
+	}
+}
+
 // parses three good things entry into struct
 func parseDay(entry string, escape bool) Day {
 	var day = Day{
@@ -99,37 +112,15 @@ func parseDays(filename string, escape bool) []Day {
 
 // Handler for three good things posts
 func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
-		// Split it into posts based on pagebreak elements ***
-		var days = parseDays("./static/three-good-things/index.txt", false)
-		
-	// Load the TGT template
-	var tmplFile = "three-good-things.tmpl"
-	tmpl, err := template.ParseGlob("./templates/*")
-		if err != nil {
-			panic(err)
-		}
-		// Execute the template
-		err = tmpl.ExecuteTemplate(w, tmplFile, days)
-		if err != nil{
-			panic(err)
-		}
+	// Split it into posts based on pagebreak elements ***
+	var days = parseDays("./static/three-good-things/index.txt", false)
+	executeTemplate(w, "three-good-things.tmpl", days)
 }
 
 // Build atom feed for three good things
 func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
 	var days = parseDays("./static/three-good-things/index.txt", true)
-
-	// Load the TGT template
-	var tmplFile = "three-good-things-feed.tmpl"
-	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
-	if err != nil {
-		panic(err)
-	}
-	// Execute the template
-	err = tmpl.ExecuteTemplate(w, tmplFile, days)
-	if err != nil{
-		panic(err)
-	}
+	executeTemplate(w, "three-good-things-feed.tmpl", days)
 }
 
 // hash function for color handling
@@ -161,20 +152,8 @@ func getDailyColor() Color {
 
 // Handler for color of the day
 func handleColor(w http.ResponseWriter, r *http.Request) {
-	c := getDailyColor()
 	w.Header().Set("Content-Type", "text/html")
-
-	// Load color template
-	var tmplFile = "color.tmpl"
-	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
-	if err != nil {
-		panic(err)
-	}
-	// Execute the template
-	err = tmpl.ExecuteTemplate(w, tmplFile, c)
-	if err != nil{
-		panic(err)
-	}
+	executeTemplate(w, "color.tmpl", getDailyColor())
 }
 
 // Running journal
@@ -223,18 +202,7 @@ func handleRuns(w http.ResponseWriter, r *http.Request) {
 	for _, post := range posts {
 		runs = append(runs, parseRun(post));
 	}
-
-	// Load the TGT template
-	var tmplFile = "runs.tmpl"
-	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
-	if err != nil {
-		panic(err)
-	}
-	// Execute the template
-	err = tmpl.ExecuteTemplate(w, tmplFile, runs)
-	if err != nil{
-		panic(err)
-	}
+	executeTemplate(w, "runs.tmpl", runs)
 }
 
 func main() {
