@@ -102,14 +102,14 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 		// Split it into posts based on pagebreak elements ***
 		var days = parseDays("./static/three-good-things/index.txt", false)
 		
-		// Load the TGT template
-		var tmplFile = "three-good-things.tmpl"
-		tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	// Load the TGT template
+	var tmplFile = "three-good-things.tmpl"
+	tmpl, err := template.ParseGlob("./templates/*")
 		if err != nil {
 			panic(err)
 		}
 		// Execute the template
-		err = tmpl.Execute(w, days)
+		err = tmpl.ExecuteTemplate(w, tmplFile, days)
 		if err != nil{
 			panic(err)
 		}
@@ -121,12 +121,12 @@ func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
 
 	// Load the TGT template
 	var tmplFile = "three-good-things-feed.tmpl"
-	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
 	if err != nil {
 		panic(err)
 	}
 	// Execute the template
-	err = tmpl.Execute(w, days)
+	err = tmpl.ExecuteTemplate(w, tmplFile, days)
 	if err != nil{
 		panic(err)
 	}
@@ -166,12 +166,12 @@ func handleColor(w http.ResponseWriter, r *http.Request) {
 
 	// Load color template
 	var tmplFile = "color.tmpl"
-	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
 	if err != nil {
 		panic(err)
 	}
 	// Execute the template
-	err = tmpl.Execute(w, c)
+	err = tmpl.ExecuteTemplate(w, tmplFile, c)
 	if err != nil{
 		panic(err)
 	}
