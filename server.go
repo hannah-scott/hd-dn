@@ -9,6 +9,7 @@ import (
 	"strings"
 	"hash/fnv"
 	"time"
+	"html"
 )
 
 type Page struct {
@@ -40,7 +41,7 @@ type Run struct {
 const staticDir = "./static"
 
 // parses three good things entry into struct
-func parseDay(entry string) Day {
+func parseDay(entry string, escape bool) Day {
 	var day = Day{
 		Title: "",
 		First: "",
@@ -55,6 +56,10 @@ func parseDay(entry string) Day {
 			rest := l[2:len(l)]
 
 			rest = strings.TrimLeft(rest, " ")
+
+			if escape {
+				rest = html.EscapeString(rest)
+			}
 
 			// t - signifies a title
 			// 1., 2., 3. - first, second, third entry
@@ -75,22 +80,27 @@ func parseDay(entry string) Day {
 	return day
 }
 
+func parseDays(filename string, escape bool) []Day {
+	// Read in a text file containing TGT
+	content, err := ioutil.ReadFile(filename)
+	if (err != nil) {
+		panic(err);
+	}
+	text := string(content)
+
+	// Split it into posts based on pagebreak elements ***
+	var days []Day
+	posts := strings.Split(text, "***")
+	for _, post := range posts {
+		days = append(days, parseDay(post, escape));
+	}
+	return days
+}
+
 // Handler for three good things posts
 func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
-		// Read in a text file containing TGT
-		content, err := ioutil.ReadFile("./static/three-good-things/index.txt")
-		if (err != nil) {
-			panic(err);
-		}
-		text := string(content)
-	
-		
 		// Split it into posts based on pagebreak elements ***
-		var days []Day
-		posts := strings.Split(text, "***")
-		for _, post := range posts {
-			days = append(days, parseDay(post));
-		}
+		var days = parseDays("./static/three-good-things/index.txt", false)
 		
 		// Load the TGT template
 		var tmplFile = "three-good-things.tmpl"
@@ -103,6 +113,23 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 		if err != nil{
 			panic(err)
 		}
+}
+
+// Build atom feed for three good things
+func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
+	var days = parseDays("./static/three-good-things/index.txt", true)
+
+	// Load the TGT template
+	var tmplFile = "three-good-things-feed.tmpl"
+	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	if err != nil {
+		panic(err)
+	}
+	// Execute the template
+	err = tmpl.Execute(w, days)
+	if err != nil{
+		panic(err)
+	}
 }
 
 // hash function for color handling
@@ -181,35 +208,33 @@ func parseRun(entry string) Run {
 	return run
 }
 
-
-
 func handleRuns(w http.ResponseWriter, r *http.Request) {
-// Read in a text file containing TGT
-content, err := ioutil.ReadFile("./static/runs/index.txt")
-if (err != nil) {
-	panic(err);
-}
-text := string(content)
+	// Read in a text file containing TGT
+	content, err := ioutil.ReadFile("./static/runs/index.txt")
+	if (err != nil) {
+		panic(err);
+	}
+	text := string(content)
 
 
-// Split it into posts based on pagebreak elements ***
-var runs []Run
-posts := strings.Split(text, "***")
-for _, post := range posts {
-	runs = append(runs, parseRun(post));
-}
+	// Split it into posts based on pagebreak elements ***
+	var runs []Run
+	posts := strings.Split(text, "***")
+	for _, post := range posts {
+		runs = append(runs, parseRun(post));
+	}
 
-// Load the TGT template
-var tmplFile = "runs.tmpl"
-tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
-if err != nil {
-	panic(err)
-}
-// Execute the template
-err = tmpl.Execute(w, runs)
-if err != nil{
-	panic(err)
-}
+	// Load the TGT template
+	var tmplFile = "runs.tmpl"
+	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	if err != nil {
+		panic(err)
+	}
+	// Execute the template
+	err = tmpl.Execute(w, runs)
+	if err != nil{
+		panic(err)
+	}
 }
 
 
@@ -220,7 +245,7 @@ func main() {
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
-	http.Handle("/three-good-things/atom.atom", fileServer)
+	http.HandleFunc("/three-good-things/atom.atom", handleThreeGoodThingsFeed)
 	
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
