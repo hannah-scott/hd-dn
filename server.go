@@ -226,17 +226,16 @@ func handleRuns(w http.ResponseWriter, r *http.Request) {
 
 	// Load the TGT template
 	var tmplFile = "runs.tmpl"
-	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
 	if err != nil {
 		panic(err)
 	}
 	// Execute the template
-	err = tmpl.Execute(w, runs)
+	err = tmpl.ExecuteTemplate(w, tmplFile, runs)
 	if err != nil{
 		panic(err)
 	}
 }
-
 
 func main() {
 	fileServer := http.FileServer(http.Dir(staticDir))
