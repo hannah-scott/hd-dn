@@ -9,7 +9,6 @@ import (
 	"strings"
 	"hash/fnv"
 	"time"
-	"html"
 )
 
 type Page struct {
@@ -71,7 +70,7 @@ func parseDay(entry string, escape bool) Day {
 			rest = strings.TrimLeft(rest, " ")
 
 			if escape {
-				rest = html.EscapeString(rest)
+				rest = template.HTMLEscapeString(rest)
 			}
 
 			// t - signifies a title
