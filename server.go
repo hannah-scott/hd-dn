@@ -259,9 +259,12 @@ func handleRuns(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// fileServer := http.FileServer(http.Dir(staticDir))
+	fileServer := http.FileServer(http.Dir(staticDir))
 
 	http.HandleFunc("/", handlePage)
+
+	http.Handle("/css/", fileServer)
+	http.Handle("/favicon.ico", fileServer)
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
