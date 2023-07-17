@@ -9,6 +9,7 @@ import (
 	"strings"
 	"hash/fnv"
 	"time"
+	"os"
 )
 
 type Page struct {
@@ -112,14 +113,67 @@ func parseDays(filename string, escape bool) []Day {
 // Handler for three good things posts
 func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 	// Split it into posts based on pagebreak elements ***
-	var days = parseDays("./static/three-good-things/index.txt", false)
+	days := parseDays("./static/three-good-things/index.txt", false)
 	executeTemplate(w, "three-good-things.tmpl", days)
 }
 
 // Build atom feed for three good things
 func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
-	var days = parseDays("./static/three-good-things/index.txt", true)
+	days := parseDays("./static/three-good-things/index.txt", true)
 	executeTemplate(w, "three-good-things-feed.tmpl", days)
+}
+
+
+// get the proper title name from the file path
+func getTitleFromURL(url string) string {
+	// Get list of all parts of the filepath
+	ps := strings.Split(strings.Trim(url, "/"), "/")
+	if len(ps) == 0 { return "" }
+
+	// Get the last entry as a candidate
+	c := ps[len(ps) - 1]
+
+	if c == "index.html" {
+		if len(ps) == 1 { return ""}
+		return ps[len(ps) - 2]
+	}
+
+	return strings.TrimSuffix(c, ".html")
+}
+
+func readURL(url string) ([]byte, error) {
+	info, err := os.Stat(url)
+	if err != nil {
+		panic(err)
+	}
+
+	if info.IsDir() {
+		return ioutil.ReadFile(url + "index.html")
+	} else {
+		return ioutil.ReadFile(url)
+	}
+
+}
+
+// Serve a standard html style page
+func handlePage(w http.ResponseWriter, r *http.Request) {
+	content, err := readURL("./static" + r.URL.Path)
+	if err != nil {
+		panic(err)
+	}
+	title := getTitleFromURL(r.URL.Path)
+	if title != "" { 
+		title = "HD-DN: " + strings.ToLower(title)
+	} else { 
+		title = "HD-DN" 
+	} 
+
+	page := Page{
+		Title: title,
+		Content: string(content),
+	}
+
+	executeTemplate(w, "page.tmpl", page)
 }
 
 // hash function for color handling
@@ -205,9 +259,9 @@ func handleRuns(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fileServer := http.FileServer(http.Dir(staticDir))
+	// fileServer := http.FileServer(http.Dir(staticDir))
 
-	http.Handle("/", fileServer)
+	http.HandleFunc("/", handlePage)
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
@@ -219,7 +273,8 @@ func main() {
 
 	http.HandleFunc("/runs/", handleRuns)
 
-	fmt.Printf("Starting server at port 8040\n")
+
+	fmt.Printf("Starting server at http://localhost:8040\n")
 	if err := http.ListenAndServe(":8040", nil); err != nil {
 		log.Fatal(err)
 	}

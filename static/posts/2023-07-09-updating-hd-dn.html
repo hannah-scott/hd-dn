@@ -1,52 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HD-DN: Updating HD-DN</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <nav class="menu">
-      <h2><a href="/">HD-DN</a></h2>
-      <ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/bookmarks/">Bookmarks</a></li>
-        <li><a href="/books/">Books</a></li>
-        <li><a href="/photography/film/">Photography</a></li>
-        <li><a href="/posts/">Posts</a></li>
-        <li><a href="/runs/">Runs</a></li>
-        <li><a href="/three-good-things">Three Good Things</a></li>
-        <li><a href="/quotes/">Quotes</a></li>
-      </ul>
-    </nav>
-    <h1 class="title">Updating HD-DN</h1>
+<article>
+  <h1 class="title">Updating HD-DN</h1>
 
-    <p>
-      I've moved over from a Github pages instance to hosting on a VM.
-      Everything is being served by a go server that I've written.
-    </p>
+  <p>
+    I've moved over from a Github pages instance to hosting on a VM. Everything
+    is being served by a go server that I've written.
+  </p>
 
-    <p>
-      As part of that workflow, I "borrowed" some ideas from
-      <a
-        href="https://j3s.sh/thought/my-website-is-one-binary.html"
-        target="_blank"
-        >j3s</a
-      >
-      and set up a cronjob to check for any updates on git.
-    </p>
+  <p>
+    As part of that workflow, I "borrowed" some ideas from
+    <a
+      href="https://j3s.sh/thought/my-website-is-one-binary.html"
+      target="_blank"
+      >j3s</a
+    >
+    and set up a cronjob to check for any updates on git.
+  </p>
 
-    <p>
-      And since I've been having server problems today and had to rebuild
-      everything (RIP my FreshRSS instance) I'll just dump this here.
-    </p>
+  <p>
+    And since I've been having server problems today and had to rebuild
+    everything (RIP my FreshRSS instance) I'll just dump this here.
+  </p>
 
-    <p>Big site update post incoming, this for now though.</p>
+  <p>Big site update post incoming, this for now though.</p>
 
-    <code>
-      <pre>
+  <code>
+    <pre>
 #!/bin/bash
 # Script to autoupdate website based on git repo status
 
@@ -64,7 +42,6 @@ if git status | grep -q behind; then
   systemctl --user restart hd-dn.service
 fi
 </pre
-      >
-    </code>
-  </body>
-</html>
+    >
+  </code>
+</article>
