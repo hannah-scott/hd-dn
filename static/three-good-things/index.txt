@@ -1,3 +1,43 @@
+t 2023-07-21
+
+1. I made progress of the Forth-ish language and got to a point where I can check for primality 🙂
+2. My partner and I got Indian food and watched <i>Rye Lane</i>, which started out amazing and overall was pretty good 📽
+3. I felt pretty good today. Emotions have been kind of a wild ride recently, but today was good 🧠
+
+***
+
+t 2023-07-20
+
+1. Started working on a Forth virtual machine in Go 💻
+2. Listened to the first half of <i>Ghosteen</i> by Nick Cave &amp; the Bad Seeds, so gorgeous 🎵
+3. Partner and I had pasta with broad beans from the garden for dinner 🌿
+
+***
+
+t 2023-07-19
+
+1. At lunch I got a really great coffee from a coffee shop near the office ☕
+2. My partner and I have been listening to "classic" albums together for the past few days &mdash; today was <em>Rush!</em> <i>2112</i> was pretty good! Decent! Underwhelming in parts! But it's been fun to have those discussions with them 🎸
+3. Church book club today, it was the chapter of <i>Low Anthropology</i> on politics. So, a lot to talk about. Afterwards someone reached out to me to say how nice it was to have diverse voices and opinions in those conversations 📕
+
+***
+
+t 2023-07-18
+
+1. I made a really good breakfast of scrambled eggs with hot sauce, some pickled onions my partner made, and a bit or coriander from the garden 🍳
+2. I went skating at lunch, rode around a little loop at the skatepark and chatted with someone else riding the same loop 🛹
+3. Girlfriend and I went out for an absolutely gorgeous meal before she goes abroad for a while 💜
+
+***
+
+t 2023-07-17
+
+1. My partner and I watched some more Game Changer 📺
+2. We had burgers 🍔
+3. I listened to Rage Against The Machine, absolute bangers on that album 🎧
+
+***
+
 t 2023-07-16
 
 1. Church was very mellow and contemplative today, we sang three songs I'd not heard before and had some slow and thoughtful chats 🙏
