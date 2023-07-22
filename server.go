@@ -2,39 +2,52 @@ package main
 
 import (
 	"fmt"
+	"hash/fnv"
+	"io/ioutil"
 	"log"
 	"net/http"
-	"text/template"
-	"io/ioutil"
-	"strings"
-	"hash/fnv"
-	"time"
 	"os"
+	"strings"
+	"text/template"
+	"time"
 )
 
 type Page struct {
-	Title		string
-	Content	string
+	Title   string
+	Content string
 }
 
 // Define a Day struct to hold TGT posts
 type Day struct {
-	Title		string
-	First		string
-	Second	string
-	Third		string
+	Title  string
+	First  string
+	Second string
+	Third  string
 }
 
 // Color struct for daily colors
 type Color struct {
-	ColorName	string
-	ColorHex	string
+	ColorName string
+	ColorHex  string
 }
 
+type Photo struct {
+	Path    string
+	AltText string
+}
+
+type PhotoEntry struct {
+	Date      string
+	FilmStock string
+	Notes     []string
+	Photos    []Photo
+}
+
+// Running journal entries
 type Run struct {
-	Title			string
-	Distance	string
-	Notes			[]string
+	Title    string
+	Distance string
+	Notes    []string
 }
 
 // const staticDir = "/home/debian/hd-dn/static"
@@ -48,7 +61,7 @@ func executeTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
 	}
 	// Execute the template
 	err = tmpl.ExecuteTemplate(w, tmplFile, data)
-	if err != nil{
+	if err != nil {
 		panic(err)
 	}
 }
@@ -56,10 +69,10 @@ func executeTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
 // parses three good things entry into struct
 func parseDay(entry string, escape bool) Day {
 	var day = Day{
-		Title: "",
-		First: "",
+		Title:  "",
+		First:  "",
 		Second: "",
-		Third: "",
+		Third:  "",
 	}
 	ls := strings.Split(entry, "\n")
 
@@ -96,8 +109,8 @@ func parseDay(entry string, escape bool) Day {
 func parseDays(filename string, escape bool) []Day {
 	// Read in a text file containing TGT
 	content, err := ioutil.ReadFile(filename)
-	if (err != nil) {
-		panic(err);
+	if err != nil {
+		panic(err)
 	}
 	text := string(content)
 
@@ -105,7 +118,7 @@ func parseDays(filename string, escape bool) []Day {
 	var days []Day
 	posts := strings.Split(text, "***")
 	for _, post := range posts {
-		days = append(days, parseDay(post, escape));
+		days = append(days, parseDay(post, escape))
 	}
 	return days
 }
@@ -123,19 +136,22 @@ func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
 	executeTemplate(w, "three-good-things-feed.tmpl", days)
 }
 
-
 // get the proper title name from the file path
 func getTitleFromURL(url string) string {
 	// Get list of all parts of the filepath
 	ps := strings.Split(strings.Trim(url, "/"), "/")
-	if len(ps) == 0 { return "" }
+	if len(ps) == 0 {
+		return ""
+	}
 
 	// Get the last entry as a candidate
-	c := ps[len(ps) - 1]
+	c := ps[len(ps)-1]
 
 	if c == "index.html" {
-		if len(ps) == 1 { return ""}
-		return ps[len(ps) - 2]
+		if len(ps) == 1 {
+			return ""
+		}
+		return ps[len(ps)-2]
 	}
 
 	return strings.TrimSuffix(c, ".html")
@@ -162,14 +178,14 @@ func handlePage(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	title := getTitleFromURL(r.URL.Path)
-	if title != "" { 
+	if title != "" {
 		title = "HD-DN: " + strings.ToLower(title)
-	} else { 
-		title = "HD-DN" 
-	} 
+	} else {
+		title = "HD-DN"
+	}
 
 	page := Page{
-		Title: title,
+		Title:   title,
 		Content: string(content),
 	}
 
@@ -200,7 +216,7 @@ func getDailyColor() Color {
 
 	sToday := time.Now().Format("20060102150405")[0:8]
 	h := hash(sToday)
-	return colors[h % len(colors)]
+	return colors[h%len(colors)]
 }
 
 // Handler for color of the day
@@ -209,13 +225,69 @@ func handleColor(w http.ResponseWriter, r *http.Request) {
 	executeTemplate(w, "color.tmpl", getDailyColor())
 }
 
+// Photography
+// Parse a photography entry
+func parsePhotoEntry(path string, entry string) PhotoEntry {
+	pe := PhotoEntry{}
+	photos := false
+
+	path = "/img/" + strings.Trim(path, ".html") + "/"
+
+	ls := strings.Split(entry, "\n")
+
+	for _, l := range ls {
+		if len(l) > 1 {
+			check := l[0:2]
+			rest := l[2:len(l)]
+			rest = strings.TrimLeft(rest, " ")
+			if check == ":p" && !photos {
+				photos = true
+			}
+
+			if !photos {
+				if check == "d " {
+					pe.Date = rest
+				} else if check == "f " {
+					pe.FilmStock = rest
+				} else {
+					pe.Notes = append(pe.Notes, l)
+				}
+			} else if check != ":p" {
+				s := strings.Split(l, "|")
+				photo := Photo{Path: path + strings.Trim(s[0], " ") + ".jpg", AltText: strings.Trim(s[1], " ")}
+				pe.Photos = append(pe.Photos, photo)
+			}
+		}
+	}
+	return pe
+}
+
+func handlePhotos(w http.ResponseWriter, r *http.Request) {
+	// Read in a text file containing photos
+	path := strings.TrimSuffix(r.URL.Path, ".html") + ".txt"
+	ss := strings.Split(r.URL.Path, "/")
+	fp := ss[len(ss)-1]
+	if fp == "index.html" || fp == "" {
+		handlePage(w, r)
+		return
+	}
+
+	content, err := readURL("./static" + path)
+	if err != nil {
+		panic(err)
+	}
+
+	text := string(content)
+	executeTemplate(w, "photos.tmpl", parsePhotoEntry(fp, text))
+}
+
 // Running journal
 // Parse a run entry
 func parseRun(entry string) Run {
-	var run = Run {
-		Title: "",
+	var run = Run{
+		Title:    "",
 		Distance: "",
-		Notes: []string{},
+		Notes:    []string{},
 	}
 	ls := strings.Split(entry, "\n")
 
@@ -243,41 +315,39 @@ func parseRun(entry string) Run {
 func handleRuns(w http.ResponseWriter, r *http.Request) {
 	// Read in a text file containing TGT
 	content, err := ioutil.ReadFile("./static/runs/index.txt")
-	if (err != nil) {
-		panic(err);
+	if err != nil {
+		panic(err)
 	}
 	text := string(content)
-
 
 	// Split it into posts based on pagebreak elements ***
 	var runs []Run
 	posts := strings.Split(text, "***")
 	for _, post := range posts {
-		runs = append(runs, parseRun(post));
+		runs = append(runs, parseRun(post))
 	}
 	executeTemplate(w, "runs.tmpl", runs)
 }
 
 func main() {
 	fileServer := http.FileServer(http.Dir(staticDir))
-	
+
 	http.Handle("/css/", fileServer)
 	http.Handle("/img/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
-	
-	http.HandleFunc("/", handlePage)
 
+	http.HandleFunc("/", handlePage)
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
 	http.HandleFunc("/three-good-things/atom.atom", handleThreeGoodThingsFeed)
-	
+
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
 	http.HandleFunc("/colour/", handleColor)
 
 	http.HandleFunc("/runs/", handleRuns)
-
+	http.HandleFunc("/photography/film/", handlePhotos)
 
 	fmt.Printf("Starting server at http://localhost:8040\n")
 	if err := http.ListenAndServe(":8040", nil); err != nil {
