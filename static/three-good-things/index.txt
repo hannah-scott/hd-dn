@@ -1,3 +1,11 @@
+t 2023-07-22
+
+1. I spent a lot of time working on the website: ended up creating a format for photography entries, meaning <a href="/photography/film/">my photography section</a> is now slightly more populated 📸
+2. Album of the day was <i>Ágætis byrjun</i> by Sigur Rós. I've not listened to Sigur Rós before &mdash; super atmospheric and dramatic. Loved it 📻
+3. My partner and I had peanut butter noodles and started watching <i>The Mummy</i>, fun flick 📽
+
+***
+
 t 2023-07-21
 
 1. I made progress of the Forth-ish language and got to a point where I can check for primality 🙂
