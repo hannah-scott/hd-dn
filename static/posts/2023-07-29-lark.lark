@@ -58,20 +58,20 @@ This is a lark made up of a single article. The article is made up of two sectio
 Glyphs are used to indicate the type of block being written. They are always the first character of a line. If the first character of a line is not a glyph, then the assumption is that the block being written is a paragraph.
 
 '''
-=    Header
--    Subheader
-_    Subsubheader
-+    Date
-~    Author
-@    Link
-!    Image
->    Blockquote
-*    Unordered list
-:    Ordered list
-'''  Toggles pre
-```  Toggles pre code
----  Section divider
-***  Article divider
+  =    Header
+  -    Subheader
+  _    Subsubheader
+  +    Date
+  ~    Author
+  @    Link
+  !    Image
+  >    Blockquote
+  *    Unordered list
+  :    Ordered list
+  '''  Toggles pre
+  ```  Toggles pre code
+  ---  Section divider
+  ***  Article divider
 '''
 
 lark attempts to be a simple but strict superset of gemtext. You should be able to convert valid gemtext into valid lark using less than 10 lines of simple shell script. If this isn't possible, then lark has failed in its goals.
@@ -173,14 +173,14 @@ Sequential list items of the same type are put into an unordered or ordered list
 might get processed to something like
 
 '''
-Block(
-  type: OrderedList,
-  content: [
-    Block(type: ListItem, content: "Here's an item"),
-    Block(type: ListItem, content: "And another"),
-    Block(type: ListItem, content: "A third")
-  ]
-)
+  Block(
+    type: OrderedList,
+    content: [
+      Block(type: ListItem, content: "Here's an item"),
+      Block(type: ListItem, content: "And another"),
+      Block(type: ListItem, content: "A third")
+    ]
+  )
 '''
 
 _ Pre-formatted and code blocks
@@ -195,35 +195,35 @@ Pre-formatted and code blocks are
 Using ''' or ``` will toggle the client into a preformatted mode. While in this mode, any text will be processed verbatim into the block. For example
 
 ```lark
-'''
-    This is a pre-formatted block
-      So all
-    these spaces should appear in content.
-'''
+  '''
+      This is a pre-formatted block
+        So all
+      these spaces should appear in content.
+  '''
 ```
 
 might be processed into something like
 
 '''
-Block(
-  type: Preformatted,
-  content: [
-    "    This is a pre-formatted block",
-    "      So all",
-    "    these spaces should appear in content."
-  ]
-)
+  Block(
+    type: Preformatted,
+    content: [
+      "    This is a pre-formatted block",
+      "      So all",
+      "    these spaces should appear in content."
+    ]
+  )
 '''
 
 Pre and code blocks can take an optional attribute, for example
 
 ```lark
-'''poem
-a
-  poem is a type
-of written
-   WORD!
-'''
+  '''poem
+  a
+    poem is a type
+  of written
+    WORD!
+  '''
 ```
 
 would give this block the "poem" attribute, which might be useful to the client in some way.
@@ -312,13 +312,13 @@ This text should
 _ Code block
 
 ```go
-package main
+  package main
 
-import (
-  "fmt"
-)
+  import (
+    "fmt"
+  )
 
-func main() {
-  fmt.Println("hi!")
-}
+  func main() {
+    fmt.Println("hi!")
+  }
 ```

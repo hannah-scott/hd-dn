@@ -6,3 +6,4 @@ draft-*
 img/backups
 .*.go
 .*.txt
+.*.lark

@@ -232,6 +232,10 @@ func (b *Block) EncodeLink() string {
 		desc = sep[1]
 	}
 
+	if link[0] != '/' {
+		return "<a href='" + link + "' target='_blank'>" + desc + "</a>\n"
+	}
+
 	return "<a href='" + link + "'>" + desc + "</a>\n"
 }
 

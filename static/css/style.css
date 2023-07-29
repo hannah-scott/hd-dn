@@ -104,6 +104,17 @@ blockquote {
   padding: 0 1rem;
 }
 
+img {
+  width: 100%;
+  max-width: 40rem;
+  align-self: center;
+  padding: 1rem 0;
+}
+
+pre {
+  overflow-x: scroll;
+}
+
 .book-series > h3 {
   font-style: italic;
 }
@@ -123,11 +134,4 @@ blockquote {
 
 .footnote-ref {
   font-size: 0.8rem;
-}
-
-.img-three-good-things {
-  width: 100%;
-  max-width: 40rem;
-  align-self: center;
-  padding: 1rem 0;
 }
