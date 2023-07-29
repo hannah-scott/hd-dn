@@ -17,6 +17,11 @@ type Page struct {
 	Content string
 }
 
+type LarkPage struct {
+	Title string
+	Lark  Lark
+}
+
 // Define a Day struct to hold TGT posts
 type Day struct {
 	Title  string
@@ -129,7 +134,7 @@ func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
 }
 
 // get the proper title name from the file path
-func getTitleFromURL(url string) string {
+func getTitleFromURL(url string, suffix string) string {
 	// Get list of all parts of the filepath
 	ps := strings.Split(strings.Trim(url, "/"), "/")
 	if len(ps) == 0 {
@@ -139,14 +144,14 @@ func getTitleFromURL(url string) string {
 	// Get the last entry as a candidate
 	c := ps[len(ps)-1]
 
-	if c == "index.html" {
+	if c == "index"+suffix {
 		if len(ps) == 1 {
 			return ""
 		}
 		return ps[len(ps)-2]
 	}
 
-	return strings.TrimSuffix(c, ".html")
+	return strings.TrimSuffix(c, suffix)
 }
 
 func readURL(url string) ([]byte, error) {
@@ -169,19 +174,36 @@ func handlePage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	title := getTitleFromURL(r.URL.Path)
+
+	text := string(content)
+
+	suffix := strings.Split(r.URL.Path, ".")[len(strings.Split(r.URL.Path, "."))-1]
+
+	fmt.Println(suffix)
+
+	title := getTitleFromURL(r.URL.Path, "."+suffix)
 	if title != "" {
 		title = "HD-DN: " + strings.ToLower(title)
 	} else {
 		title = "HD-DN"
 	}
 
-	page := Page{
-		Title:   title,
-		Content: string(content),
-	}
+	if suffix == "lark" {
+		page := LarkPage{
+			Title: title,
+			Lark:  encodeLark(strings.Split(text, "\n")),
+		}
 
-	executeTemplate(w, "page.tmpl", page)
+		executeTemplate(w, "larkpage.tmpl", page)
+	} else {
+
+		page := Page{
+			Title:   title,
+			Content: text,
+		}
+
+		executeTemplate(w, "page.tmpl", page)
+	}
 }
 
 // hash function for color handling
@@ -327,7 +349,6 @@ func main() {
 	http.Handle("/css/", fileServer)
 	http.Handle("/img/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
-
 	http.HandleFunc("/", handlePage)
 
 	// Handle Three Good Things separately coz she's special
