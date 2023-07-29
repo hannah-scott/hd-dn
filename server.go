@@ -188,6 +188,8 @@ func handlePage(w http.ResponseWriter, r *http.Request) {
 		title = "HD-DN"
 	}
 
+	fmt.Println(title)
+
 	if suffix == "lark" {
 		page := LarkPage{
 			Title: title,
