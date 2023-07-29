@@ -212,6 +212,7 @@ Block(
     "      So all",
     "    these spaces should appear in content."
   ]
+)
 '''
 
 Pre and code blocks can take an optional attribute, for example
