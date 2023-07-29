@@ -79,6 +79,10 @@ func parseLine(line string, glyph string) Block {
 		content = line
 	}
 
+	// Personal opinion
+	content = strings.Replace(content, "---", "—", -1)
+	content = strings.Replace(content, "--", "—", -1)
+
 	block.Contents = []string{strings.TrimLeftFunc(content, unicode.IsSpace)}
 	return block
 }
