@@ -55,12 +55,9 @@ const staticDir = "./static"
 
 // execute templates from templatedir
 func executeTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
-	tmpl, err := template.New(tmplFile).ParseGlob("./templates/" + tmplFile)
-	if err != nil {
-		panic(err)
-	}
+	templates := template.Must(template.ParseGlob("./templates/*"))
 	// Execute the template
-	err = tmpl.ExecuteTemplate(w, tmplFile, data)
+	err := templates.ExecuteTemplate(w, tmplFile, data)
 	if err != nil {
 		panic(err)
 	}
@@ -106,27 +103,22 @@ func parseDay(entry string, escape bool) Day {
 	return day
 }
 
-func parseDays(filename string, escape bool) []Day {
+func parseDays(filename string, escape bool) Lark {
 	// Read in a text file containing TGT
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
 		panic(err)
 	}
 	text := string(content)
-
-	// Split it into posts based on pagebreak elements ***
-	var days []Day
-	posts := strings.Split(text, "***")
-	for _, post := range posts {
-		days = append(days, parseDay(post, escape))
-	}
-	return days
+	lines := strings.Split(text, "\n")
+	lark := encodeLark(lines)
+	return lark
 }
 
 // Handler for three good things posts
 func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 	// Split it into posts based on pagebreak elements ***
-	days := parseDays("./static/three-good-things/index.txt", false)
+	days := parseDays("./static/three-good-things/index.lark", false)
 	executeTemplate(w, "three-good-things.tmpl", days)
 }
 

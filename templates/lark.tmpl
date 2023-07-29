@@ -1,0 +1,28 @@
+
+{{ define "lark" }}
+  {{ range .Articles }}
+  <article>
+    {{ range .Sections }}
+      {{ range .Blocks }}
+        {{ if .IsImage}}
+          {{ .EncodeImage }}
+        {{ else if .IsLink }}
+          <p>
+          {{ .EncodeLink }}
+          </p>
+        {{ else if .IsList }}
+          {{ .EncodeList }}
+        {{ else if .IsPre }}
+          {{ .EncodePre }}
+        {{ else }}
+        <{{ .GetHTMLTags }}>
+          {{ range .Contents }}
+          {{ . }}
+          {{ end }}
+        </{{ .GetHTMLTags }}>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </article>
+  {{ end }}
+{{ end }}

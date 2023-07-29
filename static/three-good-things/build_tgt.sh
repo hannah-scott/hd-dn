@@ -1,4 +1,4 @@
 #!/bin/sh
 set -euox
-mv index.txt .index_backup.txt
-cat .tgt_*.txt > index.txt
+mv index.lark .index_backup.lark
+cat .tgt_*.lark > index.lark
