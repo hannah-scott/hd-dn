@@ -19,21 +19,21 @@
     {{ range .Sections }}
       {{ range .Blocks }}
         {{ if .IsImage}}
-          {{ .EscapeString .EncodeImage }}
+          {{ html .EncodeImage }}
         {{ else if .IsLink }}
           &lt;p&gt;
-          {{ .EscapeString .EncodeLink }}
+          {{ html .EncodeLink }}
           &lt;/p&gt;
         {{ else if .IsList }}
-          {{ .EscapeString .EncodeList }}
+          {{ html .EncodeList }}
         {{ else if .IsPre }}
-          {{ .EscapeString .EncodePre }}
+          {{ html .EncodePre }}
         {{ else }}
-        <{{ .EscapeString .GetHTMLTags }}>
+        <{{ html .GetHTMLTags }}>
           {{ range .Contents }}
-          {{ . }}
+          {{ html . }}
           {{ end }}
-        </{{ .EscapeString .GetHTMLTags }}>
+        </{{ html .GetHTMLTags }}>
         {{ end }}
       {{ end }}
     {{ end }}
