@@ -3,24 +3,41 @@
   <title>Three Good Things</title>
   <id>https://hd-dn.com/three-good-things/</id>
   <link rel="alternate" href="https://hd-dn.com/three-good-things/"></link>
-  <updated>{{ (index . 0).Title }}T00:00:00+00:00</updated>
+  <updated>{{ (index .Articles 0).GetID }}T00:00:00+00:00</updated>
   <author>
       <name>Hannah (HD-DN)</name>
       <uri>https://hd-dn.com/three-good-things/</uri>
   </author>
 
-  {{ range . }}
+  {{ range .Articles }}
   <entry>
-    <title>{{ .Title }}</title>
-    <id>https://hd-dn.com/three-good-things/#{{ .Title }}</id>
-    <published>{{ .Title }}T00:00:00+00:00</published>
-    <updated>{{ .Title }}3T00:00:00+00:00</updated>
+    <title>{{ .GetID }}</title>
+    <id>https://hd-dn.com/three-good-things/#{{ .GetID }}</id>
+    <published>{{ .GetID }}T00:00:00+00:00</published>
+    <updated>{{ .GetID }}3T00:00:00+00:00</updated>
     <content type="html">
-    &lt;ol&gt;
-      &lt;li&gt;{{ .First }}&lt;/li&gt;
-      &lt;li&gt;{{ .Second }}&lt;/li&gt;
-      &lt;li&gt;{{ .Third }}&lt;/li&gt;
-    &lt;/ol&gt;</content>
+    {{ range .Sections }}
+      {{ range .Blocks }}
+        {{ if .IsImage}}
+          {{ .EscapeString .EncodeImage }}
+        {{ else if .IsLink }}
+          &lt;p&gt;
+          {{ .EscapeString .EncodeLink }}
+          &lt;/p&gt;
+        {{ else if .IsList }}
+          {{ .EscapeString .EncodeList }}
+        {{ else if .IsPre }}
+          {{ .EscapeString .EncodePre }}
+        {{ else }}
+        <{{ .EscapeString .GetHTMLTags }}>
+          {{ range .Contents }}
+          {{ . }}
+          {{ end }}
+        </{{ .EscapeString .GetHTMLTags }}>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    </content>
   </entry>
   {{ end }}
 </feed>

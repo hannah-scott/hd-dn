@@ -68,46 +68,6 @@ func executeTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
 	}
 }
 
-// parses three good things entry into struct
-func parseDay(entry string, escape bool) Day {
-	var day = Day{
-		Title:  "",
-		First:  "",
-		Second: "",
-		Third:  "",
-	}
-	ls := strings.Split(entry, "\n")
-
-	for _, l := range ls {
-		if len(l) > 2 {
-			check := l[0:2]
-			rest := l[2:len(l)]
-
-			rest = strings.TrimLeft(rest, " ")
-
-			if escape {
-				rest = template.HTMLEscapeString(rest)
-			}
-
-			// t - signifies a title
-			// 1., 2., 3. - first, second, third entry
-			if check == "t " {
-				day.Title = rest
-			}
-			if check == "1." {
-				day.First = rest
-			}
-			if check == "2." {
-				day.Second = rest
-			}
-			if check == "3." {
-				day.Third = rest
-			}
-		}
-	}
-	return day
-}
-
 func parseDays(filename string, escape bool) Lark {
 	// Read in a text file containing TGT
 	content, err := ioutil.ReadFile(filename)
@@ -129,7 +89,9 @@ func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
 
 // Build atom feed for three good things
 func handleThreeGoodThingsFeed(w http.ResponseWriter, r *http.Request) {
-	days := parseDays("./static/three-good-things/index.txt", true)
+	// Split it into posts based on pagebreak elements ***
+	days := parseDays("./static/three-good-things/index.lark", false)
+
 	executeTemplate(w, "three-good-things-feed.tmpl", days)
 }
 

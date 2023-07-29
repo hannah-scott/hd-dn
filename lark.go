@@ -4,6 +4,7 @@ import (
 	"html"
 	"io/ioutil"
 	"net/http"
+	"regexp"
 	"strings"
 	"unicode"
 )
@@ -257,6 +258,31 @@ func (b *Block) EncodePre() string {
 	output += "</" + b.GetHTMLTags() + ">\n"
 
 	return output
+}
+
+func (b *Block) EscapeString(s string) string {
+	return html.EscapeString(s)
+}
+
+func (a *Article) GetID() string {
+	for _, s := range a.Sections {
+		for _, b := range s.Blocks {
+			if b.Glyph == "header" {
+				str := b.Contents[0]
+				str = regexp.MustCompile(`[^a-zA-Z0-9 \-_]+`).ReplaceAllString(str, "")
+				str = strings.ToLower(strings.Replace(str, " ", "-", -1))
+				return str
+			}
+			if b.Glyph == "subheader" {
+				str := b.Contents[0]
+				str = regexp.MustCompile(`[^a-zA-Z0-9 \-_]+`).ReplaceAllString(str, "")
+				str = strings.ToLower(strings.Replace(str, " ", "-", -1))
+				return str
+			}
+		}
+	}
+
+	return ""
 }
 
 func parseLarkToHTML(lark Lark) string {

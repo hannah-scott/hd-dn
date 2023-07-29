@@ -1,7 +1,7 @@
 
 {{ define "lark" }}
   {{ range .Articles }}
-  <article>
+  <article id="{{ .GetID }}">
     {{ range .Sections }}
       {{ range .Blocks }}
         {{ if .IsImage}}
