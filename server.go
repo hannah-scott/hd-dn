@@ -141,16 +141,12 @@ func handlePage(w http.ResponseWriter, r *http.Request) {
 
 	suffix := strings.Split(r.URL.Path, ".")[len(strings.Split(r.URL.Path, "."))-1]
 
-	fmt.Println(suffix)
-
 	title := getTitleFromURL(r.URL.Path, "."+suffix)
 	if title != "" {
 		title = "HD-DN: " + strings.ToLower(title)
 	} else {
 		title = "HD-DN"
 	}
-
-	fmt.Println(title)
 
 	if suffix == "lark" {
 		page := LarkPage{

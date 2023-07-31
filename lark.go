@@ -36,7 +36,7 @@ func getGlyph(line string) string {
 	if len(line) > 2 {
 		switch line[0:3] {
 		case "```":
-			return "pre"
+			return "code"
 		case "'''":
 			return "pre"
 		case "***":
@@ -97,24 +97,41 @@ func isPre(line string, pre bool) bool {
 	return false
 }
 
+func isCode(line string, code bool) bool {
+	if code && getGlyph(line) != "code" {
+		return true
+	}
+	if !code && getGlyph(line) == "code" {
+		return true
+	}
+	return false
+}
+
 func encodeLark(lines []string) Lark {
 	lark := Lark{}
 	article := Article{}
 	section := Section{}
 	block := Block{}
 	preblock := Block{Glyph: "pre"}
+	codeblock := Block{Glyph: "code"}
 	ublock := Block{Glyph: "ulist"}
 	oblock := Block{Glyph: "olist"}
 
 	pre := false
+	code := false
 
 	for _, line := range lines {
 		glyph := getGlyph(line)
 
 		pre = isPre(line, pre)
+		code = isCode(line, code)
 		if pre {
 			if glyph != "pre" {
 				preblock.Contents = append(preblock.Contents, line)
+			}
+		} else if code {
+			if glyph != "code" {
+				codeblock.Contents = append(codeblock.Contents, line)
 			}
 		} else {
 			if glyph == "article" {
@@ -137,7 +154,11 @@ func encodeLark(lines []string) Lark {
 					section.Blocks = append(section.Blocks, preblock)
 					preblock.Contents = nil
 				}
-				if glyph != "pre" {
+				if codeblock.Contents != nil {
+					section.Blocks = append(section.Blocks, codeblock)
+					codeblock.Contents = nil
+				}
+				if glyph != "pre" && glyph != "code" {
 					if glyph == "ulist" {
 						ublock.Contents = append(ublock.Contents, parseLine(line, glyph).Contents[0])
 					} else if glyph == "olist" {
@@ -162,6 +183,9 @@ func encodeLark(lines []string) Lark {
 	}
 	if preblock.Contents != nil {
 		section.Blocks = append(section.Blocks, preblock)
+	}
+	if codeblock.Contents != nil {
+		section.Blocks = append(section.Blocks, codeblock)
 	}
 	if ublock.Contents != nil {
 		section.Blocks = append(section.Blocks, ublock)
@@ -193,6 +217,7 @@ func (b *Block) GetHTMLTags() string {
 		"ulist":        "ul",
 		"olist":        "ol",
 		"pre":          "pre",
+		"code":         "code",
 	}
 	for k, v := range tags {
 		if b.Glyph == k {
@@ -215,7 +240,11 @@ func (b *Block) IsList() bool {
 }
 
 func (b *Block) IsPre() bool {
-	return b.Glyph == "pre" || b.Glyph == "code"
+	return b.Glyph == "pre"
+}
+
+func (b *Block) IsCode() bool {
+	return b.Glyph == "code"
 }
 
 func (b *Block) EncodeImage() string {
@@ -260,6 +289,16 @@ func (b *Block) EncodePre() string {
 		output += content + "\n"
 	}
 	output += "</" + b.GetHTMLTags() + ">\n"
+
+	return output
+}
+
+func (b *Block) EncodeCode() string {
+	output := "<pre><code>\n"
+	for _, content := range b.Contents {
+		output += content + "\n"
+	}
+	output += "</code></pre>\n"
 
 	return output
 }
