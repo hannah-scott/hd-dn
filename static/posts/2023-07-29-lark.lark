@@ -59,6 +59,7 @@ This is a lark made up of a single article. The article is made up of two sectio
 - Glyphs & blocks
 
 Glyphs are used to indicate the type of block being written. They are always the first character of a line. If the first character of a line is not a glyph, then the assumption is that the block being written is a paragraph.
+
 '=    Header
 '-    Subheader
 '_    Subsubheader
