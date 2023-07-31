@@ -174,8 +174,10 @@ func encodeLark(lines []string) Lark {
 							oblock.Contents = nil
 						}
 
-						block = parseLine(line, glyph)
-						section.Blocks = append(section.Blocks, block)
+						if !(strings.TrimSpace(line) == "") {
+							block = parseLine(line, glyph)
+							section.Blocks = append(section.Blocks, block)
+						}
 					}
 				}
 			}
@@ -326,66 +328,6 @@ func (a *Article) GetID() string {
 	}
 
 	return ""
-}
-
-func parseLarkToHTML(lark Lark) string {
-	output := ""
-
-	for _, article := range lark.Articles {
-		output += "<article>\n"
-
-		for _, section := range article.Sections {
-			if len(article.Sections) > 1 {
-				output += "<section>\n"
-			}
-
-			for _, block := range section.Blocks {
-				// Handle images and links
-				if block.Glyph == "link" {
-					sep := strings.SplitN(block.Contents[0], " ", 2)
-					link := sep[0]
-					desc := sep[0]
-					if len(sep) == 2 {
-						desc = sep[1]
-					}
-					output += "<p><a href='" + link + "'>" + desc + "</a></p>\n"
-				} else if block.Glyph == "image" {
-					sep := strings.SplitN(block.Contents[0], " ", 2)
-					link := sep[0]
-					desc := sep[0]
-					if len(sep) == 2 {
-						desc = sep[1]
-					}
-
-					output += "<img src='" + link + "' alt='" + desc + "' />\n"
-				} else {
-					output += "<" + block.GetHTMLTags() + ">"
-
-					for _, content := range block.Contents {
-						if block.Glyph == "pre" {
-							output += html.EscapeString(content) + "\n"
-						} else if block.Glyph == "ulist" || block.Glyph == "olist" {
-							output += "\n<li>" + content + "</li>\n"
-						} else {
-							if content != "" {
-								output += "\n" + content + "\n"
-							}
-						}
-					}
-					output += "</" + strings.Split(block.GetHTMLTags(), " ")[0] + ">\n"
-				}
-
-			}
-
-			if len(article.Sections) > 1 {
-				output += "</section>\n"
-			}
-		}
-
-		output += "</article>\n"
-	}
-
-	return output
 }
 
 func handleLark(w http.ResponseWriter, r *http.Request) {

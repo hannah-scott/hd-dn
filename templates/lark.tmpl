@@ -7,9 +7,9 @@
         {{ if .IsImage}}
           {{ .EncodeImage }}
         {{ else if .IsLink }}
-          <p>
+          <li class="link">
           {{ .EncodeLink }}
-          </p>
+          </li>
         {{ else if .IsList }}
           {{ .EncodeList }}
         {{ else if .IsPre }}

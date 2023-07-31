@@ -21,6 +21,10 @@ a {
   color: #cf0079;
 }
 
+a[target="_blank"] {
+  color: #0053cf;
+}
+
 header h1 {
   font-size: 24px;
 }
@@ -54,6 +58,35 @@ figure > img {
   width: 100%;
 }
 
+li {
+  margin: 0 2rem 0 1rem;
+}
+
+.link {
+  list-style: none;
+  margin: 0 2rem 0 0;
+}
+
+ul {
+  list-style-type: square;
+}
+
+blockquote {
+  border-left: 0.2rem solid #111111;
+  padding: 0 1rem;
+}
+
+img {
+  width: 100%;
+  max-width: 40rem;
+  align-self: center;
+  padding: 1rem 0;
+}
+
+pre {
+  overflow-x: scroll;
+}
+
 .menu {
   display: inline-block;
   overflow: hidden;
@@ -85,34 +118,6 @@ figure > img {
   margin-right: 2rem;
   width: 8rem;
   margin-left: -1rem;
-}
-
-a[target="_blank"] {
-  text-decoration: underline wavy;
-}
-
-li {
-  margin: 0 2rem 0 1rem;
-}
-
-ul {
-  list-style-type: square;
-}
-
-blockquote {
-  border-left: 0.2rem solid #111111;
-  padding: 0 1rem;
-}
-
-img {
-  width: 100%;
-  max-width: 40rem;
-  align-self: center;
-  padding: 1rem 0;
-}
-
-pre {
-  overflow-x: scroll;
 }
 
 .book-series > h3 {

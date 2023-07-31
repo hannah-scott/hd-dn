@@ -132,14 +132,13 @@ func readURL(url string) ([]byte, error) {
 
 // Serve a standard html style page
 func handlePage(w http.ResponseWriter, r *http.Request) {
-	content, err := readURL("./static" + r.URL.Path)
-	if err != nil {
-		panic(err)
+	splits := strings.Split(r.URL.Path, ".")
+	suffix := splits[len(splits)-1]
+	if suffix == r.URL.Path {
+		suffix = "html"
+		r.URL.Path += "index.html"
 	}
-
-	text := string(content)
-
-	suffix := strings.Split(r.URL.Path, ".")[len(strings.Split(r.URL.Path, "."))-1]
+	rest := strings.TrimSuffix(r.URL.Path, suffix)
 
 	title := getTitleFromURL(r.URL.Path, "."+suffix)
 	if title != "" {
@@ -148,21 +147,52 @@ func handlePage(w http.ResponseWriter, r *http.Request) {
 		title = "HD-DN"
 	}
 
+	if suffix == "html" {
+		// Check to see if there's a lark file
+		if _, err := os.Stat("./static" + rest + "lark"); os.IsNotExist(err) {
+			// If not, read in the HTML file
+			content, err := readURL("./static" + r.URL.Path)
+			if err != nil {
+				panic(err)
+			}
+
+			text := string(content)
+			page := Page{
+				Title:   title,
+				Content: text,
+			}
+
+			executeTemplate(w, "page.tmpl", page)
+		} else {
+			// If there is, use it
+			content, err := readURL("./static" + rest + "lark")
+			if err != nil {
+				panic(err)
+			}
+
+			text := string(content)
+			page := LarkPage{
+				Title: title,
+				Lark:  encodeLark(strings.Split(text, "\n")),
+			}
+
+			executeTemplate(w, "larkpage.tmpl", page)
+		}
+	}
+
 	if suffix == "lark" {
+		content, err := readURL("./static" + r.URL.Path)
+		if err != nil {
+			panic(err)
+		}
+
+		text := string(content)
 		page := LarkPage{
 			Title: title,
 			Lark:  encodeLark(strings.Split(text, "\n")),
 		}
 
 		executeTemplate(w, "larkpage.tmpl", page)
-	} else {
-
-		page := Page{
-			Title:   title,
-			Content: text,
-		}
-
-		executeTemplate(w, "page.tmpl", page)
 	}
 }
 
