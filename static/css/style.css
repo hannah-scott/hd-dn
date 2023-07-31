@@ -7,8 +7,6 @@
 
 body {
   font-family: "Verdana", "Liberation Sans", sans-serif;
-  font-weight: normal;
-  font-style: normal;
   color: #111111;
   background-color: #fffcfc;
   padding: 1rem;
@@ -21,8 +19,12 @@ a {
   color: #cf0079;
 }
 
-a[target="_blank"] {
-  color: #0053cf;
+.external-link::before {
+  content: "🌐 ";
+}
+
+.gemini-link::before {
+  content: "♊ ";
 }
 
 header h1 {
@@ -63,7 +65,8 @@ li {
 }
 
 .link {
-  list-style-type: square;
+  list-style-type: none;
+  margin: 0 2rem 0 0;
 }
 
 ul {

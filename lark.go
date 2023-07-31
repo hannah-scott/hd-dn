@@ -268,8 +268,12 @@ func (b *Block) EncodeLink() string {
 		desc = sep[1]
 	}
 
-	if link[0] != '/' {
-		return "<a href='" + link + "' target='_blank'>" + desc + "</a>\n"
+	if strings.HasPrefix(link, "http://") || strings.HasPrefix(link, "https://") {
+		return "<a href='" + link + "' class='external-link'>" + desc + "</a>\n"
+	}
+
+	if strings.HasPrefix(link, "gemini://") {
+		return "<a href='" + link + "' class='gemini-link'>" + desc + "</a>\n"
 	}
 
 	return "<a href='" + link + "'>" + desc + "</a>\n"
