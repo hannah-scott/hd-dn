@@ -162,6 +162,7 @@ func encodeLark(lines []string) Lark {
 	}
 	// If it's the last line then write everything out
 	if block.Contents != nil {
+		block.Glyph = getGlyph(lines[len(lines)-1])
 		section.Blocks = append(section.Blocks, block)
 	}
 	if section.Blocks != nil {
