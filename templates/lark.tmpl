@@ -7,9 +7,9 @@
         {{ if .IsImage}}
           {{ .EncodeImage }}
         {{ else if .IsLink }}
-          <li class="link">
+          <ul class="links">
           {{ .EncodeLink }}
-          </li>
+          </ul>
         {{ else if .IsList }}
           {{ .EncodeList }}
         {{ else if .IsPre }}
@@ -17,11 +17,9 @@
         {{ else if .IsCode }}
           {{ .EncodeCode }}
         {{ else }}
-        <{{ .GetHTMLTags }}>
-          {{ range .Contents }}
+          {{ range .GetTaggedContent }}
           {{ . }}
           {{ end }}
-        </{{ .GetHTMLTags }}>
         {{ end }}
       {{ end }}
     {{ end }}

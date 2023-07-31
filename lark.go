@@ -2,8 +2,6 @@ package main
 
 import (
 	"html"
-	"io/ioutil"
-	"net/http"
 	"regexp"
 	"strings"
 	"unicode"
@@ -35,10 +33,6 @@ func getGlyph(line string) string {
 	// Handle dividers
 	if len(line) > 2 {
 		switch line[0:3] {
-		case "```":
-			return "code"
-		case "'''":
-			return "pre"
 		case "***":
 			return "article"
 		case "---":
@@ -49,16 +43,18 @@ func getGlyph(line string) string {
 
 	char := line[0]
 	glyphs := map[byte]string{
-		'=': "header",
-		'-': "subheader",
-		'_': "subsubheader",
-		'+': "date",
-		'~': "author",
-		'@': "link",
-		'!': "image",
-		'>': "blockquote",
-		'*': "ulist",
-		':': "olist",
+		'=':  "header",
+		'-':  "subheader",
+		'_':  "subsubheader",
+		'+':  "date",
+		'~':  "author",
+		'@':  "link",
+		'!':  "image",
+		'>':  "blockquote",
+		'*':  "ulist",
+		':':  "olist",
+		'\'': "pre",
+		'`':  "code",
 	}
 	for k, v := range glyphs {
 		if char == k {
@@ -68,10 +64,9 @@ func getGlyph(line string) string {
 	return "paragraph"
 }
 
-func parseLine(line string, glyph string) Block {
+func parseLine(line string, glyph string) string {
 	// Get the glyph and store it in a block
 	var content string
-	block := Block{Glyph: glyph}
 
 	if glyph != "paragraph" {
 		content = line[1:]
@@ -83,8 +78,7 @@ func parseLine(line string, glyph string) Block {
 	content = strings.Replace(content, "---", "—", -1)
 	content = strings.Replace(content, "--", "—", -1)
 
-	block.Contents = []string{strings.TrimLeftFunc(content, unicode.IsSpace)}
-	return block
+	return strings.TrimLeftFunc(content, unicode.IsSpace)
 }
 
 func isPre(line string, pre bool) bool {
@@ -112,90 +106,64 @@ func encodeLark(lines []string) Lark {
 	article := Article{}
 	section := Section{}
 	block := Block{}
-	preblock := Block{Glyph: "pre"}
-	codeblock := Block{Glyph: "code"}
-	ublock := Block{Glyph: "ulist"}
-	oblock := Block{Glyph: "olist"}
+	context := getGlyph(lines[0])
 
-	pre := false
-	code := false
-
+	// Read in a line
 	for _, line := range lines {
+		// Check the glyph to get context
 		glyph := getGlyph(line)
+		// If context has changed then write current block out and start a new one
+		if glyph != context {
+			block.Glyph = context
+			if block.Contents != nil {
+				section.Blocks = append(section.Blocks, block)
+				block = Block{}
+			}
+			context = glyph
+		}
+		if glyph == "section" {
+			// Write out current block and section and reinitialize them
+			block.Glyph = glyph
 
-		pre = isPre(line, pre)
-		code = isCode(line, code)
-		if pre {
-			if glyph != "pre" {
-				preblock.Contents = append(preblock.Contents, line)
+			if block.Contents != nil {
+				section.Blocks = append(section.Blocks, block)
 			}
-		} else if code {
-			if glyph != "code" {
-				codeblock.Contents = append(codeblock.Contents, line)
+			if section.Blocks != nil {
+				article.Sections = append(article.Sections, section)
 			}
+
+			block = Block{}
+			section = Section{}
+		} else if glyph == "article" {
+			// Write out current block, section, article and reinitialize them
+			block.Glyph = glyph
+
+			if block.Contents != nil {
+				section.Blocks = append(section.Blocks, block)
+			}
+			if section.Blocks != nil {
+				article.Sections = append(article.Sections, section)
+			}
+			if article.Sections != nil {
+				lark.Articles = append(lark.Articles, article)
+			}
+
+			block = Block{}
+			section = Section{}
+			article = Article{}
 		} else {
-			if glyph == "article" {
-				if section.Blocks != nil {
-					article.Sections = append(article.Sections, section)
-					section.Blocks = nil
-				}
-				if article.Sections != nil {
-					lark.Articles = append(lark.Articles, article)
-					article.Sections = nil
-				}
-			} else if glyph == "section" {
-				if section.Blocks != nil {
-					article.Sections = append(article.Sections, section)
-					section.Blocks = nil
-				}
+			if glyph == "pre" || glyph == "code" {
+				block.Contents = append(block.Contents, line[1:])
 			} else {
-				// Handle pre block printing now
-				if preblock.Contents != nil {
-					section.Blocks = append(section.Blocks, preblock)
-					preblock.Contents = nil
-				}
-				if codeblock.Contents != nil {
-					section.Blocks = append(section.Blocks, codeblock)
-					codeblock.Contents = nil
-				}
-				if glyph != "pre" && glyph != "code" {
-					if glyph == "ulist" {
-						ublock.Contents = append(ublock.Contents, parseLine(line, glyph).Contents[0])
-					} else if glyph == "olist" {
-						oblock.Contents = append(oblock.Contents, parseLine(line, glyph).Contents[0])
-					} else {
-						if ublock.Contents != nil {
-							section.Blocks = append(section.Blocks, ublock)
-							ublock.Contents = nil
-						}
-
-						if oblock.Contents != nil {
-							section.Blocks = append(section.Blocks, oblock)
-							oblock.Contents = nil
-						}
-
-						if !(strings.TrimSpace(line) == "") {
-							block = parseLine(line, glyph)
-							section.Blocks = append(section.Blocks, block)
-						}
-					}
-				}
+				block.Contents = append(block.Contents, parseLine(line, glyph))
 			}
 		}
-	}
-	if preblock.Contents != nil {
-		section.Blocks = append(section.Blocks, preblock)
-	}
-	if codeblock.Contents != nil {
-		section.Blocks = append(section.Blocks, codeblock)
-	}
-	if ublock.Contents != nil {
-		section.Blocks = append(section.Blocks, ublock)
-	}
-	if oblock.Contents != nil {
-		section.Blocks = append(section.Blocks, oblock)
-	}
 
+	}
+	// If it's the last line then write everything out
+	if block.Contents != nil {
+		section.Blocks = append(section.Blocks, block)
+	}
 	if section.Blocks != nil {
 		article.Sections = append(article.Sections, section)
 	}
@@ -229,6 +197,19 @@ func (b *Block) GetHTMLTags() string {
 	return "p"
 }
 
+func (b *Block) GetTaggedContent() []string {
+	var o []string
+	for _, c := range b.Contents {
+		if strings.TrimSpace(c) != "" {
+			s := "<" + b.GetHTMLTags() + ">\n"
+			s += c + "\n"
+			s += "</" + b.GetHTMLTags() + ">\n"
+			o = append(o, s)
+		}
+	}
+	return o
+}
+
 func (b *Block) IsLink() bool {
 	return b.Glyph == "link"
 }
@@ -250,33 +231,38 @@ func (b *Block) IsCode() bool {
 }
 
 func (b *Block) EncodeImage() string {
-	sep := strings.SplitN(b.Contents[0], " ", 2)
-	link := sep[0]
-	desc := sep[0]
-	if len(sep) == 2 {
-		desc = sep[1]
+	o := ""
+	for _, c := range b.Contents {
+		sep := strings.SplitN(c, " ", 2)
+		link := sep[0]
+		desc := sep[0]
+		if len(sep) == 2 {
+			desc = sep[1]
+		}
+		o += "<img src='" + link + "' alt='" + desc + "' loading='lazy' />\n"
 	}
 
-	return "<img src='" + link + "' alt='" + desc + "' loading='lazy' />\n"
+	return o
 }
 
 func (b *Block) EncodeLink() string {
-	sep := strings.SplitN(b.Contents[0], " ", 2)
-	link := sep[0]
-	desc := sep[0]
-	if len(sep) == 2 {
-		desc = sep[1]
+	o := ""
+	for _, c := range b.Contents {
+		sep := strings.SplitN(c, " ", 2)
+		link := sep[0]
+		desc := sep[0]
+		if len(sep) == 2 {
+			desc = sep[1]
+		}
+		if strings.HasPrefix(link, "http://") || strings.HasPrefix(link, "https://") {
+			o += "<li><a href='" + link + "' class='external-link'>" + desc + "</a></li>\n"
+		} else if strings.HasPrefix(link, "gemini://") {
+			o += "<li><a href='" + link + "' class='gemini-link'>" + desc + "</a></li>\n"
+		} else {
+			o += "<li><a href='" + link + "'>" + desc + "</a></li>\n"
+		}
 	}
-
-	if strings.HasPrefix(link, "http://") || strings.HasPrefix(link, "https://") {
-		return "<a href='" + link + "' class='external-link'>" + desc + "</a>\n"
-	}
-
-	if strings.HasPrefix(link, "gemini://") {
-		return "<a href='" + link + "' class='gemini-link'>" + desc + "</a>\n"
-	}
-
-	return "<a href='" + link + "'>" + desc + "</a>\n"
+	return o
 }
 
 func (b *Block) EncodeList() string {
@@ -300,7 +286,7 @@ func (b *Block) EncodePre() string {
 }
 
 func (b *Block) EncodeCode() string {
-	output := "<pre><code>\n"
+	output := "<pre><code>"
 	for _, content := range b.Contents {
 		output += content + "\n"
 	}
@@ -332,19 +318,4 @@ func (a *Article) GetID() string {
 	}
 
 	return ""
-}
-
-func handleLark(w http.ResponseWriter, r *http.Request) {
-	// Read in a text file containing TGT
-	content, err := ioutil.ReadFile("./static/lark/test.lark")
-	if err != nil {
-		panic(err)
-	}
-	text := string(content)
-
-	lines := strings.Split(text, "\n")
-
-	lark := encodeLark(lines)
-
-	executeTemplate(w, "three-good-things.tmpl", lark)
 }

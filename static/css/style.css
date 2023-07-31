@@ -64,13 +64,20 @@ li {
   margin: 0 2rem 0 1rem;
 }
 
-.link {
+.links {
   list-style-type: none;
+  margin: 0 2rem 0 0;
+}
+.links li {
   margin: 0 2rem 0 0;
 }
 
 ul {
   list-style-type: square;
+  margin-bottom: 1rem;
+}
+ol {
+  margin-bottom: 1rem;
 }
 
 blockquote {
