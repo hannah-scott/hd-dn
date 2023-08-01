@@ -1,27 +1,31 @@
 
+{{ define "section" }}
+  {{ range .Blocks }}
+    {{ if .IsImage}}
+      {{ .EncodeImage }}
+    {{ else if .IsLink }}
+      <ul class="links">
+      {{ .EncodeLink }}
+      </ul>
+    {{ else if .IsList }}
+      {{ .EncodeList }}
+    {{ else if .IsPre }}
+      {{ .EncodePre }}
+    {{ else if .IsCode }}
+      {{ .EncodeCode }}
+    {{ else }}
+      {{ range .GetTaggedContent }}
+      {{ . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 {{ define "lark" }}
   {{ range .Articles }}
   <article id="{{ .GetID }}">
     {{ range .Sections }}
-      {{ range .Blocks }}
-        {{ if .IsImage}}
-          {{ .EncodeImage }}
-        {{ else if .IsLink }}
-          <ul class="links">
-          {{ .EncodeLink }}
-          </ul>
-        {{ else if .IsList }}
-          {{ .EncodeList }}
-        {{ else if .IsPre }}
-          {{ .EncodePre }}
-        {{ else if .IsCode }}
-          {{ .EncodeCode }}
-        {{ else }}
-          {{ range .GetTaggedContent }}
-          {{ . }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
+      {{ template "section" . }}
     {{ end }}
   </article>
   {{ end }}

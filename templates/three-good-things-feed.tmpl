@@ -21,9 +21,9 @@
         {{ if .IsImage}}
           {{ html .EncodeImage }}
         {{ else if .IsLink }}
-          &lt;p&gt;
+          &lt;ul&gt;
           {{ html .EncodeLink }}
-          &lt;/p&gt;
+          &lt;/ul&gt;
         {{ else if .IsList }}
           {{ html .EncodeList }}
         {{ else if .IsPre }}

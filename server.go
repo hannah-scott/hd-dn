@@ -82,7 +82,7 @@ func parseDays(filename string, escape bool) Lark {
 
 // Handler for three good things posts
 func handleThreeGoodThings(w http.ResponseWriter, r *http.Request) {
-	// Split it into posts based on pagebreak elements ***
+	// Cat the files together
 	days := parseDays("./static/three-good-things/index.lark", false)
 	executeTemplate(w, "three-good-things.tmpl", days)
 }
