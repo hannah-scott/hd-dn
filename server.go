@@ -338,6 +338,7 @@ func main() {
 
 	http.Handle("/css/", fileServer)
 	http.Handle("/img/", fileServer)
+	http.Handle("/breathe/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
 	http.HandleFunc("/", handlePage)
 
