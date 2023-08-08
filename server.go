@@ -340,7 +340,6 @@ func main() {
 	http.Handle("/img/", fileServer)
 	http.Handle("/breathe/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
-	http.HandleFunc("/", handlePage)
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
@@ -352,6 +351,7 @@ func main() {
 
 	http.HandleFunc("/runs/", handleRuns)
 	http.HandleFunc("/photography/film/", handlePhotos)
+	http.HandleFunc("/", handlePage)
 
 	fmt.Printf("Starting server at http://localhost:8040\n")
 	if err := http.ListenAndServe(":8040", nil); err != nil {
