@@ -5,18 +5,25 @@
 }
 
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100vh;
 }
 
 .outer {
-  margin: 2rem auto;
   border: 1rem solid rgb(205, 205, 250);
-  width: 40rem;
-  height: 40rem;
+  min-width: 40rem;
+  min-height: 40rem;
   border-radius: 100rem;
+  animation-name: colorchange;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .inner {
@@ -74,11 +81,26 @@
     background-color: rgb(205, 205, 250);
   }
   40% {
-    transform: scale(2);
+    transform: scale(2.015);
     background-color: rgb(205, 205, 250);
   }
   100% {
-    transform: scale(1);
+    transform: scale(0.985);
+  }
+}
+
+@keyframes colorchange {
+  0% {
+    border-color: rgb(157, 185, 155);
+  }
+  35% {
+    border-color: rgb(205, 205, 250);
+  }
+  40% {
+    border-color: rgb(205, 205, 250);
+  }
+  100% {
+    border-color: rgb(157, 185, 155);
   }
 }
 
