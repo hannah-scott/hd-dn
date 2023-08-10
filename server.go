@@ -333,14 +333,51 @@ func handleRuns(w http.ResponseWriter, r *http.Request) {
 	executeTemplate(w, "runs.tmpl", runs)
 }
 
+// Seasonal CSS
+func setSeason() string {
+	now := time.Now()
+	current_year := now.Year()
+
+	spring_start := time.Date(current_year, 3, 1, 0, 0, 0, 0, time.Local)
+	summer_start := time.Date(current_year, 6, 1, 0, 0, 0, 0, time.Local)
+	autumn_start := time.Date(current_year, 9, 1, 0, 0, 0, 0, time.Local)
+	winter_start := time.Date(current_year, 12, 1, 0, 0, 0, 0, time.Local)
+
+	// Spring
+	if now.After(spring_start) && now.Before(summer_start) {
+		return "spring"
+	}
+	if now.After(summer_start) && now.Before(autumn_start) {
+		return "summer"
+	}
+	if now.After(autumn_start) && now.Before(winter_start) {
+		return "autumn"
+	}
+	if now.After(winter_start) || now.Before(spring_start) {
+		return "winter"
+	}
+
+	return "style"
+}
+
+func handleSeasonalCSS(w http.ResponseWriter, r *http.Request) {
+	content, _ := ioutil.ReadFile("./static/css/" + setSeason() + ".css")
+	w.Header().Set("Content-Type", "text/css")
+	w.Write(content)
+}
+
+// Main server function
 func main() {
 	fileServer := http.FileServer(http.Dir(staticDir))
 
 	http.Handle("/css/", fileServer)
+	http.HandleFunc("/css/style.css", handleSeasonalCSS)
 	http.Handle("/img/", fileServer)
-	http.Handle("/breathe/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
 	http.HandleFunc("/", handlePage)
+
+	// Breathe handling
+	http.Handle("/breathe/", fileServer)
 
 	// Handle Three Good Things separately coz she's special
 	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
