@@ -80,7 +80,7 @@ li {
 
 ul {
   list-style-type: square;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 ol {
   margin-bottom: 1rem;
@@ -99,6 +99,7 @@ img {
 }
 
 pre {
+  margin-top: 1rem;
   overflow-x: scroll;
 }
 
