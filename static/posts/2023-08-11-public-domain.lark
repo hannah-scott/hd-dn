@@ -1,0 +1,48 @@
+= why i put all my shit in the public domain
+_ A defense of my weird licensing opinions.
+
+~ hannah
++ 2023-08-11
+
+
+***
+
+License conversations are opinionated. They're opinionated to the point that they aren't useful. People I know have been discouraged from developing their tools because of licensing arguments. If a new tool or application pops up on Github, I can expect some comment in the issues along the lines of,
+
+> You should license this! Use [insert writer's favourite license]: that way, people will use your product!
+
+Licensing is ubiquitous, and I hate it, and I want to see it die (lol jk).
+
+---
+
+- What is the purpose of a license?
+
+Licensing exists to make people and corps act in certain ways, according to what the developer thinks is right. It can be as simple as "Please give me credit"; or somewhat more restrictive, "You must license your shit in the same way as me." This is (IMO) of dubious morality in the case of people & absolutely moral in the case of corps. But there's a problem:
+
+_ corps = people
+
+If you can't legally distinguish between two entities, it becomes tricky to bind one and not the other. 
+
+Maybe human beings care about the rules: I might stop myself from integrating some MIT-licensed tool into my own thing because of licensing considerations. More than likely, I ignore the terms for personal projects & respect them for public ones. I act within the spirit of the license, if not exactly the letter. 
+
+But when it comes to corporate greed, the fact is
+
+@ https://www.theverge.com/2022/11/8/23446821/microsoft-openai-github-copilot-class-action-lawsuit-ai-copyright-violation-training-data corps don't give a fuck and will use your shit anyway.
+
+And when you try to fight back, they will lawyer up. They will drag it out. They will hide their crimes behind "closed-source" and pretend they've never heard of you.
+
+---
+
+- No licenses, no masters
+
+So where has licensing gotten us?
+
+* Licensing exists to bind end-users to certain terms, forcing people and corps to act and use software in certain ways
+* Human beings sometimes obey the terms of a license and sometimes don't
+* And corps don't care --- if they want to use your shit they will, fuck the terms & conditions
+
+I do not care about what individual people do with my tools and writing. I am not at a point in my life where I'm making things that are useful to the corporate ecosystem. And I'm not making shit that's useful to fascists.
+
+Thank God. 
+
+I have easy calculus and the luxury of a simple solution: no licenses. Refuse to engage with the system of intellectual property that fails to free people, or to bind corporations. Put shit out and just say fuck it.

@@ -155,3 +155,15 @@ pre {
 .footnote-ref {
   font-size: 0.8rem;
 }
+
+.author::before {
+  content: "~";
+}
+.author {
+  font-size: 1rem;
+}
+
+.date {
+  font-size: 1rem;
+  font-weight: normal;
+}
