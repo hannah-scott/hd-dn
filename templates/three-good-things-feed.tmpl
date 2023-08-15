@@ -29,11 +29,13 @@
         {{ else if .IsPre }}
           {{ html .EncodePre }}
         {{ else }}
-        &lt;{{ html .GetHTMLTags }}&gt;
+	{{ $opener := html .GetHTMLTags }}
+	
           {{ range .Contents }}
+        &lt;{{ $opener }}&gt;
           {{ html . }}
+        &lt;/{{ $opener }}&gt;
           {{ end }}
-        &lt;/{{ html .GetHTMLTags }}&gt;
         {{ end }}
       {{ end }}
     {{ end }}
