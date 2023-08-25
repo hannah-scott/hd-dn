@@ -1,7 +1,7 @@
 #!/bin/sh
 set -uox
 cd static/three-good-things
-# mv index.html .index_backup.html
+mv index.html .index_backup.html
 cat ~/obsidian/Three\ Good\ Things.md > .tgt_1.md
 cat .tgt_*.md > index.md
 
