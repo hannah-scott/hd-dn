@@ -374,14 +374,11 @@ func main() {
 	http.HandleFunc("/css/style.css", handleSeasonalCSS)
 	http.Handle("/img/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
+	http.Handle("/three-good-things/atom.atom", fileServer)
 	http.HandleFunc("/", handlePage)
 
 	// Breathe handling
 	http.Handle("/breathe/", fileServer)
-
-	// Handle Three Good Things separately coz she's special
-	http.HandleFunc("/three-good-things/", handleThreeGoodThings)
-	http.HandleFunc("/three-good-things/atom.atom", handleThreeGoodThingsFeed)
 
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
