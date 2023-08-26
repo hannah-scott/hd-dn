@@ -8,7 +8,7 @@
  </id>
  <link href="https://hd-dn.com/three-good-things/" rel="alternate"/>
  <updated>
-  2023-08-24T00:00:00+00:00T00:00:00+00:00
+  2023-08-25T00:00:00+00:00T00:00:00+00:00
  </updated>
  <author>
   <name>
@@ -18,6 +18,20 @@
    https://hd-dn.com/three-good-things/
   </uri>
  </author>
+ <entry>
+  <title>
+   2023-08-25
+  </title>
+  <published>
+   2023-08-25T00:00:00+00:00
+  </published>
+  <updated>
+   2023-08-25T00:00:00+00:00
+  </updated>
+  <content type="html">
+   &lt;h2&gt;2023-08-25&lt;/h2&gt;&lt;p&gt;Today I wrote an extra function for &lt;a href="https://github.com/hannah-scott/lark"&gt;lark&lt;/a&gt; to handle    conversion to markdown, and then used that to move all of this    over to markdown. So moving forward this is going to be    markdown — I'm using Obsidian to write all of this stuff so it    makes more sense, IMO.&lt;/p&gt;&lt;p&gt;I also revived &lt;a href="https://github.com/hannah-scott/moku"&gt;moku&lt;/a&gt; to process the    RSS feed — a full evening of using my weird little tools 🙂&lt;/p&gt;&lt;ol type="1"&gt;&lt;li&gt;My mentoring session was incredibly helpful. We chatted      about the diagnosis, my needs from work, when I should adapt      my behavior vs. changing my environment 💻&lt;/li&gt;&lt;li&gt;I went skating at lunchtime with a local trans group,      which was fucking awesome 🛹&lt;/li&gt;&lt;li&gt;Partner and I had easy dinner and watched &lt;em&gt;Cunk on      Earth&lt;/em&gt; — funny chill evening 📺&lt;/li&gt;&lt;/ol&gt;
+  </content>
+ </entry>
  <entry>
   <title>
    2023-08-24
