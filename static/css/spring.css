@@ -25,6 +25,14 @@ a {
   color: var(--link-color);
 }
 
+details {
+  margin-left: 2rem;
+}
+
+details > summary {
+  margin-left: -2rem;
+}
+
 .external-link::before {
   content: "🌐 ";
 }
