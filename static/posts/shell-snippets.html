@@ -1,0 +1,13 @@
+  <header id="title-block-header">
+    <h1 class="title">Shell snippets</h1>
+    <p class="author">hannah</p>
+  </header>
+  <h2 id="markdown-to-html-partials">Markdown to HTML partials</h2>
+  <p>I use this to convert Markdown files from my Obsidian vault to
+  HTML partials for use on HD-DN.</p>
+  <pre><code>#!/bin/sh
+# Convert $1 to HD-DN-ready HTML partial saved at $2
+pandoc "$1" -s -f markdown+yaml_metadata_block+auto_identifiers-smart -o "$2"
+tidy -imq "$2" # Pandoc end-lines are weird and break stuff, run tidy on it
+sed -ni "/&lt;body&gt;/,/&lt;\/body&gt;/p" "$2" # Only grab &lt;body&gt;stuff&lt;/body&gt;
+sed -i "1d;\$d" "$2" # Remove start and end line</code></pre>

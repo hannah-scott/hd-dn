@@ -165,14 +165,10 @@ pre {
   font-size: 0.8rem;
 }
 
-.author::before {
-  content: "~";
-}
 .author {
-  font-size: 1rem;
+  font-weight: bold;
 }
 
 .date {
-  font-size: 1rem;
-  font-weight: normal;
+  font-weight: bold;
 }
