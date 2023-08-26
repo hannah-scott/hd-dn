@@ -11,7 +11,7 @@ sed -E "s/^## /<\/article>\n<article>\n## /g" .tgt_1.md .tgt_2.md | tail -n +2 >
 echo "</article>" >> index.md
 
 # Convert to HTML
-pandoc index.md -f markdown-smart -o index.html
+pandoc index.md -f markdown-smart --lua-filter lazy.lua -o index.html
 rm index.md
 tidy -imq index.html 2>/dev/null
 ./moku.py
