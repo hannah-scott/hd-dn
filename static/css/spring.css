@@ -26,11 +26,11 @@ a {
 }
 
 details {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 details > summary {
-  margin-left: -2rem;
+  margin-left: -1rem;
 }
 
 .external-link::before {
