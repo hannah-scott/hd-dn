@@ -1,0 +1,141 @@
+  <header id="title-block-header">
+    <h1 class="title">digital garden</h1>
+    <p class="author">hannah</p>
+    <p class="date">2023-08-31</p>
+  </header>
+  <p>I've started a digital garden, here:</p>
+  <ul>
+    <li>
+      <a href="https://garden.hd-dn.com">garden.hd-dn.com</a>
+    </li>
+  </ul>
+  <p>Currently this is being hosted on Github pages, and I'm
+  building it from an Obsidian vault using just a shell script,
+  basically:</p>
+  <div class="sourceCode" id="cb1">
+    <pre class="sourceCode sh"><code class=
+    "sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden=
+    "true" tabindex="-1"></a><span class=
+    "co">#!/bin/sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex=
+"-1"></a><span class="co"># grow the garden</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex=
+"-1"></a><span class="co"># first tidy up</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">mkdir</span> <span class=
+"at">-p</span> docs</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">rm</span> <span class=
+"at">-r</span> docs/<span class="pp">*</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex=
+"-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex=
+"-1"></a><span class="co"># handle markdown files</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">find</span> garden <span class=
+"at">-name</span> <span class="st">"*.md"</span> <span class=
+"kw">|</span> <span class="fu">cut</span> <span class=
+"at">-d</span>/ <span class="at">-f2-</span> <span class=
+"kw">|</span> <span class="cf">while</span> <span class=
+"bu">read</span> <span class="va">l</span><span class=
+"kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex=
+"-1"></a>    <span class=
+"co"># Some sed to handle links</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex=
+"-1"></a>    <span class="fu">cat</span> <span class=
+"st">"garden/</span><span class="va">$l</span><span class=
+"st">"</span> <span class="kw">|</span> <span class=
+"fu">sed</span> <span class="at">-E</span> <span class=
+"st">"s/\]\(garden/\]\(/g"</span> <span class=
+"op">&gt;</span> tmp.md </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex=
+"-1"></a>    <span class="fu">sed</span> <span class=
+"at">-Ei</span> <span class=
+"st">"s/.md\)/.html\)/g"</span> tmp.md</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex=
+"-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex=
+"-1"></a>    <span class="va">file</span><span class=
+"op">=</span><span class="va">$(</span><span class=
+"bu">echo</span> <span class="st">"</span><span class=
+"va">$l</span><span class="st">"</span> <span class=
+"kw">|</span> <span class="fu">rev</span> <span class=
+"kw">|</span> <span class="fu">cut</span> <span class=
+"at">-d.</span> <span class="at">-f2-</span> <span class=
+"kw">|</span> <span class="fu">rev</span><span class=
+"va">)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex=
+"-1"></a>    <span class="va">dir</span><span class=
+"op">=</span><span class="va">$(</span><span class=
+"bu">echo</span> <span class="st">"</span><span class=
+"va">$l</span><span class="st">"</span> <span class=
+"kw">|</span> <span class="fu">rev</span> <span class=
+"kw">|</span> <span class="fu">cut</span> <span class=
+"at">-d</span>/ <span class="at">-f2-</span> <span class=
+"kw">|</span> <span class="fu">rev</span><span class=
+"va">)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex=
+"-1"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex=
+"-1"></a>    <span class="fu">mkdir</span> <span class=
+"at">-p</span> <span class="st">"./docs/</span><span class=
+"va">$dir</span><span class="st">"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex=
+"-1"></a>    <span class="ex">pandoc</span> <span class=
+"at">-s</span> tmp.md <span class=
+"at">--lua-filter</span> lazy.lua <span class=
+"at">-o</span> <span class="st">"./docs/</span><span class=
+"va">$file</span><span class="st">.html"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex=
+"-1"></a>    <span class="fu">rm</span> tmp.md</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex=
+"-1"></a><span class="cf">done</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex=
+"-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex=
+"-1"></a><span class="co"># handle embedded images</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">find</span> garden <span class=
+"at">-name</span> <span class="st">"*.png"</span> <span class=
+"kw">|</span> <span class="fu">cut</span> <span class=
+"at">-d</span>/ <span class="at">-f2-</span> <span class=
+"kw">|</span> <span class="cf">while</span> <span class=
+"bu">read</span> <span class="va">l</span><span class=
+"kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex=
+"-1"></a>    <span class="va">dir</span><span class=
+"op">=</span><span class="va">$(</span><span class=
+"bu">echo</span> <span class="st">"</span><span class=
+"va">$l</span><span class="st">"</span> <span class=
+"kw">|</span> <span class="fu">rev</span> <span class=
+"kw">|</span> <span class="fu">cut</span> <span class=
+"at">-d</span>/ <span class="at">-f2-</span> <span class=
+"kw">|</span> <span class="fu">rev</span><span class=
+"va">)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex=
+"-1"></a>    <span class="fu">mkdir</span> <span class=
+"at">-p</span> <span class="st">"./docs/</span><span class=
+"va">$dir</span><span class="st">"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex=
+"-1"></a>    <span class="fu">cp</span> <span class=
+"st">"garden/</span><span class="va">$l</span><span class=
+"st">"</span> <span class="st">"./docs/</span><span class=
+"va">$l</span><span class="st">"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex=
+"-1"></a><span class="cf">done</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex=
+"-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex=
+"-1"></a><span class=
+"co"># remove all the stuff that gets created, but shouldn't</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">rm</span> <span class=
+"at">-r</span> ./docs/<span class="pp">*</span>.md</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">rm</span> <span class=
+"at">-r</span> ./docs/.<span class="pp">*</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex=
+"-1"></a><span class="fu">rm</span> <span class=
+"at">-r</span> ./docs/private</span></code></pre>
+  </div>
