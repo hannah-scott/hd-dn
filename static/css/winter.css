@@ -110,6 +110,31 @@ pre {
   overflow-x: scroll;
 }
 
+table {
+  text-align:center;
+}
+
+table, th, td {
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 0.25rem 1rem;
+}
+
+th {
+  border-bottom: 0.1rem solid black;
+}
+
+
+.odd {
+  background: var(--alt-background-color);
+}
+
 .menu {
   display: inline-block;
   overflow: hidden;
@@ -145,6 +170,7 @@ pre {
 
 .book-series > h3 {
   font-style: italic;
+  font-size: 98%;
 }
 
 .book-series > ul {

@@ -1,7 +1,7 @@
 :root {
-  --background-color: #fcf5f3;
-  --color: #1e64ae;
-  --link-color: #b15000;
+  --background-color: #f5e2e2;
+  --color: #41322c;
+  --link-color: #a34722;
 }
 
 * {
@@ -132,7 +132,7 @@ th {
 
 
 .odd {
-  background: var(--alt-background-color);
+  background: white;
 }
 
 .menu {

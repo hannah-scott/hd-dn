@@ -2,6 +2,7 @@
   --background-color: #f5e2e2;
   --color: #41322c;
   --link-color: #a34722;
+  --alt-background-color: #fefefe;
 }
 
 * {
@@ -108,6 +109,31 @@ img {
 pre {
   margin-top: 1rem;
   overflow-x: scroll;
+}
+
+table {
+  text-align:center;
+}
+
+table, th, td {
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 0.25rem 1rem;
+}
+
+th {
+  border-bottom: 0.1rem solid black;
+}
+
+
+.odd {
+  background: var(--alt-background-color);
 }
 
 .menu {
