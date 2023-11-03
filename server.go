@@ -375,11 +375,14 @@ func main() {
 	http.Handle("/img/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
 	http.Handle("/three-good-things/atom.atom", fileServer)
-	http.Handle("/twtxt.txt", fileServer)
 	http.HandleFunc("/", handlePage)
 
 	// Breathe handling
 	http.Handle("/breathe/", fileServer)
+
+	// twtxt
+	http.Handle("/twtxt.txt", fileServer)
+
 
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
