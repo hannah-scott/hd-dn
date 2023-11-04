@@ -1,0 +1,168 @@
+  <header id="title-block-header">
+    <h1 class="title">Tape Theming</h1>
+    <p class="author">hannah</p>
+    <p class="date">2023-11-04</p>
+  </header>
+  <p>I love the idea of <a href=
+  "https://aeriform.itch.io/tape">Tape</a>. There's some issues I
+  have with the workflow — like, I wish data was stored in
+  plaintext<a href="#fn1" class="footnote-ref" id="fnref1" role=
+  "doc-noteref"><sup>1</sup></a> rather than a SQLite DB — but
+  conceptually and visually it ticks a lot of boxes for me.</p>
+  <p>You know what else I love? <a href=
+  "https://github.com/hundredrabbits/Themes/tree/master">100r's old
+  SVG theming.</a> Portable cross-app theming is a really neat idea
+  — and showing themes as SVGs is clean as hell.</p>
+  <p>Luckily for me, Tape supports 100r theming!</p>
+  <h2 id="default-theme-colors">Default theme colors</h2>
+  <p>Based on <a href=
+  "https://raw.githubusercontent.com/aeriform-io/Themes/master/templates/newtheme.svg">
+  reading the template in Aeriform's Github</a> and <del>messing
+  around with SVG files</del> manual testing, this seems to be how
+  Tape uses 100r theming.</p>
+  <p><em>Groove</em> is the Tape term for buttons that add things,
+  i.e. the collapsible <em>New Collection</em> and <em>Add</em>
+  buttons.</p>
+  <table>
+    <colgroup>
+      <col style="width: 17%" />
+      <col style="width: 51%" />
+      <col style="width: 30%" />
+    </colgroup>
+    <thead>
+      <tr class="header">
+        <th>Value</th>
+        <th>Spec</th>
+        <th>Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd">
+        <td><code>background</code></td>
+        <td>Application Background</td>
+        <td>Background</td>
+      </tr>
+      <tr class="even">
+        <td><code>f_high</code></td>
+        <td>Foreground, high-contrast</td>
+        <td>Main text</td>
+      </tr>
+      <tr class="odd">
+        <td><code>f_med</code></td>
+        <td>Foreground, medium-contrast</td>
+        <td>Tape logo color</td>
+      </tr>
+      <tr class="even">
+        <td><code>f_low</code></td>
+        <td>Foreground, low-contrast</td>
+        <td>Item separator</td>
+      </tr>
+      <tr class="odd">
+        <td><code>f_inv</code></td>
+        <td>Foreground, for modals and overlays</td>
+        <td>Groove text</td>
+      </tr>
+      <tr class="even">
+        <td><code>b_high</code></td>
+        <td>Background, high-contrast</td>
+        <td>Alt text</td>
+      </tr>
+      <tr class="odd">
+        <td><code>b_med</code></td>
+        <td>Background, medium-contrast</td>
+        <td>Groove background</td>
+      </tr>
+      <tr class="even">
+        <td><code>b_low</code></td>
+        <td>Background, low-contrast</td>
+        <td>Collection background</td>
+      </tr>
+      <tr class="odd">
+        <td><code>b_inv</code></td>
+        <td>Background, for modals and overlays</td>
+        <td>
+          Unused<a href="#fn2" class="footnote-ref" id="fnref2"
+          role="doc-noteref"><sup>2</sup></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="tape-specific-colors">Tape-specific colors</h2>
+  <p>There's also some Tape-specific values — most are obvious.</p>
+  <div class="sourceCode" id="cb1">
+    <pre class="sourceCode html"><code class=
+    "sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden=
+    "true" tabindex="-1"></a><span class=
+    "dt">&lt;</span><span class="kw">desc</span> <span class=
+    "er">id</span><span class="ot">=</span><span class=
+    "st">'tape_style'</span> <span class=
+    "er">fill</span><span class="ot">=</span><span class=
+    "st">'0'</span><span class="dt">&gt;&lt;/</span><span class=
+    "kw">desc</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex=
+"-1"></a><span class="dt">&lt;</span><span class=
+"kw">desc</span> <span class="er">id</span><span class=
+"ot">=</span><span class="st">'tape_priority'</span> <span class=
+"er">fill</span><span class="ot">=</span><span class=
+"st">'#dc322f'</span><span class="dt">&gt;&lt;/</span><span class=
+"kw">desc</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex=
+"-1"></a><span class="dt">&lt;</span><span class=
+"kw">desc</span> <span class="er">id</span><span class=
+"ot">=</span><span class="st">'tape_working'</span> <span class=
+"er">fill</span><span class="ot">=</span><span class=
+"st">'#cb4b16'</span><span class="dt">&gt;&lt;/</span><span class=
+"kw">desc</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex=
+"-1"></a><span class="dt">&lt;</span><span class=
+"kw">desc</span> <span class="er">id</span><span class=
+"ot">=</span><span class="st">'tape_submitted'</span> <span class=
+"er">fill</span><span class="ot">=</span><span class=
+"st">'#b58900'</span><span class="dt">&gt;&lt;/</span><span class=
+"kw">desc</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex=
+"-1"></a><span class="dt">&lt;</span><span class=
+"kw">desc</span> <span class="er">id</span><span class=
+"ot">=</span><span class="st">'tape_approved'</span> <span class=
+"er">fill</span><span class="ot">=</span><span class=
+"st">'#268bd2'</span><span class="dt">&gt;&lt;/</span><span class=
+"kw">desc</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex=
+"-1"></a><span class="dt">&lt;</span><span class=
+"kw">desc</span> <span class="er">id</span><span class=
+"ot">=</span><span class="st">'tape_done'</span> <span class=
+"er">fill</span><span class="ot">=</span><span class=
+"st">'#2aa198'</span><span class="dt">&gt;&lt;/</span><span class=
+"kw">desc</span><span class="dt">&gt;</span></span></code></pre>
+  </div>
+  <p>The only odd one out is <code>tape_style</code>, which is a
+  style-setting variable with the following options:</p>
+  <ul>
+    <li><code>'0'</code> — status-specific background color</li>
+    <li><code>'1'</code> — status-specific text color</li>
+    <li><code>'2'</code> — status-specific text color with low
+    saturation status-specific background color</li>
+    <li><code>'3'</code> — status-specific text color,
+    <code>b_high</code>-color border</li>
+    <li><code>'4'</code> — status-specific text color and
+    border</li>
+    <li>anything else — same as <code>'0'</code></li>
+  </ul>
+  <aside id="footnotes" class="footnotes footnotes-end-of-document"
+  role="doc-endnotes">
+    <hr />
+    <ol>
+      <li id="fn1">
+        <p>I'm half-working on some interop tools to do this,
+        something that can run in parallel to Tape and keep the
+        SQLite DB in sync with a plaintext or Markdown
+        file.<a href="#fnref1" class="footnote-back" role=
+        "doc-backlink">↩︎</a></p>
+      </li>
+      <li id="fn2">
+        <p>If this — or other <code>tape_style</code> values — are
+        used for anything let me know.<a href="#fnref2" class=
+        "footnote-back" role="doc-backlink">↩︎</a></p>
+      </li>
+    </ol>
+  </aside>
