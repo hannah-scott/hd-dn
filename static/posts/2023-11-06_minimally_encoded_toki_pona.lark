@@ -1,0 +1,99 @@
+= "minimally" encoding toki pona
+~ hannah
++ 2023-11-06
+
+***
+
+- counting
+
+toki pona has *mumble mumble mumble* many words. the bad thing about languages is that they're living, so people make new words to describe things. this is also the good thing about languages.
+
+according to the official website, toki pona consists of:
+
+* 137 words
+* 14 phonemes
+
+@ https://tokipona.org/ toki pona official website
+
+that's 151 "things" that might need encoding. we will also need
+
+* a whitespace character (" ")
+* full-stop, question mark, exclamation point (".!?")
+* a colon: people use these in "tan ni" statements
+
+which is another 5.
+
+156 possible things is
+
+: 2^8
+: 3^5
+: 4^4
+: 5^4
+: 6^3
+
+...
+
+: 13^2
+
+hmm. this is interesting.
+
+***
+
+- notation
+
+base 13 number systems are de-facto annoying to work with. the only used example i could find is the Conway base 13 function, which is a counterexample to the converse of the IVT. it's a cool function precisely because it's completely degenerate, so we're going to adopt Conway's base 13 notation for these purposes.
+
+@ https://en.wikipedia.org/wiki/Conway_base_13_function Conway's base 13 function
+
+' | glyph | decimal |
+' | ----- | ------- |
+' | 0     | 0       |
+' | 1     | 1       |
+' | 2     | 2       |
+' | 3     | 3       |
+' | 4     | 4       |
+' | 5     | 5       |
+' | 6     | 6       |
+' | 7     | 7       |
+' | 8     | 8       |
+' | 9     | 9       |
+' | +     | 10      |
+' | -     | 11      |
+' | .     | 12      |
+
+' dec -> math(s)      -> tri
+' 14  -> 13 + 1       -> 11
+' 148 -> 13*11 + 5    -> -5
+' 321 -> 13^2 + 13*12 -> 1.0
+
+all clear?
+
+we can now comfortable encode all of toki pona in two base-13 characters, which by way of analogue to hex we could call a "trite". this also (coincidentally) gives us 13 spare characters to work with, so we're going to use them for some good things:
+
+* 00    	Null char (why not?)
+* 01        +
+* 02        -
+* 03        *
+* 04        /
+* 05        = 
+* 06	    (    
+* 07        )
+* 08        Comma
+* 09        Em dash (i like them)
+* 0.        Line feed
+* 0+        Start of cartouche
+* 0-        End of cartouche
+
+most of these choices are for my own amusement, but the start and end cartouches are pretty important. in toki pona loan words are written as tokiponised words with a capital letter at the start. we don't have space for capitals, so instead we can signify the start and end of a tokiponised word using a cartouche. this is how you write loan words in sitelen pona.
+
+at this point i'm being deliberately obtuse: 137, 14 and 5 are all coprime with 13, so we can use 13 as a generator of the cyclic groups of those orders. let's use the sum of the other two numbers modulo 13 as our starting points. why not?
+
+so for words we have
+
+' trite | index in alphabetical dictionary  | word
+' ----- | --------------------------------- | ----
+' 10    | (14 + 5) % 13 = 6                 | anpa
+' 11    | 19                                | jelo
+
+and so on. this is left as an exercise to the reader.
+

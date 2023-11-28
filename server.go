@@ -371,6 +371,7 @@ func main() {
 	fileServer := http.FileServer(http.Dir(staticDir))
 
 	http.Handle("/css/", fileServer)
+	http.Handle("/fonts/", fileServer)
 	http.HandleFunc("/css/style.css", handleSeasonalCSS)
 	http.Handle("/img/", fileServer)
 	http.Handle("/favicon.ico", fileServer)
@@ -382,7 +383,6 @@ func main() {
 
 	// twtxt
 	http.Handle("/twtxt.txt", fileServer)
-
 
 	// do colo(u)r of the day
 	http.HandleFunc("/color/", handleColor)
