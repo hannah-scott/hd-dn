@@ -8,52 +8,12 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
 }
 
-@font-face {
-  font-family: "Outward Block";
-  src: url("/fonts/outward-block-webfont.woff");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "Amaranth";
-  src: url("/fonts/Amaranth-Regular.ttf");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "NotCourierSans";
-  src: url("/fonts/NotCourierSans-Bold.ttf");
-  font-weight: normal;
-}
-
-h1,
-h2 {
-  font-family: "Outward Block", sans-serif;
-}
-
-pre,
-code {
-  font-family: "NotCourierSans", monospace;
-}
-
-h1 {
-  font-size: 10rem;
-  padding-bottom: -4.5rem;
-  padding-top: -1rem;
-}
-
-h2 {
-  font-size: 8rem;
-  padding-bottom: -3.5rem;
-  padding-top: -1rem;
-}
-
 body {
-  font-family: "Amaranth", sans-serif;
+  font-family: "Liberation Sans", sans-serif;
   color: var(--color);
   background-color: var(--background-color);
   padding: 0 0;
@@ -83,7 +43,7 @@ details > summary {
 }
 
 html {
-  margin: 0 18px;
+  margin: 0 1rem;
   font-size: 18px;
   line-height: 1.4;
   max-width: 1100px;
